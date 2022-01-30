@@ -6,6 +6,7 @@ Le système **DARTS** est un système numérique permettant de jouer au jeu de f
   - [Auteur](#auteur)
   - [Présentation](#présentation)
   - [Module de visualisation de partie (Écran-DARTS)](#module-de-visualisation-de-partie-écran-darts)
+  - [Productions](#productions)
   - [Vidéos](#vidéos)
   - [Licence GPL](#licence-gpl)
 
@@ -41,6 +42,12 @@ Les données visualisées sont donc :
 * Le numéro de la manche
 * Le score de la partie en cours
 * La moyenne des volées
+
+## Productions
+
+- [dossier-darts-ir-2020.pdf](dossier-darts-ir-2020.pdf)
+- [refman-darts.pdf](refman-darts.pdf)
+- [presentation-bounoir-2020.pptx](presentation-bounoir-2020.pptx)
 
 ## Vidéos
 
