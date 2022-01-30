@@ -1,0 +1,44 @@
+\hypertarget{page__r_e_a_d_m_e_projet}{}\subsection{Projet}\label{page__r_e_a_d_m_e_projet}
+\hypertarget{page__r_e_a_d_m_e_presentation}{}\subsubsection{Présentation}\label{page__r_e_a_d_m_e_presentation}
+Le système {\bfseries D\+A\+R\+TS} est un système numérique permettant de jouer au jeu de fléchettes électroniques.
+
+Le système D\+A\+R\+TS est décomposé en trois modules, dont deux modules sont réalisés par des étudiants IR \+:
+
+
+\begin{DoxyItemize}
+\item Module de gestion de partie​ ({\bfseries Mobile-\/\+D\+A\+R\+TS})​ \+: les joueurs paramètrent et lancent la partie à partir d\textquotesingle{}une application sur un terminal mobile (sous Android) ;
+\item Module de détection des impacts​ (Cible-\/\+D\+A\+R\+TS)​ \+: la cible est équipée de capteurs permettant d\textquotesingle{}identifier la zone impactée par les fléchettes envoyées par les joueurs ;
+\item Module de visualisation de partie​ ({\bfseries Écran-\/\+D\+A\+R\+TS}) ​ \+: les joueurs, les arbitres et le public peuvent visualiser en “temps réel” le déroulement de la partie (nombre de manche, point restant dans la manche, moyenne des volées, ...) sur un écran de télévision.
+\end{DoxyItemize}\hypertarget{page__r_e_a_d_m_e_ecran}{}\subsubsection{Module de visualisation de partie (Écran-\/\+D\+A\+R\+T\+S)}\label{page__r_e_a_d_m_e_ecran}
+Ce module correspond à la partie \char`\"{}affichage\char`\"{} du système. Il a pour objectifs de réaliser la récupération d\textquotesingle{}informations​ envoyées par le terminal mobile, ​le calcul et l\textquotesingle{}affichage les statistiques pour la partie actuelle. Il communique en Bluetooth uniquement avec le terminal mobile Android.
+
+Sur l\textquotesingle{}écran, les joueurs pourront visualiser en continu \+:
+
+
+\begin{DoxyItemize}
+\item le nom des joueurs (si existant), la durée écoulée de la partie ;
+\item le type de jeu en cours, le score et le nombre de manches gagnées par chaque joueur
+\item la plus haute et la moyenne des volées de chaque joueur
+\end{DoxyItemize}
+
+Les données visualisées sont donc \+:
+
+
+\begin{DoxyItemize}
+\item Le type de jeu
+\item Le numéro de la manche
+\item Le score de la partie en cours
+\item La moyenne des volées
+\end{DoxyItemize}\hypertarget{page__r_e_a_d_m_e_informations}{}\subsubsection{Informations}\label{page__r_e_a_d_m_e_informations}
+\begin{DoxyAuthor}{Auteur}
+Fabien Bounoir \href{mailto:bounoirfabien@gmail.com}{\tt bounoirfabien@gmail.\+com} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+2 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{Voir également}
+\href{https://svn.riouxsvn.com/darts-2020/}{\tt https\+://svn.\+riouxsvn.\+com/darts-\/2020/} 
+\end{DoxySeeAlso}

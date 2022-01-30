@@ -1,0 +1,330 @@
+\hypertarget{communication_8cpp_source}{}\subsection{communication.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{communication_8h}{communication.h}"}
+00002 \textcolor{preprocessor}{#include <QDebug>}
+00003 
+\Hypertarget{communication_8cpp_source_l00022}\hyperlink{class_communication_a6dd505094f1af1ccd25c6b75c18636d6}{00022} \hyperlink{class_communication_a6dd505094f1af1ccd25c6b75c18636d6}{Communication::Communication}(\hyperlink{class_darts}{Darts} *darts, 
+      \hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent), darts(darts), serveur(nullptr), socket(nullptr), 
+      localDeviceName(\textcolor{stringliteral}{"Ecran-Darts"}), trame(\textcolor{stringliteral}{""})
+00023 \{
+00024     qDebug() << Q\_FUNC\_INFO;
+00025 
+00026     \hyperlink{class_communication_abe2349c8e1d9536a73c8741425ba867f}{parametrerBluetooth}();
+00027 
+00028     \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{miseAJourEtatPartieAttente}();
+00029 \}
+00030 
+\Hypertarget{communication_8cpp_source_l00036}\hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{00036} \hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{Communication::~Communication}()
+00037 \{
+00038     \hyperlink{class_communication_a1f4b02441803f9c8e231cb9f304d776b}{arreter}();
+00039     \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.setHostMode(QBluetoothLocalDevice::HostPoweredOff);
+00040     qDebug() << Q\_FUNC\_INFO;
+00041 \}
+00042 
+\Hypertarget{communication_8cpp_source_l00049}\hyperlink{class_communication_a977495ad03ddf275aae49184c9a0dd1a}{00049} \textcolor{keywordtype}{int} \hyperlink{class_communication_a977495ad03ddf275aae49184c9a0dd1a}{Communication::getEtatPartie}()
+00050 \{
+00051     \textcolor{keywordflow}{return} \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie};
+00052 \}
+00053 
+\Hypertarget{communication_8cpp_source_l00059}\hyperlink{class_communication_abe2349c8e1d9536a73c8741425ba867f}{00059} \textcolor{keywordtype}{void} \hyperlink{class_communication_abe2349c8e1d9536a73c8741425ba867f}{Communication::parametrerBluetooth}()
+00060 \{
+00061     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00062     \{
+00063         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Communication Bluetooth locale valide : "} << 
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid();
+00064         emit \hyperlink{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}{erreurBluetooth}(\textcolor{stringliteral}{"Communication Bluetooth locale valide : "} + QString::number(
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid()));
+00065 
+00066         \textcolor{keywordflow}{return};
+00067     \}
+00068     \textcolor{keywordflow}{else}
+00069     \{
+00070         \textcolor{comment}{// active le bluetooth}
+00071         \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.powerOn();
+00072 
+00073         \textcolor{comment}{// lire le nom de l'appareil local}
+00074         \hyperlink{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}{localDeviceName} = \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.name();
+00075 
+00076 
+00077         \textcolor{comment}{//localDevice.setHostMode(QBluetoothLocalDevice::HostConnectable);}
+00078 
+00079         \textcolor{comment}{//ou}
+00080 
+00081         \textcolor{comment}{//les appareil qui ne sont pas jumelé peuvent decouvrir ecran-DARTS}
+00082         \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.setHostMode(QBluetoothLocalDevice::HostDiscoverable);
+00083 
+00084         QList<QBluetoothAddress> remotes;
+00085         remotes = \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.connectedDevices();
+00086 
+00087         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{deviceConnected}(QBluetoothAddress)), \textcolor{keyword}{this}, 
+      SLOT(\hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{deviceConnected}(QBluetoothAddress)));
+00088         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{deviceDisconnected}(QBluetoothAddress)), \textcolor{keyword}{
+      this}, SLOT(\hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{deviceDisconnected}(QBluetoothAddress)));
+00089         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{error}(QBluetoothLocalDevice::Error)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{error}(QBluetoothLocalDevice::Error)));
+00090 
+00091         connect(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}, SIGNAL(etatPartieFini()), \textcolor{keyword}{this} , SLOT(
+      \hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{miseAJourEtatPartieFin}()));
+00092         connect(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}, SIGNAL(changerEtatPartie()), \textcolor{keyword}{this} , SLOT(
+      \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}()));
+00093     \}
+00094 \}
+00095 
+\Hypertarget{communication_8cpp_source_l00101}\hyperlink{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}{00101} \textcolor{keywordtype}{void} \hyperlink{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}{Communication::demarrer}()
+00102 \{
+00103     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00104         \textcolor{keywordflow}{return};
+00105 
+00106     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur})   \textcolor{comment}{//Démarre le serveur s'il n'est pas déjà démarré}
+00107     \{
+00108         \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur} = \textcolor{keyword}{new} QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, \textcolor{keyword}{this});
+00109         connect(\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}, SIGNAL(newConnection()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_communication_ac1bc22603b6e05389f94890b745aac4f}{nouveauClient}()));
+00110 
+00111         QBluetoothUuid uuid = QBluetoothUuid(\hyperlink{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}{serviceUuid});
+00112         \hyperlink{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}{serviceInfo} = \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}->listen(uuid, \hyperlink{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}{serviceNom});
+00113     \}
+00114 \}
+00115 
+\Hypertarget{communication_8cpp_source_l00121}\hyperlink{class_communication_a1f4b02441803f9c8e231cb9f304d776b}{00121} \textcolor{keywordtype}{void} \hyperlink{class_communication_a1f4b02441803f9c8e231cb9f304d776b}{Communication::arreter}()
+00122 \{
+00123     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00124         \textcolor{keywordflow}{return};
+00125 
+00126     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur})
+00127         \textcolor{keywordflow}{return};
+00128 
+00129     \hyperlink{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}{serviceInfo}.unregisterService();
+00130 
+00131     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket})
+00132     \{
+00133         \textcolor{keywordflow}{if} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->isOpen())
+00134         \{
+00135            \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->close();
+00136         \}
+00137         \textcolor{keyword}{delete} \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket};
+00138         \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket} = \textcolor{keyword}{nullptr};
+00139     \}
+00140 
+00141     \textcolor{keyword}{delete} \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur};
+00142     \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur} = \textcolor{keyword}{nullptr};
+00143 \}
+00144 
+\Hypertarget{communication_8cpp_source_l00150}\hyperlink{class_communication_ac1bc22603b6e05389f94890b745aac4f}{00150} \textcolor{keywordtype}{void} \hyperlink{class_communication_ac1bc22603b6e05389f94890b745aac4f}{Communication::nouveauClient}()
+00151 \{
+00152     \textcolor{comment}{// on récupère la socket}
+00153     \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket} = \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}->nextPendingConnection();
+00154     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket})
+00155         \textcolor{keywordflow}{return};
+00156 
+00157     connect(\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}, SIGNAL(disconnected()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a44f863f2c70f4be652224240447c9fe0}{socketDisconnected}()));
+00158     connect(\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}, SIGNAL(readyRead()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}{socketReadyRead}()));
+00159 \}
+00160 
+\Hypertarget{communication_8cpp_source_l00166}\hyperlink{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}{00166} \textcolor{keywordtype}{void} \hyperlink{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}{Communication::socketReadyRead}()
+00167 \{
+00168     QByteArray donnees;
+00169 
+00170     \textcolor{keywordflow}{while} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->bytesAvailable())
+00171     \{
+00172         donnees += \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->readAll();
+00173         usleep(150000); \textcolor{comment}{// cf. timeout}
+00174     \}
+00175 
+00176     \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame} = QString(donnees);
+00177 
+00178     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Trame reçues : "}) << QString(donnees);
+00179 
+00180     \hyperlink{class_communication_aaf5333662717e69837d2d39164e5a303}{decomposerTrame}();
+00181 \}
+00182 
+\Hypertarget{communication_8cpp_source_l00188}\hyperlink{class_communication_aaf5333662717e69837d2d39164e5a303}{00188} \textcolor{keywordtype}{void} \hyperlink{class_communication_aaf5333662717e69837d2d39164e5a303}{Communication::decomposerTrame}()
+00189 \{
+00190     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.startsWith(\hyperlink{communication_8h_a8da23fa25560c54c52884746a5d1cc69}{TYPE\_TRAME}) && \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.endsWith(
+      \hyperlink{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN})) \textcolor{comment}{//test si la trame est valide}
+00191     \{
+00192         \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.remove(\hyperlink{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN});
+00193         \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"START"}) && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Attente || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Fin))      
+00194         \{
+00195             emit \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{resetPartie}();
+00196             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00197 
+00198             QString modeJeu;
+00199             QStringList joueurs;
+00200 
+00201             \hyperlink{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}{extraireParametresTrameStart}(joueurs, modeJeu);
+00202         \}
+00203         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"GAME"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours)      
+00204         \{
+00205             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a196bc4307c631310f641606012ab9e05}{receptionnerImpact}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2).toInt(), 
+      \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},3,3).toInt());
+00206         \}
+00207         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"REGLE"})&& \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Regle)   
+00208         \{
+00209             \hyperlink{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}{extraireParametresTrameRegle}();
+00210         \}
+00211         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"PAUSE"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours)     
+00212         \{
+00213             emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00214             \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{miseAJourEtatPartiePause}();
+00215         \}
+00216         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"PLAY"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause)       
+00217         \{
+00218             emit \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play}();
+00219             \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}();
+00220         \}
+00221         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"RESET"})) \textcolor{comment}{// quelque soit l'état de la partie    /** $DART;RESET */}
+00222         \{
+00223             \hyperlink{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}{reamorcerPartie}();
+00224         \}
+00225         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"STOP"}) && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause))  
+00226         \{
+00227             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{arreterPartie}();
+00228         \}
+00229         \textcolor{keywordflow}{else}
+00230         \{
+00231             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Trame erreur: "} << \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame};
+00232         \}
+00233     \}
+00234 \}
+00235 
+\Hypertarget{communication_8cpp_source_l00243}\hyperlink{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}{00243} \textcolor{keywordtype}{void} \hyperlink{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}{Communication::extraireParametresTrameStart}(QStringList &
+      joueurs, QString &modeJeu)
+00244 \{
+00245     modeJeu = \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2);
+00246 
+00247     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4,4).toInt() == 0) \textcolor{comment}{//test effectuer pour verifier que la trame n'est pas une
+       trame de la version du protocol DARTS 0.2}
+00248         \textcolor{keywordflow}{return};
+00249 
+00250     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0;i <= \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4,4).toInt();i++)  \textcolor{comment}{//boucle qui recuperer les noms des
+       differents joueurs}
+00251     \{
+00252         \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4+i,4+i) == \textcolor{stringliteral}{""})    \textcolor{comment}{//test si le joueur a un nom}
+00253         \{
+00254             joueurs.push\_back(\textcolor{stringliteral}{"Joueur["} + QString::number(i) + \textcolor{stringliteral}{"]"});
+00255         \}
+00256         \textcolor{keywordflow}{else}
+00257         \{
+00258             joueurs.push\_back(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4+i,4+i));
+00259         \}
+00260     \}
+00261 
+00262     \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ac7000897b8d394c3be39804813a39dc8}{initialiserPartie}(joueurs, modeJeu);
+00263 
+00264     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},3,3) == \textcolor{stringliteral}{"1"})
+00265     \{
+00266         \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Pause)
+00267             emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00268 
+00269         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{testerModeDeJeu}());
+00270     \}
+00271 
+00272 \}
+00273 
+\Hypertarget{communication_8cpp_source_l00279}\hyperlink{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}{00279} \textcolor{keywordtype}{void} \hyperlink{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}{Communication::extraireParametresTrameRegle}()
+00280 \{
+00281     QString regle =\textcolor{stringliteral}{""};
+00282 
+00283     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Pause)
+00284         emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00285 
+00286     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2).contains(\textcolor{stringliteral}{"DOUBLE\_OUT"}))
+00287     \{
+00288         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\textcolor{stringliteral}{"DOUBLE\_OUT"});
+00289     \}
+00290     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2) == \textcolor{stringliteral}{""} && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause))
+00291     \{
+00292         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{testerModeDeJeu}());
+00293     \}
+00294     \textcolor{keywordflow}{else}
+00295     \{
+00296         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\textcolor{stringliteral}{"SANS\_DOUBLE\_OUT"});
+00297     \}
+00298 \}
+00299 
+\Hypertarget{communication_8cpp_source_l00305}\hyperlink{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}{00305} \textcolor{keywordtype}{void} \hyperlink{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}{Communication::reamorcerPartie}()
+00306 \{
+00307     emit \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{resetPartie}();
+00308     \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00309     \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{miseAJourEtatPartieAttente}();
+00310 \}
+00311 
+\Hypertarget{communication_8cpp_source_l00317}\hyperlink{class_communication_a44f863f2c70f4be652224240447c9fe0}{00317} \textcolor{keywordtype}{void} \hyperlink{class_communication_a44f863f2c70f4be652224240447c9fe0}{Communication::socketDisconnected}()
+00318 \{
+00319     QString message = QString::fromUtf8(\textcolor{stringliteral}{"Périphérique déconnecté "});
+00320     qDebug() << Q\_FUNC\_INFO << message;
+00321 \}
+00322 
+\Hypertarget{communication_8cpp_source_l00329}\hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{00329} \textcolor{keywordtype}{void} \hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{Communication::deviceConnected}(\textcolor{keyword}{const} QBluetoothAddress &adresse)
+00330 \{
+00331     qDebug() << Q\_FUNC\_INFO << adresse << \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse);
+00332     QString message = QString::fromUtf8(\textcolor{stringliteral}{"Demande connexion du client "}) + adresse.toString();
+00333     emit \hyperlink{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}{appareilConnecter}();
+00334     \textcolor{keywordflow}{if} (\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse) == QBluetoothLocalDevice::Paired || 
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse) == QBluetoothLocalDevice::AuthorizedPaired)
+00335         message += \textcolor{stringliteral}{" ["} + QString::fromUtf8(\textcolor{stringliteral}{"appairé"}) + \textcolor{stringliteral}{"]"};
+00336     \textcolor{keywordflow}{else}
+00337         message += \textcolor{stringliteral}{" ["} + QString::fromUtf8(\textcolor{stringliteral}{"non appairé"}) + \textcolor{stringliteral}{"]"} ;
+00338     qDebug() << message << endl;
+00339 
+00340     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause) \textcolor{comment}{// si l'appareil est reconnecte, la partie reprend}
+00341     \{
+00342         emit \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play}();
+00343         \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}();
+00344     \}
+00345 \}
+00346 
+\Hypertarget{communication_8cpp_source_l00353}\hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{00353} \textcolor{keywordtype}{void} \hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{Communication::deviceDisconnected}(\textcolor{keyword}{const} QBluetoothAddress &adresse)
+00354 \{
+00355     qDebug() << Q\_FUNC\_INFO << adresse;
+00356     emit \hyperlink{class_communication_aff862483641966b73aa713b419b819a9}{afficherAttenteConnexion}();
+00357 
+00358     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours) \textcolor{comment}{// si l'appareil se deconnecte pendant la partie, il la
+       met donc en pause}
+00359     \{
+00360         emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00361 
+00362         \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{miseAJourEtatPartiePause}();
+00363     \}
+00364 \}
+00365 
+\Hypertarget{communication_8cpp_source_l00372}\hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{00372} \textcolor{keywordtype}{void} \hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{Communication::error}(QBluetoothLocalDevice::Error erreur)
+00373 \{
+00374     qDebug() << Q\_FUNC\_INFO << erreur;
+00375 \}
+00376 
+\Hypertarget{communication_8cpp_source_l00382}\hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{00382} \textcolor{keywordtype}{void} \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{Communication::miseAJourEtatPartieAttente}()
+00383 \{
+00384     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Attente"};
+00385     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Attente;
+00386 \}
+00387 
+\Hypertarget{communication_8cpp_source_l00393}\hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{00393} \textcolor{keywordtype}{void} \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{Communication::miseAJourEtatPartiePause}()
+00394 \{
+00395     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Pause"};
+00396     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Pause;
+00397 \}
+00398 
+\Hypertarget{communication_8cpp_source_l00404}\hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{00404} \textcolor{keywordtype}{void} \hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{Communication::miseAJourEtatPartieFin}()
+00405 \{
+00406     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Fin"};
+00407     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Fin;
+00408 \}
+00409 
+\Hypertarget{communication_8cpp_source_l00415}\hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{00415} \textcolor{keywordtype}{void} \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{Communication::miseAJourEtatPartieEnCours}()
+00416 \{
+00417     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::EnCours"};
+00418     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::EnCours;
+00419 \}
+00420 
+\Hypertarget{communication_8cpp_source_l00426}\hyperlink{class_communication_a01a86890468a8ecfb900bf15dcab92f2}{00426} \textcolor{keywordtype}{void} \hyperlink{class_communication_a01a86890468a8ecfb900bf15dcab92f2}{Communication::miseAJourEtatPartieRegle}()
+00427 \{
+00428     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Regle"};
+00429     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Regle;
+00430 \}
+\end{DoxyCode}

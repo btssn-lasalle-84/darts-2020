@@ -1,0 +1,543 @@
+\hypertarget{ihm_8cpp_source}{}\subsection{ihm.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{ihm_8h}{ihm.h}"}
+00002 \textcolor{preprocessor}{#include "ui\_ihm.h"}
+00003 
+00004 \textcolor{preprocessor}{#include <QTime>}
+00005 \textcolor{preprocessor}{#include <QAction>}
+00006 \textcolor{preprocessor}{#include <QFileInfo>}
+00007 \textcolor{preprocessor}{#include <QPainter>}
+00008 
+\Hypertarget{ihm_8cpp_source_l00026}\hyperlink{class_ihm_a50a7a15775452923868348bdbe4fa51e}{00026} \hyperlink{class_ihm_a50a7a15775452923868348bdbe4fa51e}{Ihm::Ihm}(\hyperlink{class_q_widget}{QWidget} *parent) :
+00027     \hyperlink{class_q_widget}{QWidget}(parent),
+00028     ui(new \hyperlink{namespace_ui}{Ui}::\hyperlink{class_ihm}{Ihm}),
+00029     musique(qApp->applicationDirPath() + \hyperlink{ihm_8h_aaf7f17312e64cf24f4c93fc657e5594f}{CHEMIN\_FICHIER\_MUSIQUE} + \textcolor{stringliteral}{"music.wav"},this),
+00030     musiquePause(qApp->applicationDirPath() + \hyperlink{ihm_8h_aaf7f17312e64cf24f4c93fc657e5594f}{CHEMIN\_FICHIER\_MUSIQUE} + \textcolor{stringliteral}{"pause.wav"},
+      this),
+00031     compteurDureePartie(0),
+00032     messageStatut(\textcolor{stringliteral}{"Volée ➤"})
+00033 \{
+00034     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->setupUi(\textcolor{keyword}{this});
+00035     qDebug() << Q\_FUNC\_INFO;
+00036 
+00037     \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts} = \textcolor{keyword}{new} \hyperlink{class_darts}{Darts}(\textcolor{keyword}{this});
+00038     \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication} = \textcolor{keyword}{new} \hyperlink{class_communication}{Communication}(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, \textcolor{keyword}{this});
+00039 
+00040     \textcolor{comment}{// Initialiser l'horloge}
+00041     \hyperlink{class_ihm_aa5a3e97de39e919ea8807d30167da510}{initialiserHorloge}();
+00042 
+00043     \textcolor{comment}{// Raccourcis Quitter/ChangerPage (mode debug)}
+00044     \hyperlink{class_ihm_a2b7dbb2d087d4ca15cee9707a1796b62}{attribuerRaccourcisClavier}();
+00045 
+00046     \textcolor{comment}{// Démarrer la communication bluetooth}
+00047     \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}{demarrer}();
+00048 
+00049     \textcolor{comment}{// Initialiser les connexions signal/slot}
+00050     \hyperlink{class_ihm_a9df8990148a898f728304a4e789be2a6}{initialiserEvenements}();
+00051 
+00052     \textcolor{comment}{//configuration affichage des regles}
+00053     \hyperlink{class_ihm_a97b1938c38eef2427b5cf2326feeef3d}{initialiserAffichageRegle}();
+00054 
+00055     \textcolor{comment}{//Afficher la page d'attente}
+00056     \hyperlink{class_ihm_a90c6b5c75d3903f50ea7c00b8093c686}{afficherNouvellePartie}();
+00057 \}
+00058 
+\Hypertarget{ihm_8cpp_source_l00064}\hyperlink{class_ihm_add292ea9005bacd1de44dd1ed9ede5b9}{00064} \hyperlink{class_ihm_add292ea9005bacd1de44dd1ed9ede5b9}{Ihm::~Ihm}()
+00065 \{
+00066     \textcolor{keyword}{delete} \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui};
+00067     qDebug() << Q\_FUNC\_INFO;
+00068 \}
+00069 
+\Hypertarget{ihm_8cpp_source_l00075}\hyperlink{class_ihm_a9df8990148a898f728304a4e789be2a6}{00075} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a9df8990148a898f728304a4e789be2a6}{Ihm::initialiserEvenements}()
+00076 \{
+00077     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(appareilConnecter()) , \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a3d1f9b366774b538acfcf66195c3c81a}{afficherAttenteConfiguration}()));
+00078     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(\hyperlink{class_ihm_a46f511e7be2c138a8fe2dec17d6bb2bf}{afficherAttenteConnexion}()), \textcolor{keyword}{this}, 
+      SLOT(\hyperlink{class_ihm_a46f511e7be2c138a8fe2dec17d6bb2bf}{afficherAttenteConnexion}()));
+00079     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(\hyperlink{class_ihm_a90c6b5c75d3903f50ea7c00b8093c686}{afficherNouvellePartie}()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a3b26fb5299eba99925d005ea39eef9da}{afficherPartie}()));
+00080     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(resetPartie()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a90c6b5c75d3903f50ea7c00b8093c686}{afficherNouvellePartie}()));
+00081     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(finPartie(QString, \textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a0c7ee6ee6313db87c7cc34dbd57dd57d}{finirPartie}(QString, \textcolor{keywordtype}{int})));
+00082     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(changementJoueurActif()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_aaeeb08a39f940e58da194768763dc00b}{mettreAJourJoueur}()));
+00083     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(nouvelImpact(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{int}, \textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a591e686d87b027ac16e91b3b9867a58a}{afficherImpact}(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int})));
+00084     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(miseAJourPoint()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a238255f517506367fe8913b2dad50c65}{mettreAJourScore}()));
+00085     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(nouvelleManche()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a3b41d92919b87966f903b22863dc6acb}{mettreAJourManche}()));
+00086     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(voleeAnnulee()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a066192d0a1b9c241a67032b0c3c96be6}{afficherVoleeAnnulee}()));
+00087     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(miseAJourMoyenneVolee()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_abafc4398a910be8ab95a75fbdf176426}{mettreAJourMoyenneVolee}()));
+00088     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a2e41c247a12dfd3065c77c2484fc5532}{getSolution}(), SIGNAL(solutionTrouver(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a27b24d133887431399b4696a4eae02e6}{mettreAJoursolution}(QString)));
+00089     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(actualiserCible()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a3c504c417aa2d3efd82ac5feded16895}{mettreAJourCible}()));
+00090     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(pause()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ab8456da276715f99ba373b71313592de}{mettrePausePartie}()));
+00091     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(play()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a3480957ba23548b30dddc717f6cfa577}{relancerpartie}()));
+00092     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(erreurBluetooth(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ab80e655c95fca8e1113343bdbd3d3586}{mettreAJourMessageStatut}(QString)));
+00093     connect(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}, SIGNAL(\hyperlink{class_ihm_a55f2d106f7af9ed2e84f78822e23bb97}{jouerSon}(QString)), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a55f2d106f7af9ed2e84f78822e23bb97}{jouerSon}(QString)));
+00094     connect(\hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}, SIGNAL(afficherRegle(QString)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a5186bc159a8bf1fa359da4f4ccd78f5a}{lancerRegle}(QString)));
+00095 
+00096 \}
+00097 
+\Hypertarget{ihm_8cpp_source_l00103}\hyperlink{class_ihm_a2b7dbb2d087d4ca15cee9707a1796b62}{00103} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a2b7dbb2d087d4ca15cee9707a1796b62}{Ihm::attribuerRaccourcisClavier}()
+00104 \{
+00105     QAction *quitter = \textcolor{keyword}{new} QAction(\textcolor{keyword}{this});
+00106     quitter->setShortcut(QKeySequence(QKeySequence(Qt::Key\_Up)));       \textcolor{comment}{//fleche du haut pour quitter
+       l'application}
+00107     addAction(quitter);
+00108     connect(quitter, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a703fa568eb3a2fb7f912decad222817e}{fermerApplication}()));   \textcolor{comment}{// Pour
+       fermer l'application}
+00109 
+00110 \textcolor{preprocessor}{#ifndef QT\_NO\_DEBUG\_OUTPUT}
+00111     QAction *actionAllerDroite = \textcolor{keyword}{new} QAction(\textcolor{keyword}{this});
+00112     actionAllerDroite->setShortcut(QKeySequence(Qt::Key\_Right));
+00113     addAction(actionAllerDroite);
+00114     connect(actionAllerDroite, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_ihm_a3c53027b16e9ed5f669b9865b2057e6a}{allerPageSuivante}()));\textcolor{comment}{//
+       Pour passer à l'écran suivant}
+00115     QAction *actionAllerGauche = \textcolor{keyword}{new} QAction(\textcolor{keyword}{this});
+00116     actionAllerGauche->setShortcut(QKeySequence(Qt::Key\_Left));
+00117     addAction(actionAllerGauche);
+00118     connect(actionAllerGauche, SIGNAL(triggered()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_ac63f9c49fbde4482bb28e7f7e5882b25}{allerPagePrecedente}()));\textcolor{comment}{// Pour revenir à l'écran précédent}
+00119 \textcolor{preprocessor}{#endif}
+00120 \}
+00121 
+\Hypertarget{ihm_8cpp_source_l00127}\hyperlink{class_ihm_ad8b3b13e638ebbfbe8159d00d99ff88f}{00127} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ad8b3b13e638ebbfbe8159d00d99ff88f}{Ihm::actualiserHeure}()
+00128 \{
+00129     QString affichageHeure;
+00130     QTime heure = QTime::currentTime();
+00131     affichageHeure = \textcolor{stringliteral}{"<font color=\(\backslash\)"#6D2B6B\(\backslash\)">"} + heure.toString(\textcolor{stringliteral}{"hh : mm "}) + \textcolor{stringliteral}{"</font>"};
+00132     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelHeureAttente->setText(affichageHeure);
+00133     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelHeureStatistique->setText(affichageHeure);
+00134 \}
+00135 
+\Hypertarget{ihm_8cpp_source_l00141}\hyperlink{class_ihm_a238255f517506367fe8913b2dad50c65}{00141} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a238255f517506367fe8913b2dad50c65}{Ihm::mettreAJourScore}()
+00142 \{
+00143     QString score;
+00144     \textcolor{keywordtype}{int} premierJoueurAfficher = 0;
+00145     \textcolor{keywordtype}{int} dernierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size();
+00146 
+00147     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size() > 7)
+00148     \{
+00149         premierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{getJoueurActif}();
+00150         dernierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{getJoueurActif}() + 6;
+00151 
+00152         \textcolor{keywordflow}{while}(dernierJoueurAfficher > \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size() || 
+      premierJoueurAfficher < 0)
+00153         \{
+00154             \textcolor{keywordflow}{if}(premierJoueurAfficher < 0)
+00155             \{
+00156                 premierJoueurAfficher++;
+00157                 dernierJoueurAfficher++;
+00158             \}
+00159 
+00160             \textcolor{keywordflow}{if}(dernierJoueurAfficher > \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size())
+00161             \{
+00162                 premierJoueurAfficher--;
+00163                 dernierJoueurAfficher--;
+00164             \}
+00165         \}
+00166     \}
+00167     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = premierJoueurAfficher; i < dernierJoueurAfficher; i++)
+00168     \{
+00169         score += \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getNom() + \textcolor{stringliteral}{" : "} + QString::number(
+      \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getScore()) + \textcolor{stringliteral}{"\(\backslash\)n"}; \textcolor{comment}{// "         " +}
+00170     \}
+00171     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->scoreActuel->setText(score);
+00172 \}
+00173 
+\Hypertarget{ihm_8cpp_source_l00179}\hyperlink{class_ihm_a3b41d92919b87966f903b22863dc6acb}{00179} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3b41d92919b87966f903b22863dc6acb}{Ihm::mettreAJourManche}()
+00180 \{
+00181     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->manche->setText(QString::number(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{getManche}()));
+00182 \}
+00183 
+\Hypertarget{ihm_8cpp_source_l00191}\hyperlink{class_ihm_a591e686d87b027ac16e91b3b9867a58a}{00191} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a591e686d87b027ac16e91b3b9867a58a}{Ihm::afficherImpact}(\textcolor{keywordtype}{int} typePoint, \textcolor{keywordtype}{int} point)
+00192 \{
+00193     \textcolor{keywordflow}{if}(QFileInfo(qApp->applicationDirPath() + \textcolor{stringliteral}{"/impact/IMPACT\_"} + QString::number(typePoint) + \textcolor{stringliteral}{"\_"} + 
+      QString::number(point) + \textcolor{stringliteral}{".png"}).exists())       \textcolor{comment}{//test si l'image existe}
+00194     \{
+00195         QImage impact(qApp->applicationDirPath() + \textcolor{stringliteral}{"/impact/IMPACT\_"} + QString::number(typePoint) + \textcolor{stringliteral}{"\_"} + 
+      QString::number(point) + \textcolor{stringliteral}{".png"});
+00196 
+00197         QPixmap cibleImpacte = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->pixmap()->copy(); \textcolor{comment}{// on récupère l'image
+       précédente;}
+00198 
+00199         QPainter p(&cibleImpacte);
+00200 
+00201         p.drawImage(QPoint(0, 0), impact);
+00202 
+00203         p.end();
+00204 
+00205         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->setPixmap(cibleImpacte);
+00206     \}
+00207 
+00208     \hyperlink{class_ihm_ab80e655c95fca8e1113343bdbd3d3586}{mettreAJourMessageStatut}(typePoint, point);
+00209 \}
+00210 
+\Hypertarget{ihm_8cpp_source_l00218}\hyperlink{class_ihm_ab80e655c95fca8e1113343bdbd3d3586}{00218} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab80e655c95fca8e1113343bdbd3d3586}{Ihm::mettreAJourMessageStatut}(\textcolor{keywordtype}{int} typePoint, \textcolor{keywordtype}{int} point)
+00219 \{
+00220 
+00221     \textcolor{keywordflow}{switch}(typePoint)\{
+00222         \textcolor{keywordflow}{case} \hyperlink{darts_8h_a1bd6caead3e7edd423f064b3af34e486}{TRIPLE\_POINT}:
+00223             \hyperlink{class_ihm_a31a25b36e5560142cb156b8b1a25965f}{messageStatut} += \textcolor{stringliteral}{" T"} + QString::number(point);
+00224         \textcolor{keywordflow}{break};
+00225         \textcolor{keywordflow}{case} \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT}:
+00226             \hyperlink{class_ihm_a31a25b36e5560142cb156b8b1a25965f}{messageStatut} += \textcolor{stringliteral}{" D"} + QString::number(point);
+00227         \textcolor{keywordflow}{break};
+00228         \textcolor{keywordflow}{default}:
+00229             \hyperlink{class_ihm_a31a25b36e5560142cb156b8b1a25965f}{messageStatut} += \textcolor{stringliteral}{" "} + QString::number(point);
+00230         \textcolor{keywordflow}{break};
+00231     \}
+00232     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setStyleSheet(\textcolor{stringliteral}{"color: rgb(109, 43,107);"});
+00233     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setText(\hyperlink{class_ihm_a31a25b36e5560142cb156b8b1a25965f}{messageStatut});
+00234 \}
+00235 
+00236 
+\Hypertarget{ihm_8cpp_source_l00242}\hyperlink{class_ihm_aaeeb08a39f940e58da194768763dc00b}{00242} \textcolor{keywordtype}{void} \hyperlink{class_ihm_aaeeb08a39f940e58da194768763dc00b}{Ihm::mettreAJourJoueur}()
+00243 \{
+00244     QString nomjoueur;
+00245 
+00246     \textcolor{keywordtype}{int} premierJoueurAfficher = 0;
+00247     \textcolor{keywordtype}{int} dernierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size();
+00248 
+00249     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size() > 7)
+00250     \{
+00251         premierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{getJoueurActif}();
+00252         dernierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{getJoueurActif}() + 6;
+00253 
+00254         \textcolor{keywordflow}{while}(dernierJoueurAfficher > \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size() || 
+      premierJoueurAfficher < 0)
+00255         \{
+00256             \textcolor{keywordflow}{if}(premierJoueurAfficher < 0)
+00257             \{
+00258                 premierJoueurAfficher++;
+00259                 dernierJoueurAfficher++;
+00260             \}
+00261 
+00262             \textcolor{keywordflow}{if}(dernierJoueurAfficher > \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size())
+00263             \{
+00264                 premierJoueurAfficher--;
+00265                 dernierJoueurAfficher--;
+00266             \}
+00267         \}
+00268     \}
+00269 
+00270     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = premierJoueurAfficher; i < dernierJoueurAfficher; i++)
+00271     \{
+00272         \textcolor{keywordflow}{if}(i == \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{getJoueurActif}())    \textcolor{comment}{// test si le joueur est le joueur qui doit
+       jouer}
+00273         \{
+00274             nomjoueur += \textcolor{stringliteral}{"   ⟼ "} + \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getNom() + \textcolor{stringliteral}{"\(\backslash\)n"};  \textcolor{comment}{//joueur
+       joue}
+00275         \}
+00276         \textcolor{keywordflow}{else}
+00277         \{
+00278             nomjoueur += \textcolor{stringliteral}{"            "} + \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getNom() + \textcolor{stringliteral}{"\(\backslash\)n"};     
+        \textcolor{comment}{//joueur en attente de son tour //}
+00279         \}
+00280     \}
+00281     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->nomJoueur->setText(nomjoueur);
+00282 \}
+00283 
+\Hypertarget{ihm_8cpp_source_l00289}\hyperlink{class_ihm_abafc4398a910be8ab95a75fbdf176426}{00289} \textcolor{keywordtype}{void} \hyperlink{class_ihm_abafc4398a910be8ab95a75fbdf176426}{Ihm::mettreAJourMoyenneVolee}()
+00290 \{
+00291     QString moyenneVoleeJoueur;
+00292 
+00293     \textcolor{keywordtype}{int} premierJoueurAfficher = 0;
+00294     \textcolor{keywordtype}{int} dernierJoueurAfficher = \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}().size();
+00295 
+00297     \textcolor{comment}{/*if(darts->getListJoueur().size() > 7)}
+00298 \textcolor{comment}{    \{}
+00299 \textcolor{comment}{        premierJoueurAfficher = darts->getJoueurActif();}
+00300 \textcolor{comment}{        dernierJoueurAfficher = darts->getJoueurActif() + 6;}
+00301 \textcolor{comment}{}
+00302 \textcolor{comment}{        while(dernierJoueurAfficher > darts->getListJoueur().size() || premierJoueurAfficher < 0)}
+00303 \textcolor{comment}{        \{}
+00304 \textcolor{comment}{            if(premierJoueurAfficher < 0)}
+00305 \textcolor{comment}{            \{}
+00306 \textcolor{comment}{                premierJoueurAfficher++;}
+00307 \textcolor{comment}{                dernierJoueurAfficher++;}
+00308 \textcolor{comment}{            \}}
+00309 \textcolor{comment}{}
+00310 \textcolor{comment}{            if(dernierJoueurAfficher > darts->getListJoueur().size())}
+00311 \textcolor{comment}{            \{}
+00312 \textcolor{comment}{                premierJoueurAfficher--;}
+00313 \textcolor{comment}{                dernierJoueurAfficher--;}
+00314 \textcolor{comment}{            \}}
+00315 \textcolor{comment}{        \}}
+00316 \textcolor{comment}{    \}*/}
+00317     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = premierJoueurAfficher; i < dernierJoueurAfficher; i++)
+00318     \{
+00319         moyenneVoleeJoueur += \hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getNom() + \textcolor{stringliteral}{" : "} + 
+      QString::number(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{getListJoueur}()[i].getMoyenneVolee()) +\textcolor{stringliteral}{" \(\backslash\)n"}; \textcolor{comment}{//"         " +}
+00320     \}
+00321     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelMoyenneVolees->setVisible(\textcolor{keyword}{true});
+00322     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineScoreActuel->setVisible(\textcolor{keyword}{true});
+00323     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->moyenneVolee->setText(moyenneVoleeJoueur);
+00324     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelMoyenneVoleesStatistique->setVisible(\textcolor{keyword}{true});
+00325     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->moyenneVolees->setText(moyenneVoleeJoueur);
+00326 \}
+00327 
+\Hypertarget{ihm_8cpp_source_l00333}\hyperlink{class_ihm_a3b26fb5299eba99925d005ea39eef9da}{00333} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3b26fb5299eba99925d005ea39eef9da}{Ihm::afficherPartie}()
+00334 \{
+00335     \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.stop();
+00336 
+00337     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->typeJeu->setText(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{getModeDeJeu}());
+00338 
+00339     \hyperlink{class_ihm_aaeeb08a39f940e58da194768763dc00b}{mettreAJourJoueur}();
+00340     \hyperlink{class_ihm_a61e4a83f8ca0f177971af808e51be5bb}{compteurDureePartie} = 0;
+00341     connect(\hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}, SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(
+      \hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{afficherDureePartie}())); \textcolor{comment}{// Pour le comptage et l'affichage de la durée d'une séance}
+00342 
+00343     \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eadc27359267c694f4d9c3afc23fe8b82f}{Ihm::PageJeu});
+00344 
+00345     \hyperlink{class_ihm_a238255f517506367fe8913b2dad50c65}{mettreAJourScore}();
+00346 \}
+00347 
+\Hypertarget{ihm_8cpp_source_l00353}\hyperlink{class_ihm_a066192d0a1b9c241a67032b0c3c96be6}{00353} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a066192d0a1b9c241a67032b0c3c96be6}{Ihm::afficherVoleeAnnulee}()
+00354 \{
+00355     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setText(\textcolor{stringliteral}{"Volée annulée !"});
+00356 \}
+00357 
+\Hypertarget{ihm_8cpp_source_l00365}\hyperlink{class_ihm_a0c7ee6ee6313db87c7cc34dbd57dd57d}{00365} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a0c7ee6ee6313db87c7cc34dbd57dd57d}{Ihm::finirPartie}(QString gagnant, \textcolor{keywordtype}{int} voleeMaxJoueur)
+00366 \{
+00367     \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->stop();
+00368     \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.play();
+00369 
+00370     disconnect(\hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{afficherDureePartie}())); \textcolor{comment}{// Pour le comptage et l'affichage de la durée d'une séance}
+00371     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->winnerPartie->setText(gagnant);
+00372     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->voleeMax->setText(QString::number(voleeMaxJoueur) + \textcolor{stringliteral}{" points"});
+00373     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->nbVolees->setText(QString::number(\hyperlink{class_ihm_a2a0f54d33f4d6b2531ec2190c4a2356e}{darts}->\hyperlink{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}{getNbVolees}()));
+00374     \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{miseAJourEtatPartieFin}();
+00375     \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eaacc428ff827bccfb5e8bdb4634457f10}{Ihm::PageStatistique});
+00376 \}
+00377 
+\Hypertarget{ihm_8cpp_source_l00383}\hyperlink{class_ihm_a90c6b5c75d3903f50ea7c00b8093c686}{00383} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a90c6b5c75d3903f50ea7c00b8093c686}{Ihm::afficherNouvellePartie}()
+00384 \{
+00385      \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->stop();
+00386      \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833ea6c6994098bc403f5ec5f712c347ce622}{Ihm::PageAttente});
+00387      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->manche->setText(\textcolor{stringliteral}{"1"});
+00388      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->nomJoueur->setText(\textcolor{stringliteral}{""});
+00389      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->scoreActuel->setText(\textcolor{stringliteral}{""});
+00390      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->typeJeu->setText(\textcolor{stringliteral}{""});
+00391      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->winnerPartie->setText(\textcolor{stringliteral}{"Winner ...."});
+00392      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setText(\textcolor{stringliteral}{""});
+00393      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->moyenneVolee->setText(\textcolor{stringliteral}{""});
+00394      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->nbVolees->setText(\textcolor{stringliteral}{""});
+00395      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->voleeMax->setText(\textcolor{stringliteral}{""});
+00396      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->moyenneVolees->setText(\textcolor{stringliteral}{""});
+00397      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelMoyenneVolees->setVisible(\textcolor{keyword}{false});
+00398      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->lineScoreActuel->setVisible(\textcolor{keyword}{false});
+00399      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelMoyenneVoleesStatistique->setVisible(\textcolor{keyword}{false});
+00400      \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranPartie->setStyleSheet(\textcolor{stringliteral}{"
+      QWidget#ecranPartie\{background-image:url(:/ressources/background.jpg);\}"});
+00401      \hyperlink{class_ihm_a3c504c417aa2d3efd82ac5feded16895}{mettreAJourCible}();
+00402 
+00403      \textcolor{comment}{// configurer la musique}
+00404      \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.setLoops(QSound::Infinite);
+00405      \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.setLoops(QSound::Infinite);
+00406      \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.stop();
+00407      \textcolor{comment}{// jouer la musique}
+00408      \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.play();
+00409 \}
+00410 
+\Hypertarget{ihm_8cpp_source_l00416}\hyperlink{class_ihm_a3c53027b16e9ed5f669b9865b2057e6a}{00416} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3c53027b16e9ed5f669b9865b2057e6a}{Ihm::allerPageSuivante}()
+00417 \{
+00418     \textcolor{keywordtype}{int} ecranCourant = \hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833e}{Page}(\hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranDarts->currentIndex());
+00419     \textcolor{keywordtype}{int} ecranSuivant = (ecranCourant+1)%\textcolor{keywordtype}{int}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833ea9eb2cac6f79bce4cfd72383724004949}{Ihm::NbPages});
+00420     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranDarts->setCurrentIndex(ecranSuivant);
+00421 \}
+00422 
+\Hypertarget{ihm_8cpp_source_l00429}\hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{00429} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{Ihm::allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833e}{Ihm::Page} page)
+00430 \{
+00431     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranDarts->setCurrentIndex(page);
+00432 \}
+00433 
+\Hypertarget{ihm_8cpp_source_l00439}\hyperlink{class_ihm_ac63f9c49fbde4482bb28e7f7e5882b25}{00439} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ac63f9c49fbde4482bb28e7f7e5882b25}{Ihm::allerPagePrecedente}()
+00440 \{
+00441     \textcolor{keywordtype}{int} ecranCourant = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranDarts->currentIndex();
+00442     \textcolor{keywordtype}{int} ecranPrecedent = (ecranCourant-1)%\textcolor{keywordtype}{int}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833ea9eb2cac6f79bce4cfd72383724004949}{Ihm::NbPages});
+00443     \textcolor{keywordflow}{if}(ecranPrecedent == -1)
+00444         ecranPrecedent = \hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833ea9eb2cac6f79bce4cfd72383724004949}{NbPages}-1;
+00445     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranDarts->setCurrentIndex(ecranPrecedent);
+00446 \}
+00447 
+\Hypertarget{ihm_8cpp_source_l00453}\hyperlink{class_ihm_a703fa568eb3a2fb7f912decad222817e}{00453} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a703fa568eb3a2fb7f912decad222817e}{Ihm::fermerApplication}()
+00454 \{
+00455     this->close();
+00456 \}
+00457 
+\Hypertarget{ihm_8cpp_source_l00463}\hyperlink{class_ihm_a3d1f9b366774b538acfcf66195c3c81a}{00463} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3d1f9b366774b538acfcf66195c3c81a}{Ihm::afficherAttenteConfiguration}()
+00464 \{
+00465     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatutAttente->setText(\textcolor{stringliteral}{"Attente configuration de la partie"});
+00466 \}
+00467 
+\Hypertarget{ihm_8cpp_source_l00473}\hyperlink{class_ihm_a46f511e7be2c138a8fe2dec17d6bb2bf}{00473} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a46f511e7be2c138a8fe2dec17d6bb2bf}{Ihm::afficherAttenteConnexion}()
+00474 \{
+00475     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatutAttente->setText(\textcolor{stringliteral}{"En attente de connexion"});
+00476 \}
+00477 
+\Hypertarget{ihm_8cpp_source_l00484}\hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{00484} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{Ihm::afficherDureePartie}()
+00485 \{
+00486     QTime duree(0, 0);
+00487     \hyperlink{class_ihm_a61e4a83f8ca0f177971af808e51be5bb}{compteurDureePartie}++;
+00488     QTime dureeSeance = duree.addSecs(\hyperlink{class_ihm_a61e4a83f8ca0f177971af808e51be5bb}{compteurDureePartie});
+00489     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a61e4a83f8ca0f177971af808e51be5bb}{compteurDureePartie} >= 3600)
+00490     \{
+00491         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->ecranPartie->setStyleSheet(\textcolor{stringliteral}{"
+      QWidget#ecranPartie\{background-image:url(:/ressources/backgroundHeure.jpg);\}"});
+00492         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelTempsPartie->setText(dureeSeance.toString(\textcolor{stringliteral}{"hh : mm : ss"}));
+00493         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->tempsPartie->setText(dureeSeance.toString(\textcolor{stringliteral}{"hh : mm : ss"}));
+00494     \}
+00495     \textcolor{keywordflow}{else}
+00496     \{
+00497         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelTempsPartie->setText(dureeSeance.toString(\textcolor{stringliteral}{"mm : ss"}));
+00498         \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->tempsPartie->setText(dureeSeance.toString(\textcolor{stringliteral}{"mm : ss"}));
+00499     \}
+00500 \}
+00501 
+\Hypertarget{ihm_8cpp_source_l00508}\hyperlink{class_ihm_a27b24d133887431399b4696a4eae02e6}{00508} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a27b24d133887431399b4696a4eae02e6}{Ihm::mettreAJoursolution}(QString solution)
+00509 \{
+00510     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setStyleSheet(\textcolor{stringliteral}{"color: rgb(179, 0,5);"});
+00511     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatut->setText(solution);
+00512 \}
+00513 
+\Hypertarget{ihm_8cpp_source_l00519}\hyperlink{class_ihm_ab8456da276715f99ba373b71313592de}{00519} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab8456da276715f99ba373b71313592de}{Ihm::mettrePausePartie}()
+00520 \{
+00521     disconnect(\hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}, SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(
+      \hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{afficherDureePartie}())); \textcolor{comment}{// mettre en pause le chronometrage de la partie}
+00522     \hyperlink{class_ihm_a659c67bf5d1ba3104fb10f23d8b91b37}{sauvegardeImpactEncours} = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->pixmap()->copy();
+00523     QImage pause(\textcolor{stringliteral}{":pause.png"});
+00524     QPixmap cibleImpacte = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->pixmap()->copy(); \textcolor{comment}{// on récupère l'image
+       précédente;}
+00525     QPainter p(&cibleImpacte);
+00526     p.drawImage(QPoint(0, 0), pause);
+00527     p.end();
+00528     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->setPixmap(cibleImpacte);
+00529     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelTempsPartie->setStyleSheet(\textcolor{stringliteral}{"color: rgb(179, 0,5);"});
+00530 
+00531     \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.play();
+00532 \}
+00533 
+\Hypertarget{ihm_8cpp_source_l00539}\hyperlink{class_ihm_a3480957ba23548b30dddc717f6cfa577}{00539} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3480957ba23548b30dddc717f6cfa577}{Ihm::relancerpartie}()
+00540 \{
+00541     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->setPixmap(\hyperlink{class_ihm_a659c67bf5d1ba3104fb10f23d8b91b37}{sauvegardeImpactEncours});
+00542     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelTempsPartie->setStyleSheet(\textcolor{stringliteral}{"color: rgb(109, 43,107);"});
+00543     connect(\hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}, SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(
+      \hyperlink{class_ihm_a808bd550b877499a38419a492595822e}{afficherDureePartie}())); \textcolor{comment}{// relancer le chronometrage de la partie}
+00544     qDebug() << Q\_FUNC\_INFO << endl;
+00545     \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.stop();
+00546 \}
+00547 
+\Hypertarget{ihm_8cpp_source_l00553}\hyperlink{class_ihm_aa5a3e97de39e919ea8807d30167da510}{00553} \textcolor{keywordtype}{void} \hyperlink{class_ihm_aa5a3e97de39e919ea8807d30167da510}{Ihm::initialiserHorloge}()
+00554 \{
+00555     \hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this}); \textcolor{comment}{// Instancie dynamiquement le temporisateur du
+       rafraichissement de l'heure}
+00556     connect(\hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}, SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(
+      \hyperlink{class_ihm_ad8b3b13e638ebbfbe8159d00d99ff88f}{actualiserHeure}())); \textcolor{comment}{// Pour le déclenchement périodique de l'affichage de l'heure}
+00557     \hyperlink{class_ihm_a21ea35b212966fa2805241ea6237d351}{timerHorloge}->start(\hyperlink{ihm_8h_abe1de80d8a7149cf82da305f032d7b1e}{PERIODE\_HORLOGE});  \textcolor{comment}{// Toutes les secondes (1000 ms)}
+00558 \}
+00559 
+\Hypertarget{ihm_8cpp_source_l00565}\hyperlink{class_ihm_a3c504c417aa2d3efd82ac5feded16895}{00565} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3c504c417aa2d3efd82ac5feded16895}{Ihm::mettreAJourCible}()
+00566 \{
+00567     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->setPixmap(QPixmap(\textcolor{stringliteral}{":/ressources/cible.png"}));
+00568     \hyperlink{class_ihm_a659c67bf5d1ba3104fb10f23d8b91b37}{sauvegardeImpactEncours} = \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelVisualisationimpact->pixmap()->copy();
+00569     \hyperlink{class_ihm_a31a25b36e5560142cb156b8b1a25965f}{messageStatut} = \textcolor{stringliteral}{"Volée ➤"};
+00570 \}
+00571 
+\Hypertarget{ihm_8cpp_source_l00578}\hyperlink{class_ihm_a7837ec36fbac1ca96d049ad27263b951}{00578} \textcolor{keywordtype}{void} \hyperlink{class_ihm_ab80e655c95fca8e1113343bdbd3d3586}{Ihm::mettreAJourMessageStatut}(QString statut)
+00579 \{
+00580     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->labelStatutAttente->setText(statut);
+00581 \}
+00582 
+00583 
+\Hypertarget{ihm_8cpp_source_l00590}\hyperlink{class_ihm_a55f2d106f7af9ed2e84f78822e23bb97}{00590} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a55f2d106f7af9ed2e84f78822e23bb97}{Ihm::jouerSon}(QString son)
+00591 \{
+00592     QSound::play(qApp->applicationDirPath() + \hyperlink{ihm_8h_aaf7f17312e64cf24f4c93fc657e5594f}{CHEMIN\_FICHIER\_MUSIQUE} + son);
+00593     \textcolor{keywordflow}{if}(!QFileInfo(qApp->applicationDirPath() + \hyperlink{ihm_8h_aaf7f17312e64cf24f4c93fc657e5594f}{CHEMIN\_FICHIER\_MUSIQUE} + son).exists()
+      )
+00594     \{
+00595         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Pour avoir les sons, ajouter le pack disponible à cette adresse dans le
+       build de votre application:"}<<endl;
+00596         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"
+      https://drive.google.com/file/d/1vH0tLe8lsu2VQLISDL94nJBA2arfLcbG/view?usp=sharing"}<<endl;
+00597     \}
+00598 \}
+00599 
+\Hypertarget{ihm_8cpp_source_l00605}\hyperlink{class_ihm_a97b1938c38eef2427b5cf2326feeef3d}{00605} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a97b1938c38eef2427b5cf2326feeef3d}{Ihm::initialiserAffichageRegle}()
+00606 \{
+00607     \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player} = \textcolor{keyword}{new} QMediaPlayer;
+00608 
+00609     \hyperlink{class_ihm_a011827612654af9b19bc8c42045e3c06}{videoWidget} = \textcolor{keyword}{new} QVideoWidget(\textcolor{keyword}{this});
+00610     \hyperlink{class_ihm_a0ac5f47856566ceeeca1720109bf70ea}{ui}->verticalLayoutRegle->addWidget(\hyperlink{class_ihm_a011827612654af9b19bc8c42045e3c06}{videoWidget});
+00611     \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->setVideoOutput(\hyperlink{class_ihm_a011827612654af9b19bc8c42045e3c06}{videoWidget});
+00612 
+00613     connect(\hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}, SIGNAL(\hyperlink{class_ihm_a3c815827527ca8f9c586e001e8e95721}{stateChanged}(QMediaPlayer::State)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a3c815827527ca8f9c586e001e8e95721}{stateChanged}(QMediaPlayer::State)));
+00614     connect(\hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}, SIGNAL(\hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{error}(QMediaPlayer::Error)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{error}(QMediaPlayer::Error)));
+00615 \}
+00616 
+\Hypertarget{ihm_8cpp_source_l00623}\hyperlink{class_ihm_a5186bc159a8bf1fa359da4f4ccd78f5a}{00623} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a5186bc159a8bf1fa359da4f4ccd78f5a}{Ihm::lancerRegle}(QString regle)
+00624 \{
+00625     \hyperlink{class_ihm_a1a9d23dd4defa0b88d1e4a56ce807e45}{sauverEtatPartie} = \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_a977495ad03ddf275aae49184c9a0dd1a}{getEtatPartie}();
+00626     \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_a01a86890468a8ecfb900bf15dcab92f2}{miseAJourEtatPartieRegle}();
+00627 
+00628     \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->setMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + QString(\textcolor{stringliteral}{"/"} + regle
+       + \textcolor{stringliteral}{".mp4"})));
+00629 
+00630     \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.stop();
+00631     \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.stop();
+00632     \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eaeb2ec486b2e880de96d76609d12c36af}{Ihm::PageRegle});
+00633     \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->play();
+00634 \}
+00635 
+\Hypertarget{ihm_8cpp_source_l00641}\hyperlink{class_ihm_a8dbd08db43f7c80ca7266cc6b162f571}{00641} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a8dbd08db43f7c80ca7266cc6b162f571}{Ihm::testerEtatPartie}()
+00642 \{
+00643     \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a1a9d23dd4defa0b88d1e4a56ce807e45}{sauverEtatPartie} == 0)
+00644     \{
+00645         \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{miseAJourEtatPartieAttente}();
+00646         \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.play();
+00647         \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833ea6c6994098bc403f5ec5f712c347ce622}{Ihm::PageAttente});
+00648     \}
+00649     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a1a9d23dd4defa0b88d1e4a56ce807e45}{sauverEtatPartie} == 1)
+00650     \{
+00651         \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}();
+00652         \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eadc27359267c694f4d9c3afc23fe8b82f}{Ihm::PageJeu});
+00653         \hyperlink{class_ihm_a3480957ba23548b30dddc717f6cfa577}{relancerpartie}();
+00654     \}
+00655     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a1a9d23dd4defa0b88d1e4a56ce807e45}{sauverEtatPartie} == 2)
+00656     \{
+00657         \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{miseAJourEtatPartieFin}();
+00658         \hyperlink{class_ihm_a6e2a173ec36ee846d6210117b4b85fa8}{musique}.play();
+00659         \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eaacc428ff827bccfb5e8bdb4634457f10}{Ihm::PageStatistique});
+00660     \}
+00661     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_ihm_a1a9d23dd4defa0b88d1e4a56ce807e45}{sauverEtatPartie} == 3)
+00662     \{
+00663         \hyperlink{class_ihm_a2f3d4781795781a840786cd8c2233899}{communication}->\hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{miseAJourEtatPartiePause}();
+00664         \hyperlink{class_ihm_a11e7ae529b6adb7ac98f1aa512172ff2}{musiquePause}.play();
+00665         \hyperlink{class_ihm_a52bf0bd258d00a16d3e1037a9288948b}{allerPage}(\hyperlink{class_ihm_a472c7a7bec7e6e0230842f78ace4833eadc27359267c694f4d9c3afc23fe8b82f}{Ihm::PageJeu});
+00666     \}
+00667 \}
+00668 
+\Hypertarget{ihm_8cpp_source_l00675}\hyperlink{class_ihm_a3c815827527ca8f9c586e001e8e95721}{00675} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a3c815827527ca8f9c586e001e8e95721}{Ihm::stateChanged}(QMediaPlayer::State state)
+00676 \{
+00677     qDebug() << Q\_FUNC\_INFO << state;
+00678     \textcolor{keywordflow}{if}(state == QMediaPlayer::StoppedState)
+00679     \{
+00680         \hyperlink{class_ihm_a8dbd08db43f7c80ca7266cc6b162f571}{testerEtatPartie}();
+00681     \}
+00682 \}
+00683 
+\Hypertarget{ihm_8cpp_source_l00690}\hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{00690} \textcolor{keywordtype}{void} \hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{Ihm::error}(QMediaPlayer::Error \hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{error})
+00691 \{
+00692     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_ihm_a633230fb15d587e647ad9d2d6142ebc3}{player}->errorString() << \hyperlink{class_ihm_a28b5dd043c4d752bb944110d8d8457aa}{error};
+00693     \hyperlink{class_ihm_a8dbd08db43f7c80ca7266cc6b162f571}{testerEtatPartie}();
+00694 \}
+\end{DoxyCode}

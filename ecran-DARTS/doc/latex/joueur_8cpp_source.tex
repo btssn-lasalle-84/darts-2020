@@ -1,0 +1,80 @@
+\hypertarget{joueur_8cpp_source}{}\subsection{joueur.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{joueur_8h}{joueur.h}"}
+00002 
+00003 \textcolor{preprocessor}{#include <QtDebug>}
+00004 
+\Hypertarget{joueur_8cpp_source_l00024}\hyperlink{class_joueur_a3832d331fb872c978f7a2d890b024b4c}{00024} \hyperlink{class_joueur_a3832d331fb872c978f7a2d890b024b4c}{Joueur::Joueur}(QString nom, \textcolor{keywordtype}{int} score , \textcolor{keywordtype}{int} nbFlechette): nom(nom), score(score), 
+      moyenneVolee(0), scoreManchePrecedente(score), nbFlechette(nbFlechette), elimine(false)
+00025 \{
+00026     qDebug() << Q\_FUNC\_INFO << nom << \textcolor{stringliteral}{" "} << score << \textcolor{stringliteral}{" "} << \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00027 \}
+00028 
+\Hypertarget{joueur_8cpp_source_l00035}\hyperlink{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}{00035} QString \hyperlink{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}{Joueur::getNom}()\textcolor{keyword}{ const}
+00036 \textcolor{keyword}{}\{
+00037     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom};
+00038 \}
+00039 
+\Hypertarget{joueur_8cpp_source_l00046}\hyperlink{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}{00046} \textcolor{keywordtype}{int} \hyperlink{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}{Joueur::getScore}()\textcolor{keyword}{ const}
+00047 \textcolor{keyword}{}\{
+00048     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score};
+00049 \}
+00050 
+\Hypertarget{joueur_8cpp_source_l00057}\hyperlink{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}{00057} \textcolor{keywordtype}{int} \hyperlink{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}{Joueur::getScoreManchePrecedente}()\textcolor{keyword}{ const}
+00058 \textcolor{keyword}{}\{
+00059     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente};
+00060 \}
+00061 
+\Hypertarget{joueur_8cpp_source_l00068}\hyperlink{class_joueur_a6a9730a4653b10e507c32715920bdea5}{00068} \textcolor{keywordtype}{int} \hyperlink{class_joueur_a6a9730a4653b10e507c32715920bdea5}{Joueur::getFlechette}()\textcolor{keyword}{ const}
+00069 \textcolor{keyword}{}\{
+00070     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00071 \}
+00072 
+\Hypertarget{joueur_8cpp_source_l00079}\hyperlink{class_joueur_ace9bf081d3f518eaed93b53153efcf19}{00079} \textcolor{keywordtype}{int} \hyperlink{class_joueur_ace9bf081d3f518eaed93b53153efcf19}{Joueur::getMoyenneVolee}()\textcolor{keyword}{ const}
+00080 \textcolor{keyword}{}\{
+00081     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee};
+00082 \}
+00083 
+\Hypertarget{joueur_8cpp_source_l00090}\hyperlink{class_joueur_a2f99a607d1806aae8361bbff086947f1}{00090} QVector<float> \hyperlink{class_joueur_a2f99a607d1806aae8361bbff086947f1}{Joueur::getHistoriqueVolees}()\textcolor{keyword}{ const}
+00091 \textcolor{keyword}{}\{
+00092     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historiqueVolees};
+00093 \}
+00094 
+\Hypertarget{joueur_8cpp_source_l00101}\hyperlink{class_joueur_abb5b33a4782973be4f5b238385c94cac}{00101} \textcolor{keywordtype}{bool} \hyperlink{class_joueur_abb5b33a4782973be4f5b238385c94cac}{Joueur::getEliminer}()\textcolor{keyword}{ const}
+00102 \textcolor{keyword}{}\{
+00103     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine};
+00104 \}
+00105 
+\Hypertarget{joueur_8cpp_source_l00112}\hyperlink{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}{00112} \textcolor{keywordtype}{void} \hyperlink{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}{Joueur::setEliminer}(\textcolor{keywordtype}{bool} \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine})
+00113 \{
+00114     this->elimine = \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine};
+00115 \}
+00116 
+\Hypertarget{joueur_8cpp_source_l00123}\hyperlink{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}{00123} \textcolor{keywordtype}{void} \hyperlink{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}{Joueur::setMoyenneVolee}(\textcolor{keywordtype}{int} \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee})
+00124 \{
+00125     this->moyenneVolee = \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee};
+00126 \}
+00127 
+00128 
+\Hypertarget{joueur_8cpp_source_l00135}\hyperlink{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}{00135} \textcolor{keywordtype}{void} \hyperlink{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}{Joueur::setScore}(\textcolor{keywordtype}{int} \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score})
+00136 \{
+00137     this->score = \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score};
+00138 \}
+00139 
+\Hypertarget{joueur_8cpp_source_l00146}\hyperlink{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}{00146} \textcolor{keywordtype}{void} \hyperlink{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}{Joueur::setScoreManchePrecedente}(\textcolor{keywordtype}{int} 
+      \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente})
+00147 \{
+00148     this->scoreManchePrecedente = \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente};
+00149 \}
+00150 
+\Hypertarget{joueur_8cpp_source_l00157}\hyperlink{class_joueur_a3220b85c9480a2178764ef58029108aa}{00157} \textcolor{keywordtype}{void} \hyperlink{class_joueur_a3220b85c9480a2178764ef58029108aa}{Joueur::setNbFlechette}(\textcolor{keywordtype}{int} \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette})
+00158 \{
+00159     this->nbFlechette = \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00160 \}
+00161 
+\Hypertarget{joueur_8cpp_source_l00168}\hyperlink{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}{00168} \textcolor{keywordtype}{void} \hyperlink{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}{Joueur::addHistoriqueVolees}(\textcolor{keywordtype}{float} volee)
+00169 \{
+00170     \hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historiqueVolees}.push\_back(volee);
+00171 \}
+\end{DoxyCode}

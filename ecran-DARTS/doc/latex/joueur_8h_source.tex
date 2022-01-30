@@ -1,0 +1,41 @@
+\hypertarget{joueur_8h_source}{}\subsection{joueur.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef JOUEUR\_H}
+00002 \textcolor{preprocessor}{#define JOUEUR\_H}
+00003 
+00004 \textcolor{preprocessor}{#include <QString>}
+00005 \textcolor{preprocessor}{#include <QVector>}
+00006 
+\Hypertarget{joueur_8h_source_l00021}\hyperlink{class_joueur}{00021} \textcolor{keyword}{class }\hyperlink{class_joueur}{Joueur}
+00022 \{
+00023 \textcolor{keyword}{public}:
+00024     \hyperlink{class_joueur_a3832d331fb872c978f7a2d890b024b4c}{Joueur}(QString \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}, \textcolor{keywordtype}{int} \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score} , \textcolor{keywordtype}{int} \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette});
+00025 
+00026     QString \hyperlink{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}{getNom}() \textcolor{keyword}{const};
+00027     \textcolor{keywordtype}{int} \hyperlink{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}{getScore}() \textcolor{keyword}{const};
+00028     \textcolor{keywordtype}{int} \hyperlink{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}{getScoreManchePrecedente}() \textcolor{keyword}{const};
+00029     \textcolor{keywordtype}{int} \hyperlink{class_joueur_a6a9730a4653b10e507c32715920bdea5}{getFlechette}() \textcolor{keyword}{const};
+00030     \textcolor{keywordtype}{int} \hyperlink{class_joueur_ace9bf081d3f518eaed93b53153efcf19}{getMoyenneVolee}() \textcolor{keyword}{const};
+00031     QVector<float> \hyperlink{class_joueur_a2f99a607d1806aae8361bbff086947f1}{getHistoriqueVolees}() \textcolor{keyword}{const};
+00032     \textcolor{keywordtype}{bool} \hyperlink{class_joueur_abb5b33a4782973be4f5b238385c94cac}{getEliminer}() \textcolor{keyword}{const};
+00033     \textcolor{keywordtype}{void} \hyperlink{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}{setEliminer}(\textcolor{keywordtype}{bool} \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine});
+00034     \textcolor{keywordtype}{void} \hyperlink{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}{setMoyenneVolee}(\textcolor{keywordtype}{int} \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee});
+00035     \textcolor{keywordtype}{void} \hyperlink{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}{setScore}(\textcolor{keywordtype}{int} score);
+00036     \textcolor{keywordtype}{void} \hyperlink{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}{setScoreManchePrecedente}(\textcolor{keywordtype}{int} 
+      \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente});
+00037     \textcolor{keywordtype}{void} \hyperlink{class_joueur_a3220b85c9480a2178764ef58029108aa}{setNbFlechette}(\textcolor{keywordtype}{int} nbFlechette);
+00038     \textcolor{keywordtype}{void} \hyperlink{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}{addHistoriqueVolees}(\textcolor{keywordtype}{float} volee);
+00039 
+00040 \textcolor{keyword}{private}:
+\Hypertarget{joueur_8h_source_l00041}\hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{00041}     QString \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}; 
+\Hypertarget{joueur_8h_source_l00042}\hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{00042}     QVector<float> \hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historiqueVolees}; 
+\Hypertarget{joueur_8h_source_l00043}\hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{00043}     \textcolor{keywordtype}{int} \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}; 
+\Hypertarget{joueur_8h_source_l00044}\hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{00044}     \textcolor{keywordtype}{int} \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee}; 
+\Hypertarget{joueur_8h_source_l00045}\hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{00045}     \textcolor{keywordtype}{int} \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente}; 
+\Hypertarget{joueur_8h_source_l00046}\hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{00046}     \textcolor{keywordtype}{int} \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette}; 
+\Hypertarget{joueur_8h_source_l00047}\hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{00047}     \textcolor{keywordtype}{bool} \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine}; 
+00048 \};
+00049 
+00050 \textcolor{preprocessor}{#endif // JOUEUR\_H}
+\end{DoxyCode}

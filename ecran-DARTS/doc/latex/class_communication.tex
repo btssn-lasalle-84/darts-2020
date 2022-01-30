@@ -1,0 +1,1276 @@
+\hypertarget{class_communication}{}\subsection{Référence de la classe Communication}
+\label{class_communication}\index{Communication@{Communication}}
+
+
+Déclaration de la classe \hyperlink{class_communication}{Communication} via la liaison Bluetooth (Module Ecran-\/\+D\+A\+R\+TS)  
+
+
+
+
+{\ttfamily \#include \char`\"{}communication.\+h\char`\"{}}
+
+
+
+Graphe de collaboration de Communication\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_communication__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}{Etat\+Partie} \{ \newline
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda1c2ad067e6861802f9f48fe30001f4dc}{Attente} = 0, 
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda46965d82c1659dbd82d6b69aad687e54}{En\+Cours} = 1, 
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddafa4e2a4dbf887d1384efe5432e17d57f}{Fin} = 2, 
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddae5ff9fbf58fec2640ed18150aa660bd1}{Pause} = 3, 
+\newline
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda340ac4e51b04541499e50164be9d4d9f}{Regle}
+ \}\begin{DoxyCompactList}\small\item\em contient les different etat de la partie \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{mise\+A\+Jour\+Etat\+Partie\+En\+Cours} ()
+\begin{DoxyCompactList}\small\item\em Slot appelé pour mettre à jour l\textquotesingle{}état de la partie à En\+Cours. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{mise\+A\+Jour\+Etat\+Partie\+Fin} ()
+\begin{DoxyCompactList}\small\item\em Slot appelé pour mettre à jour l\textquotesingle{}état de la partie à Fin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_aff862483641966b73aa713b419b819a9}{afficher\+Attente\+Connexion} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand un appareil se déconnecte \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficher\+Regle} (Q\+String regle)
+\item 
+void \hyperlink{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}{appareil\+Connecter} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand un nouvel appareil est connecté \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}{erreur\+Bluetooth} (Q\+String erreur)
+\begin{DoxyCompactList}\small\item\em signal emit quand un probleme de configuration bluetooth est detecté \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause} ()
+\begin{DoxyCompactList}\small\item\em signal qui mettra en pause la partie \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play} ()
+\begin{DoxyCompactList}\small\item\em signal qui relancera le chronometrage de la partie la partie \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{reset\+Partie} ()
+\begin{DoxyCompactList}\small\item\em signal qui reinitialisera la partie en cours \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_a1f4b02441803f9c8e231cb9f304d776b}{arreter} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui arrête le serveur. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_a6dd505094f1af1ccd25c6b75c18636d6}{Communication} (\hyperlink{class_darts}{Darts} $\ast$\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}, \hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em constructeur de la classe \hyperlink{class_communication}{Communication} \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}{demarrer} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui démarre le serveur. \end{DoxyCompactList}\item 
+int \hyperlink{class_communication_a977495ad03ddf275aae49184c9a0dd1a}{get\+Etat\+Partie} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui retourne l\textquotesingle{}état de la partie. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{mise\+A\+Jour\+Etat\+Partie\+Attente} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelé pour mettre à jour l\textquotesingle{}état de la partie à Attente. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{mise\+A\+Jour\+Etat\+Partie\+Pause} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelé pour mettre à jour l\textquotesingle{}état de la partie à Pause. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a01a86890468a8ecfb900bf15dcab92f2}{mise\+A\+Jour\+Etat\+Partie\+Regle} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui met à jour l\textquotesingle{}état de la partie en regle. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_abe2349c8e1d9536a73c8741425ba867f}{parametrer\+Bluetooth} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui configure la connexion Bluetooth en mode serveur. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}{$\sim$\+Communication} ()
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \hyperlink{class_communication}{Communication} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Connecteurs privés}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{device\+Connected} (const Q\+Bluetooth\+Address \&adresse)
+\begin{DoxyCompactList}\small\item\em Slot appelé quand un nouvel appareil est connecté \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{device\+Disconnected} (const Q\+Bluetooth\+Address \&adresse)
+\begin{DoxyCompactList}\small\item\em Slot appelé quand un appareil est déconnecté \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{error} (Q\+Bluetooth\+Local\+Device\+::\+Error erreur)
+\begin{DoxyCompactList}\small\item\em Slot appelé quand il y a une erreur avec l\textquotesingle{}appareil bluetooth. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_ac1bc22603b6e05389f94890b745aac4f}{nouveau\+Client} ()
+\begin{DoxyCompactList}\small\item\em Slot appelé quand un nouveau client veut se connecter. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a44f863f2c70f4be652224240447c9fe0}{socket\+Disconnected} ()
+\begin{DoxyCompactList}\small\item\em Slot appelé quand la communication est deconnectée. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}{socket\+Ready\+Read} ()
+\begin{DoxyCompactList}\small\item\em Slot appelé quand une nouvelle trame est disponible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_communication_aaf5333662717e69837d2d39164e5a303}{decomposer\+Trame} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui decompose la trame reçue. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}{extraire\+Parametres\+Trame\+Regle} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui decompose la trame regle. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}{extraire\+Parametres\+Trame\+Start} (Q\+String\+List \&joueurs, Q\+String \&mode\+Jeu)
+\begin{DoxyCompactList}\small\item\em Méthode qui extrait les paramètres de la trame S\+T\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}{reamorcer\+Partie} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui reinitialise la partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_darts}{Darts} $\ast$ \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}
+\begin{DoxyCompactList}\small\item\em Association avec l\textquotesingle{}objet darts. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}{Etat\+Partie} \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etat\+Partie}
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}état de la partie. \end{DoxyCompactList}\item 
+Q\+Bluetooth\+Local\+Device \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{local\+Device}
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}interface Bluetooth de la Raspberry Pi. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}{local\+Device\+Name}
+\begin{DoxyCompactList}\small\item\em Nom du peripherique local. \end{DoxyCompactList}\item 
+Q\+Bluetooth\+Server $\ast$ \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}
+\begin{DoxyCompactList}\small\item\em Le serveur Bluetooth. \end{DoxyCompactList}\item 
+Q\+Bluetooth\+Service\+Info \hyperlink{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}{service\+Info}
+\begin{DoxyCompactList}\small\item\em Informations sur le service bluetooth. \end{DoxyCompactList}\item 
+Q\+Bluetooth\+Socket $\ast$ \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}
+\begin{DoxyCompactList}\small\item\em La socket de communication Bluetooth. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}
+\begin{DoxyCompactList}\small\item\em La trame recue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Déclaration de la classe \hyperlink{class_communication}{Communication} via la liaison Bluetooth (Module Ecran-\/\+D\+A\+R\+TS) 
+
+Cette classe s\textquotesingle{}occupe de la partie communication Bluetooth en mode serveur (configuration, réception et traitement des trames du protocole D\+A\+RT) 
+
+Définition à la ligne \hyperlink{communication_8h_source_l00041}{41} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+\subsubsection{Documentation des énumérations membres}
+\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}} 
+\index{Communication@{Communication}!Etat\+Partie@{Etat\+Partie}}
+\index{Etat\+Partie@{Etat\+Partie}!Communication@{Communication}}
+\paragraph{\texorpdfstring{Etat\+Partie}{EtatPartie}}
+{\footnotesize\ttfamily enum \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}{Communication\+::\+Etat\+Partie}}
+
+
+
+contient les different etat de la partie 
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Attente@{Attente}!Communication@{Communication}}\index{Communication@{Communication}!Attente@{Attente}}}\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda1c2ad067e6861802f9f48fe30001f4dc}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda1c2ad067e6861802f9f48fe30001f4dc}} 
+Attente&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{En\+Cours@{En\+Cours}!Communication@{Communication}}\index{Communication@{Communication}!En\+Cours@{En\+Cours}}}\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda46965d82c1659dbd82d6b69aad687e54}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda46965d82c1659dbd82d6b69aad687e54}} 
+En\+Cours&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fin@{Fin}!Communication@{Communication}}\index{Communication@{Communication}!Fin@{Fin}}}\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddafa4e2a4dbf887d1384efe5432e17d57f}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddafa4e2a4dbf887d1384efe5432e17d57f}} 
+Fin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pause@{Pause}!Communication@{Communication}}\index{Communication@{Communication}!Pause@{Pause}}}\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddae5ff9fbf58fec2640ed18150aa660bd1}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddae5ff9fbf58fec2640ed18150aa660bd1}} 
+Pause&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Regle@{Regle}!Communication@{Communication}}\index{Communication@{Communication}!Regle@{Regle}}}\mbox{\Hypertarget{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda340ac4e51b04541499e50164be9d4d9f}\label{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda340ac4e51b04541499e50164be9d4d9f}} 
+Regle&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00061}{61} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+\begin{DoxyCode}
+00062     \{
+00063         \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda1c2ad067e6861802f9f48fe30001f4dc}{Attente} = 0,
+00064         \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda46965d82c1659dbd82d6b69aad687e54}{EnCours} = 1,
+00065         \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddafa4e2a4dbf887d1384efe5432e17d57f}{Fin} = 2,
+00066         \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebddae5ff9fbf58fec2640ed18150aa660bd1}{Pause} = 3,
+00067         \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdda340ac4e51b04541499e50164be9d4d9f}{Regle}       \textcolor{comment}{//État attente pendant la lecture des règles, seule une trame reset peut être reçu
+       pour arrêter la lecture.}
+00068     \};
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_communication_a6dd505094f1af1ccd25c6b75c18636d6}\label{class_communication_a6dd505094f1af1ccd25c6b75c18636d6}} 
+\index{Communication@{Communication}!Communication@{Communication}}
+\index{Communication@{Communication}!Communication@{Communication}}
+\paragraph{\texorpdfstring{Communication()}{Communication()}}
+{\footnotesize\ttfamily Communication\+::\+Communication (\begin{DoxyParamCaption}\item[{\hyperlink{class_darts}{Darts} $\ast$}]{darts,  }\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+constructeur de la classe \hyperlink{class_communication}{Communication} 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em darts} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00022}{22} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8cpp_source_l00382}{mise\+A\+Jour\+Etat\+Partie\+Attente()}, et \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+
+\begin{DoxyCode}
+00022                                                           : \hyperlink{class_q_object}{QObject}(parent), 
+      \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}(darts), \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}(\textcolor{keyword}{nullptr}), \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}(\textcolor{keyword}{nullptr}), 
+      \hyperlink{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}{localDeviceName}(\textcolor{stringliteral}{"Ecran-Darts"}), \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}(\textcolor{stringliteral}{""})
+00023 \{
+00024     qDebug() << Q\_FUNC\_INFO;
+00025 
+00026     \hyperlink{class_communication_abe2349c8e1d9536a73c8741425ba867f}{parametrerBluetooth}();
+00027 
+00028     \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{miseAJourEtatPartieAttente}();
+00029 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}\label{class_communication_a75ba08ce908d45251e28e4c1db94e6f4}} 
+\index{Communication@{Communication}!````~Communication@{$\sim$\+Communication}}
+\index{````~Communication@{$\sim$\+Communication}!Communication@{Communication}}
+\paragraph{\texorpdfstring{$\sim$\+Communication()}{~Communication()}}
+{\footnotesize\ttfamily Communication\+::$\sim$\+Communication (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructeur de la classe \hyperlink{class_communication}{Communication} 
+
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00036}{36} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8cpp_source_l00121}{arreter()}, et \hyperlink{communication_8h_source_l00096}{local\+Device}.
+
+
+\begin{DoxyCode}
+00037 \{
+00038     \hyperlink{class_communication_a1f4b02441803f9c8e231cb9f304d776b}{arreter}();
+00039     \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.setHostMode(QBluetoothLocalDevice::HostPoweredOff);
+00040     qDebug() << Q\_FUNC\_INFO;
+00041 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_communication_aff862483641966b73aa713b419b819a9}\label{class_communication_aff862483641966b73aa713b419b819a9}} 
+\index{Communication@{Communication}!afficher\+Attente\+Connexion@{afficher\+Attente\+Connexion}}
+\index{afficher\+Attente\+Connexion@{afficher\+Attente\+Connexion}!Communication@{Communication}}
+\paragraph{\texorpdfstring{afficher\+Attente\+Connexion}{afficherAttenteConnexion}}
+{\footnotesize\ttfamily void Communication\+::afficher\+Attente\+Connexion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand un appareil se déconnecte 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00353}{device\+Disconnected()}.
+
+\mbox{\Hypertarget{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}\label{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}} 
+\index{Communication@{Communication}!afficher\+Regle@{afficher\+Regle}}
+\index{afficher\+Regle@{afficher\+Regle}!Communication@{Communication}}
+\paragraph{\texorpdfstring{afficher\+Regle}{afficherRegle}}
+{\footnotesize\ttfamily void Communication\+::afficher\+Regle (\begin{DoxyParamCaption}\item[{Q\+String}]{regle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, et \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}.
+
+\mbox{\Hypertarget{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}\label{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}} 
+\index{Communication@{Communication}!appareil\+Connecter@{appareil\+Connecter}}
+\index{appareil\+Connecter@{appareil\+Connecter}!Communication@{Communication}}
+\paragraph{\texorpdfstring{appareil\+Connecter}{appareilConnecter}}
+{\footnotesize\ttfamily void Communication\+::appareil\+Connecter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand un nouvel appareil est connecté 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}.
+
+\mbox{\Hypertarget{class_communication_a1f4b02441803f9c8e231cb9f304d776b}\label{class_communication_a1f4b02441803f9c8e231cb9f304d776b}} 
+\index{Communication@{Communication}!arreter@{arreter}}
+\index{arreter@{arreter}!Communication@{Communication}}
+\paragraph{\texorpdfstring{arreter()}{arreter()}}
+{\footnotesize\ttfamily void Communication\+::arreter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui arrête le serveur. 
+
+arrete le serveur 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00121}{121} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00096}{local\+Device}, \hyperlink{communication_8h_source_l00094}{serveur}, \hyperlink{communication_8h_source_l00097}{service\+Info}, et \hyperlink{communication_8h_source_l00095}{socket}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00036}{$\sim$\+Communication()}.
+
+
+\begin{DoxyCode}
+00122 \{
+00123     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00124         \textcolor{keywordflow}{return};
+00125 
+00126     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur})
+00127         \textcolor{keywordflow}{return};
+00128 
+00129     \hyperlink{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}{serviceInfo}.unregisterService();
+00130 
+00131     \textcolor{keywordflow}{if} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket})
+00132     \{
+00133         \textcolor{keywordflow}{if} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->isOpen())
+00134         \{
+00135            \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->close();
+00136         \}
+00137         \textcolor{keyword}{delete} \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket};
+00138         \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket} = \textcolor{keyword}{nullptr};
+00139     \}
+00140 
+00141     \textcolor{keyword}{delete} \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur};
+00142     \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur} = \textcolor{keyword}{nullptr};
+00143 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_aaf5333662717e69837d2d39164e5a303}\label{class_communication_aaf5333662717e69837d2d39164e5a303}} 
+\index{Communication@{Communication}!decomposer\+Trame@{decomposer\+Trame}}
+\index{decomposer\+Trame@{decomposer\+Trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{decomposer\+Trame()}{decomposerTrame()}}
+{\footnotesize\ttfamily void Communication\+::decomposer\+Trame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Méthode qui decompose la trame reçue. 
+
+Méthode qui decompose la trame reçue et signale l\textquotesingle{}état en fonction du type de trame. \$\+D\+A\+RT;S\+T\+A\+RT;501;1;2;fabien;erwan
+
+\$\+D\+A\+RT;G\+A\+ME;3;7
+
+\$\+D\+A\+RT;R\+E\+G\+LE
+
+\$\+D\+A\+RT;P\+A\+U\+SE
+
+\$\+D\+A\+RT;P\+L\+AY
+
+\$\+D\+A\+RT;S\+T\+OP 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00188}{188} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00422}{Darts\+::arreter\+Partie()}, \hyperlink{communication_8h_source_l00093}{darts}, \hyperlink{communication_8h_source_l00030}{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}, \hyperlink{communication_8h_source_l00100}{etat\+Partie}, \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}, \hyperlink{communication_8cpp_source_l00415}{mise\+A\+Jour\+Etat\+Partie\+En\+Cours()}, \hyperlink{communication_8cpp_source_l00393}{mise\+A\+Jour\+Etat\+Partie\+Pause()}, \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause()}, \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play()}, \hyperlink{communication_8cpp_source_l00305}{reamorcer\+Partie()}, \hyperlink{darts_8cpp_source_l00223}{Darts\+::receptionner\+Impact()}, \hyperlink{darts_8cpp_source_l00184}{Darts\+::reinitialiser\+Partie()}, \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{reset\+Partie()}, \hyperlink{communication_8h_source_l00099}{trame}, et \hyperlink{communication_8h_source_l00024}{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00166}{socket\+Ready\+Read()}.
+
+
+\begin{DoxyCode}
+00189 \{
+00190     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.startsWith(\hyperlink{communication_8h_a8da23fa25560c54c52884746a5d1cc69}{TYPE\_TRAME}) && \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.endsWith(
+      \hyperlink{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN})) \textcolor{comment}{//test si la trame est valide}
+00191     \{
+00192         \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.remove(\hyperlink{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{DELIMITEUR\_FIN});
+00193         \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"START"}) && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Attente || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Fin))      
+00194         \{
+00195             emit \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{resetPartie}();
+00196             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00197 
+00198             QString modeJeu;
+00199             QStringList joueurs;
+00200 
+00201             \hyperlink{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}{extraireParametresTrameStart}(joueurs, modeJeu);
+00202         \}
+00203         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"GAME"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours)      
+00204         \{
+00205             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a196bc4307c631310f641606012ab9e05}{receptionnerImpact}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2).toInt(), 
+      \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},3,3).toInt());
+00206         \}
+00207         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"REGLE"})&& \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Regle)   
+00208         \{
+00209             \hyperlink{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}{extraireParametresTrameRegle}();
+00210         \}
+00211         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"PAUSE"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours)     
+00212         \{
+00213             emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00214             \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{miseAJourEtatPartiePause}();
+00215         \}
+00216         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"PLAY"}) && \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause)       
+00217         \{
+00218             emit \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play}();
+00219             \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}();
+00220         \}
+00221         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"RESET"})) \textcolor{comment}{// quelque soit l'état de la partie    /** $DART;RESET */}
+00222         \{
+00223             \hyperlink{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}{reamorcerPartie}();
+00224         \}
+00225         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.contains(\textcolor{stringliteral}{"STOP"}) && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause))  
+00226         \{
+00227             \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{arreterPartie}();
+00228         \}
+00229         \textcolor{keywordflow}{else}
+00230         \{
+00231             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Trame erreur: "} << \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame};
+00232         \}
+00233     \}
+00234 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}\label{class_communication_af29ea9a1c2ce29436f2331c322f6ebbf}} 
+\index{Communication@{Communication}!demarrer@{demarrer}}
+\index{demarrer@{demarrer}!Communication@{Communication}}
+\paragraph{\texorpdfstring{demarrer()}{demarrer()}}
+{\footnotesize\ttfamily void Communication\+::demarrer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui démarre le serveur. 
+
+Démarre le serveur. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00101}{101} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00096}{local\+Device}, \hyperlink{communication_8cpp_source_l00150}{nouveau\+Client()}, \hyperlink{communication_8h_source_l00094}{serveur}, \hyperlink{communication_8h_source_l00097}{service\+Info}, \hyperlink{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}{service\+Nom()}, et \hyperlink{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}{service\+Uuid()}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00026}{Ihm\+::\+Ihm()}.
+
+
+\begin{DoxyCode}
+00102 \{
+00103     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00104         \textcolor{keywordflow}{return};
+00105 
+00106     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur})   \textcolor{comment}{//Démarre le serveur s'il n'est pas déjà démarré}
+00107     \{
+00108         \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur} = \textcolor{keyword}{new} QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, \textcolor{keyword}{this});
+00109         connect(\hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}, SIGNAL(newConnection()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_communication_ac1bc22603b6e05389f94890b745aac4f}{nouveauClient}()));
+00110 
+00111         QBluetoothUuid uuid = QBluetoothUuid(\hyperlink{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}{serviceUuid});
+00112         \hyperlink{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}{serviceInfo} = \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}->listen(uuid, \hyperlink{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}{serviceNom});
+00113     \}
+00114 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}\label{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}} 
+\index{Communication@{Communication}!device\+Connected@{device\+Connected}}
+\index{device\+Connected@{device\+Connected}!Communication@{Communication}}
+\paragraph{\texorpdfstring{device\+Connected}{deviceConnected}}
+{\footnotesize\ttfamily void Communication\+::device\+Connected (\begin{DoxyParamCaption}\item[{const Q\+Bluetooth\+Address \&}]{adresse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand un nouvel appareil est connecté 
+
+Méthode appelée quand l\textquotesingle{}appareil est connecté
+
+
+\begin{DoxyParams}{Paramètres}
+{\em adresse} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00329}{329} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}{appareil\+Connecter()}, \hyperlink{communication_8h_source_l00100}{etat\+Partie}, \hyperlink{communication_8h_source_l00096}{local\+Device}, \hyperlink{communication_8cpp_source_l00415}{mise\+A\+Jour\+Etat\+Partie\+En\+Cours()}, et \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+
+\begin{DoxyCode}
+00330 \{
+00331     qDebug() << Q\_FUNC\_INFO << adresse << \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse);
+00332     QString message = QString::fromUtf8(\textcolor{stringliteral}{"Demande connexion du client "}) + adresse.toString();
+00333     emit \hyperlink{class_communication_ae05ddbb1481cfb64f493940b6db8ed29}{appareilConnecter}();
+00334     \textcolor{keywordflow}{if} (\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse) == QBluetoothLocalDevice::Paired || 
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.pairingStatus(adresse) == QBluetoothLocalDevice::AuthorizedPaired)
+00335         message += \textcolor{stringliteral}{" ["} + QString::fromUtf8(\textcolor{stringliteral}{"appairé"}) + \textcolor{stringliteral}{"]"};
+00336     \textcolor{keywordflow}{else}
+00337         message += \textcolor{stringliteral}{" ["} + QString::fromUtf8(\textcolor{stringliteral}{"non appairé"}) + \textcolor{stringliteral}{"]"} ;
+00338     qDebug() << message << endl;
+00339 
+00340     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause) \textcolor{comment}{// si l'appareil est reconnecte, la partie reprend}
+00341     \{
+00342         emit \hyperlink{class_communication_a2645730b88adec069200debe05d212c3}{play}();
+00343         \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}();
+00344     \}
+00345 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}\label{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}} 
+\index{Communication@{Communication}!device\+Disconnected@{device\+Disconnected}}
+\index{device\+Disconnected@{device\+Disconnected}!Communication@{Communication}}
+\paragraph{\texorpdfstring{device\+Disconnected}{deviceDisconnected}}
+{\footnotesize\ttfamily void Communication\+::device\+Disconnected (\begin{DoxyParamCaption}\item[{const Q\+Bluetooth\+Address \&}]{adresse }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand un appareil est déconnecté 
+
+Méthode appelée quand l\textquotesingle{}appareil est deconnecté
+
+
+\begin{DoxyParams}{Paramètres}
+{\em adresse} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00353}{353} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{class_communication_aff862483641966b73aa713b419b819a9}{afficher\+Attente\+Connexion()}, \hyperlink{communication_8h_source_l00100}{etat\+Partie}, \hyperlink{communication_8cpp_source_l00393}{mise\+A\+Jour\+Etat\+Partie\+Pause()}, et \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+
+\begin{DoxyCode}
+00354 \{
+00355     qDebug() << Q\_FUNC\_INFO << adresse;
+00356     emit \hyperlink{class_communication_aff862483641966b73aa713b419b819a9}{afficherAttenteConnexion}();
+00357 
+00358     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours) \textcolor{comment}{// si l'appareil se deconnecte pendant la partie, il la
+       met donc en pause}
+00359     \{
+00360         emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00361 
+00362         \hyperlink{class_communication_aaf8fbed545d460414fda14f23d5dca5d}{miseAJourEtatPartiePause}();
+00363     \}
+00364 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}\label{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}} 
+\index{Communication@{Communication}!erreur\+Bluetooth@{erreur\+Bluetooth}}
+\index{erreur\+Bluetooth@{erreur\+Bluetooth}!Communication@{Communication}}
+\paragraph{\texorpdfstring{erreur\+Bluetooth}{erreurBluetooth}}
+{\footnotesize\ttfamily void Communication\+::erreur\+Bluetooth (\begin{DoxyParamCaption}\item[{Q\+String}]{erreur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal emit quand un probleme de configuration bluetooth est detecté 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+\mbox{\Hypertarget{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}\label{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}} 
+\index{Communication@{Communication}!error@{error}}
+\index{error@{error}!Communication@{Communication}}
+\paragraph{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily void Communication\+::error (\begin{DoxyParamCaption}\item[{Q\+Bluetooth\+Local\+Device\+::\+Error}]{erreur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand il y a une erreur avec l\textquotesingle{}appareil bluetooth. 
+
+Méthode appelée quand il y a une erreur avec l\textquotesingle{}appareil connecté
+
+
+\begin{DoxyParams}{Paramètres}
+{\em erreur} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00372}{372} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+
+\begin{DoxyCode}
+00373 \{
+00374     qDebug() << Q\_FUNC\_INFO << erreur;
+00375 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}\label{class_communication_aa7fd74ea88ca7b28cb00e6b74b902394}} 
+\index{Communication@{Communication}!extraire\+Parametres\+Trame\+Regle@{extraire\+Parametres\+Trame\+Regle}}
+\index{extraire\+Parametres\+Trame\+Regle@{extraire\+Parametres\+Trame\+Regle}!Communication@{Communication}}
+\paragraph{\texorpdfstring{extraire\+Parametres\+Trame\+Regle()}{extraireParametresTrameRegle()}}
+{\footnotesize\ttfamily void Communication\+::extraire\+Parametres\+Trame\+Regle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Méthode qui decompose la trame regle. 
+
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00279}{279} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficher\+Regle()}, \hyperlink{communication_8h_source_l00093}{darts}, \hyperlink{communication_8h_source_l00100}{etat\+Partie}, \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause()}, \hyperlink{darts_8cpp_source_l00506}{Darts\+::tester\+Mode\+De\+Jeu()}, et \hyperlink{communication_8h_source_l00099}{trame}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}.
+
+
+\begin{DoxyCode}
+00280 \{
+00281     QString regle =\textcolor{stringliteral}{""};
+00282 
+00283     \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Pause)
+00284         emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00285 
+00286     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2).contains(\textcolor{stringliteral}{"DOUBLE\_OUT"}))
+00287     \{
+00288         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\textcolor{stringliteral}{"DOUBLE\_OUT"});
+00289     \}
+00290     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2) == \textcolor{stringliteral}{""} && (\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::EnCours || 
+      \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} == EtatPartie::Pause))
+00291     \{
+00292         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{testerModeDeJeu}());
+00293     \}
+00294     \textcolor{keywordflow}{else}
+00295     \{
+00296         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\textcolor{stringliteral}{"SANS\_DOUBLE\_OUT"});
+00297     \}
+00298 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}\label{class_communication_a31f998e3410e7a1d9e65a05a5d51a9b9}} 
+\index{Communication@{Communication}!extraire\+Parametres\+Trame\+Start@{extraire\+Parametres\+Trame\+Start}}
+\index{extraire\+Parametres\+Trame\+Start@{extraire\+Parametres\+Trame\+Start}!Communication@{Communication}}
+\paragraph{\texorpdfstring{extraire\+Parametres\+Trame\+Start()}{extraireParametresTrameStart()}}
+{\footnotesize\ttfamily void Communication\+::extraire\+Parametres\+Trame\+Start (\begin{DoxyParamCaption}\item[{Q\+String\+List \&}]{joueurs,  }\item[{Q\+String \&}]{mode\+Jeu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Méthode qui extrait les paramètres de la trame S\+T\+A\+RT. 
+
+Méthode qui decompose la trame Start.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueurs} & \\
+\hline
+{\em mode\+Jeu} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00243}{243} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficher\+Regle()}, \hyperlink{communication_8h_source_l00093}{darts}, \hyperlink{communication_8h_source_l00100}{etat\+Partie}, \hyperlink{darts_8cpp_source_l00144}{Darts\+::initialiser\+Partie()}, \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause()}, \hyperlink{darts_8cpp_source_l00506}{Darts\+::tester\+Mode\+De\+Jeu()}, et \hyperlink{communication_8h_source_l00099}{trame}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}.
+
+
+\begin{DoxyCode}
+00244 \{
+00245     modeJeu = \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},2,2);
+00246 
+00247     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4,4).toInt() == 0) \textcolor{comment}{//test effectuer pour verifier que la trame n'est pas une
+       trame de la version du protocol DARTS 0.2}
+00248         \textcolor{keywordflow}{return};
+00249 
+00250     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0;i <= \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4,4).toInt();i++)  \textcolor{comment}{//boucle qui recuperer les noms des
+       differents joueurs}
+00251     \{
+00252         \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4+i,4+i) == \textcolor{stringliteral}{""})    \textcolor{comment}{//test si le joueur a un nom}
+00253         \{
+00254             joueurs.push\_back(\textcolor{stringliteral}{"Joueur["} + QString::number(i) + \textcolor{stringliteral}{"]"});
+00255         \}
+00256         \textcolor{keywordflow}{else}
+00257         \{
+00258             joueurs.push\_back(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},4+i,4+i));
+00259         \}
+00260     \}
+00261 
+00262     \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ac7000897b8d394c3be39804813a39dc8}{initialiserPartie}(joueurs, modeJeu);
+00263 
+00264     \textcolor{keywordflow}{if}(\hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame}.section(\textcolor{stringliteral}{";"},3,3) == \textcolor{stringliteral}{"1"})
+00265     \{
+00266         \textcolor{keywordflow}{if}(\hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} != EtatPartie::Pause)
+00267             emit \hyperlink{class_communication_a369c7aeadc5c5926eb701bdebe53972c}{pause}();
+00268 
+00269         emit \hyperlink{class_communication_a4ee52f9b4a1a97967ab2c48a33e0e392}{afficherRegle}(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{testerModeDeJeu}());
+00270     \}
+00271 
+00272 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a977495ad03ddf275aae49184c9a0dd1a}\label{class_communication_a977495ad03ddf275aae49184c9a0dd1a}} 
+\index{Communication@{Communication}!get\+Etat\+Partie@{get\+Etat\+Partie}}
+\index{get\+Etat\+Partie@{get\+Etat\+Partie}!Communication@{Communication}}
+\paragraph{\texorpdfstring{get\+Etat\+Partie()}{getEtatPartie()}}
+{\footnotesize\ttfamily int Communication\+::get\+Etat\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui retourne l\textquotesingle{}état de la partie. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00049}{49} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00623}{Ihm\+::lancer\+Regle()}.
+
+
+\begin{DoxyCode}
+00050 \{
+00051     \textcolor{keywordflow}{return} \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie};
+00052 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a72557be8ab858096e03f08e78e036aeb}\label{class_communication_a72557be8ab858096e03f08e78e036aeb}} 
+\index{Communication@{Communication}!mise\+A\+Jour\+Etat\+Partie\+Attente@{mise\+A\+Jour\+Etat\+Partie\+Attente}}
+\index{mise\+A\+Jour\+Etat\+Partie\+Attente@{mise\+A\+Jour\+Etat\+Partie\+Attente}!Communication@{Communication}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Etat\+Partie\+Attente()}{miseAJourEtatPartieAttente()}}
+{\footnotesize\ttfamily void Communication\+::mise\+A\+Jour\+Etat\+Partie\+Attente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode appelé pour mettre à jour l\textquotesingle{}état de la partie à Attente. 
+
+Méthode qui met à jour l\textquotesingle{}état de la partie Attente. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00382}{382} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00022}{Communication()}, \hyperlink{communication_8cpp_source_l00305}{reamorcer\+Partie()}, et \hyperlink{ihm_8cpp_source_l00641}{Ihm\+::tester\+Etat\+Partie()}.
+
+
+\begin{DoxyCode}
+00383 \{
+00384     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Attente"};
+00385     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Attente;
+00386 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a1f90de1ff5f98de887b9c77664e105c7}\label{class_communication_a1f90de1ff5f98de887b9c77664e105c7}} 
+\index{Communication@{Communication}!mise\+A\+Jour\+Etat\+Partie\+En\+Cours@{mise\+A\+Jour\+Etat\+Partie\+En\+Cours}}
+\index{mise\+A\+Jour\+Etat\+Partie\+En\+Cours@{mise\+A\+Jour\+Etat\+Partie\+En\+Cours}!Communication@{Communication}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Etat\+Partie\+En\+Cours}{miseAJourEtatPartieEnCours}}
+{\footnotesize\ttfamily void Communication\+::mise\+A\+Jour\+Etat\+Partie\+En\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot appelé pour mettre à jour l\textquotesingle{}état de la partie à En\+Cours. 
+
+Méthode qui met à jour l\textquotesingle{}état de la partie En\+Cours. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00415}{415} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}, \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}, et \hyperlink{ihm_8cpp_source_l00641}{Ihm\+::tester\+Etat\+Partie()}.
+
+
+\begin{DoxyCode}
+00416 \{
+00417     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::EnCours"};
+00418     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::EnCours;
+00419 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}\label{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}} 
+\index{Communication@{Communication}!mise\+A\+Jour\+Etat\+Partie\+Fin@{mise\+A\+Jour\+Etat\+Partie\+Fin}}
+\index{mise\+A\+Jour\+Etat\+Partie\+Fin@{mise\+A\+Jour\+Etat\+Partie\+Fin}!Communication@{Communication}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Etat\+Partie\+Fin}{miseAJourEtatPartieFin}}
+{\footnotesize\ttfamily void Communication\+::mise\+A\+Jour\+Etat\+Partie\+Fin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot appelé pour mettre à jour l\textquotesingle{}état de la partie à Fin. 
+
+Méthode qui met à jour l\textquotesingle{}état de la partie Fin. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00404}{404} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00365}{Ihm\+::finir\+Partie()}, \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}, et \hyperlink{ihm_8cpp_source_l00641}{Ihm\+::tester\+Etat\+Partie()}.
+
+
+\begin{DoxyCode}
+00405 \{
+00406     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Fin"};
+00407     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Fin;
+00408 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_aaf8fbed545d460414fda14f23d5dca5d}\label{class_communication_aaf8fbed545d460414fda14f23d5dca5d}} 
+\index{Communication@{Communication}!mise\+A\+Jour\+Etat\+Partie\+Pause@{mise\+A\+Jour\+Etat\+Partie\+Pause}}
+\index{mise\+A\+Jour\+Etat\+Partie\+Pause@{mise\+A\+Jour\+Etat\+Partie\+Pause}!Communication@{Communication}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Etat\+Partie\+Pause()}{miseAJourEtatPartiePause()}}
+{\footnotesize\ttfamily void Communication\+::mise\+A\+Jour\+Etat\+Partie\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode appelé pour mettre à jour l\textquotesingle{}état de la partie à Pause. 
+
+Méthode qui met à jour l\textquotesingle{}état de la partie Pause. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00393}{393} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00353}{device\+Disconnected()}, et \hyperlink{ihm_8cpp_source_l00641}{Ihm\+::tester\+Etat\+Partie()}.
+
+
+\begin{DoxyCode}
+00394 \{
+00395     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Pause"};
+00396     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Pause;
+00397 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a01a86890468a8ecfb900bf15dcab92f2}\label{class_communication_a01a86890468a8ecfb900bf15dcab92f2}} 
+\index{Communication@{Communication}!mise\+A\+Jour\+Etat\+Partie\+Regle@{mise\+A\+Jour\+Etat\+Partie\+Regle}}
+\index{mise\+A\+Jour\+Etat\+Partie\+Regle@{mise\+A\+Jour\+Etat\+Partie\+Regle}!Communication@{Communication}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Etat\+Partie\+Regle()}{miseAJourEtatPartieRegle()}}
+{\footnotesize\ttfamily void Communication\+::mise\+A\+Jour\+Etat\+Partie\+Regle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui met à jour l\textquotesingle{}état de la partie en regle. 
+
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00426}{426} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00100}{etat\+Partie}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00623}{Ihm\+::lancer\+Regle()}.
+
+
+\begin{DoxyCode}
+00427 \{
+00428     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"EtatPartie::Regle"};
+00429     \hyperlink{class_communication_a2539ded2780db2c732690c585c768c96}{etatPartie} = EtatPartie::Regle;
+00430 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_ac1bc22603b6e05389f94890b745aac4f}\label{class_communication_ac1bc22603b6e05389f94890b745aac4f}} 
+\index{Communication@{Communication}!nouveau\+Client@{nouveau\+Client}}
+\index{nouveau\+Client@{nouveau\+Client}!Communication@{Communication}}
+\paragraph{\texorpdfstring{nouveau\+Client}{nouveauClient}}
+{\footnotesize\ttfamily void Communication\+::nouveau\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand un nouveau client veut se connecter. 
+
+Méthode appelée quand un nouveau client se connecte. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00150}{150} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00094}{serveur}, \hyperlink{communication_8h_source_l00095}{socket}, \hyperlink{communication_8cpp_source_l00317}{socket\+Disconnected()}, et \hyperlink{communication_8cpp_source_l00166}{socket\+Ready\+Read()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00101}{demarrer()}.
+
+
+\begin{DoxyCode}
+00151 \{
+00152     \textcolor{comment}{// on récupère la socket}
+00153     \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket} = \hyperlink{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}{serveur}->nextPendingConnection();
+00154     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket})
+00155         \textcolor{keywordflow}{return};
+00156 
+00157     connect(\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}, SIGNAL(disconnected()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a44f863f2c70f4be652224240447c9fe0}{socketDisconnected}()));
+00158     connect(\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}, SIGNAL(readyRead()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}{socketReadyRead}()));
+00159 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_abe2349c8e1d9536a73c8741425ba867f}\label{class_communication_abe2349c8e1d9536a73c8741425ba867f}} 
+\index{Communication@{Communication}!parametrer\+Bluetooth@{parametrer\+Bluetooth}}
+\index{parametrer\+Bluetooth@{parametrer\+Bluetooth}!Communication@{Communication}}
+\paragraph{\texorpdfstring{parametrer\+Bluetooth()}{parametrerBluetooth()}}
+{\footnotesize\ttfamily void Communication\+::parametrer\+Bluetooth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui configure la connexion Bluetooth en mode serveur. 
+
+configure la communication Bluetooth 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00059}{59} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00093}{darts}, \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}, \hyperlink{communication_8cpp_source_l00353}{device\+Disconnected()}, \hyperlink{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}{erreur\+Bluetooth()}, \hyperlink{communication_8cpp_source_l00372}{error()}, \hyperlink{communication_8h_source_l00096}{local\+Device}, \hyperlink{communication_8h_source_l00098}{local\+Device\+Name}, \hyperlink{communication_8cpp_source_l00415}{mise\+A\+Jour\+Etat\+Partie\+En\+Cours()}, et \hyperlink{communication_8cpp_source_l00404}{mise\+A\+Jour\+Etat\+Partie\+Fin()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00022}{Communication()}.
+
+
+\begin{DoxyCode}
+00060 \{
+00061     \textcolor{keywordflow}{if} (!\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid())
+00062     \{
+00063         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Communication Bluetooth locale valide : "} << 
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid();
+00064         emit \hyperlink{class_communication_a9cb85e46b57b6dfa9e71408010bfc0a9}{erreurBluetooth}(\textcolor{stringliteral}{"Communication Bluetooth locale valide : "} + QString::number(
+      \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.isValid()));
+00065 
+00066         \textcolor{keywordflow}{return};
+00067     \}
+00068     \textcolor{keywordflow}{else}
+00069     \{
+00070         \textcolor{comment}{// active le bluetooth}
+00071         \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.powerOn();
+00072 
+00073         \textcolor{comment}{// lire le nom de l'appareil local}
+00074         \hyperlink{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}{localDeviceName} = \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.name();
+00075 
+00076 
+00077         \textcolor{comment}{//localDevice.setHostMode(QBluetoothLocalDevice::HostConnectable);}
+00078 
+00079         \textcolor{comment}{//ou}
+00080 
+00081         \textcolor{comment}{//les appareil qui ne sont pas jumelé peuvent decouvrir ecran-DARTS}
+00082         \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.setHostMode(QBluetoothLocalDevice::HostDiscoverable);
+00083 
+00084         QList<QBluetoothAddress> remotes;
+00085         remotes = \hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}.connectedDevices();
+00086 
+00087         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{deviceConnected}(QBluetoothAddress)), \textcolor{keyword}{this}, 
+      SLOT(\hyperlink{class_communication_a33db5c9db5da71c20c8c544d1de4eb9a}{deviceConnected}(QBluetoothAddress)));
+00088         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{deviceDisconnected}(QBluetoothAddress)), \textcolor{keyword}{
+      this}, SLOT(\hyperlink{class_communication_a0ee021f517bb0e3f7149ed13f8faf0b1}{deviceDisconnected}(QBluetoothAddress)));
+00089         connect(&\hyperlink{class_communication_a6281796eab7523bef6be1a766e0e906f}{localDevice}, SIGNAL(\hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{error}(QBluetoothLocalDevice::Error)), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_communication_af95addb3c2bc178cfd7c92c6f94680a4}{error}(QBluetoothLocalDevice::Error)));
+00090 
+00091         connect(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}, SIGNAL(etatPartieFini()), \textcolor{keyword}{this} , SLOT(
+      \hyperlink{class_communication_af6b9f4bf3b1df197ce20dccd9b78663f}{miseAJourEtatPartieFin}()));
+00092         connect(\hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}, SIGNAL(changerEtatPartie()), \textcolor{keyword}{this} , SLOT(
+      \hyperlink{class_communication_a1f90de1ff5f98de887b9c77664e105c7}{miseAJourEtatPartieEnCours}()));
+00093     \}
+00094 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a369c7aeadc5c5926eb701bdebe53972c}\label{class_communication_a369c7aeadc5c5926eb701bdebe53972c}} 
+\index{Communication@{Communication}!pause@{pause}}
+\index{pause@{pause}!Communication@{Communication}}
+\paragraph{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily void Communication\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal qui mettra en pause la partie 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00353}{device\+Disconnected()}, \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, et \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}.
+
+\mbox{\Hypertarget{class_communication_a2645730b88adec069200debe05d212c3}\label{class_communication_a2645730b88adec069200debe05d212c3}} 
+\index{Communication@{Communication}!play@{play}}
+\index{play@{play}!Communication@{Communication}}
+\paragraph{\texorpdfstring{play}{play}}
+{\footnotesize\ttfamily void Communication\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal qui relancera le chronometrage de la partie la partie 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, et \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}.
+
+\mbox{\Hypertarget{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}\label{class_communication_a56ed5d11756b1f9efcca609b9f8a59c9}} 
+\index{Communication@{Communication}!reamorcer\+Partie@{reamorcer\+Partie}}
+\index{reamorcer\+Partie@{reamorcer\+Partie}!Communication@{Communication}}
+\paragraph{\texorpdfstring{reamorcer\+Partie()}{reamorcerPartie()}}
+{\footnotesize\ttfamily void Communication\+::reamorcer\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Méthode qui reinitialise la partie. 
+
+
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00305}{305} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8h_source_l00093}{darts}, \hyperlink{communication_8cpp_source_l00382}{mise\+A\+Jour\+Etat\+Partie\+Attente()}, \hyperlink{darts_8cpp_source_l00184}{Darts\+::reinitialiser\+Partie()}, et \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{reset\+Partie()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}.
+
+
+\begin{DoxyCode}
+00306 \{
+00307     emit \hyperlink{class_communication_af79d126304cca4281db4624b1b457ade}{resetPartie}();
+00308     \hyperlink{class_communication_a494d609c206472041468e362d7cfc0e5}{darts}->\hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00309     \hyperlink{class_communication_a72557be8ab858096e03f08e78e036aeb}{miseAJourEtatPartieAttente}();
+00310 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_af79d126304cca4281db4624b1b457ade}\label{class_communication_af79d126304cca4281db4624b1b457ade}} 
+\index{Communication@{Communication}!reset\+Partie@{reset\+Partie}}
+\index{reset\+Partie@{reset\+Partie}!Communication@{Communication}}
+\paragraph{\texorpdfstring{reset\+Partie}{resetPartie}}
+{\footnotesize\ttfamily void Communication\+::reset\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal qui reinitialisera la partie en cours 
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, et \hyperlink{communication_8cpp_source_l00305}{reamorcer\+Partie()}.
+
+\mbox{\Hypertarget{class_communication_a44f863f2c70f4be652224240447c9fe0}\label{class_communication_a44f863f2c70f4be652224240447c9fe0}} 
+\index{Communication@{Communication}!socket\+Disconnected@{socket\+Disconnected}}
+\index{socket\+Disconnected@{socket\+Disconnected}!Communication@{Communication}}
+\paragraph{\texorpdfstring{socket\+Disconnected}{socketDisconnected}}
+{\footnotesize\ttfamily void Communication\+::socket\+Disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand la communication est deconnectée. 
+
+Méthode appelée quand le socket est déconnecté 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00317}{317} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00150}{nouveau\+Client()}.
+
+
+\begin{DoxyCode}
+00318 \{
+00319     QString message = QString::fromUtf8(\textcolor{stringliteral}{"Périphérique déconnecté "});
+00320     qDebug() << Q\_FUNC\_INFO << message;
+00321 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}\label{class_communication_a0576a95d1f3c4ec49172a1040cfbeedf}} 
+\index{Communication@{Communication}!socket\+Ready\+Read@{socket\+Ready\+Read}}
+\index{socket\+Ready\+Read@{socket\+Ready\+Read}!Communication@{Communication}}
+\paragraph{\texorpdfstring{socket\+Ready\+Read}{socketReadyRead}}
+{\footnotesize\ttfamily void Communication\+::socket\+Ready\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot appelé quand une nouvelle trame est disponible. 
+
+Méthode appelée quand une trame est disponible. 
+
+Définition à la ligne \hyperlink{communication_8cpp_source_l00166}{166} du fichier \hyperlink{communication_8cpp_source}{communication.\+cpp}.
+
+
+
+Références \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8h_source_l00095}{socket}, et \hyperlink{communication_8h_source_l00099}{trame}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00150}{nouveau\+Client()}.
+
+
+\begin{DoxyCode}
+00167 \{
+00168     QByteArray donnees;
+00169 
+00170     \textcolor{keywordflow}{while} (\hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->bytesAvailable())
+00171     \{
+00172         donnees += \hyperlink{class_communication_aa4ddc3151b305db0135d5826384645cc}{socket}->readAll();
+00173         usleep(150000); \textcolor{comment}{// cf. timeout}
+00174     \}
+00175 
+00176     \hyperlink{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}{trame} = QString(donnees);
+00177 
+00178     qDebug() << Q\_FUNC\_INFO << QString::fromUtf8(\textcolor{stringliteral}{"Trame reçues : "}) << QString(donnees);
+00179 
+00180     \hyperlink{class_communication_aaf5333662717e69837d2d39164e5a303}{decomposerTrame}();
+00181 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_communication_a494d609c206472041468e362d7cfc0e5}\label{class_communication_a494d609c206472041468e362d7cfc0e5}} 
+\index{Communication@{Communication}!darts@{darts}}
+\index{darts@{darts}!Communication@{Communication}}
+\paragraph{\texorpdfstring{darts}{darts}}
+{\footnotesize\ttfamily \hyperlink{class_darts}{Darts}$\ast$ Communication\+::darts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Association avec l\textquotesingle{}objet darts. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00093}{93} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}, \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}, et \hyperlink{communication_8cpp_source_l00305}{reamorcer\+Partie()}.
+
+\mbox{\Hypertarget{class_communication_a2539ded2780db2c732690c585c768c96}\label{class_communication_a2539ded2780db2c732690c585c768c96}} 
+\index{Communication@{Communication}!etat\+Partie@{etat\+Partie}}
+\index{etat\+Partie@{etat\+Partie}!Communication@{Communication}}
+\paragraph{\texorpdfstring{etat\+Partie}{etatPartie}}
+{\footnotesize\ttfamily \hyperlink{class_communication_aaa8ce2e87a389c88f4f9a2f07b66ebdd}{Etat\+Partie} Communication\+::etat\+Partie\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+L\textquotesingle{}état de la partie. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00100}{100} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}, \hyperlink{communication_8cpp_source_l00353}{device\+Disconnected()}, \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}, \hyperlink{communication_8cpp_source_l00049}{get\+Etat\+Partie()}, \hyperlink{communication_8cpp_source_l00382}{mise\+A\+Jour\+Etat\+Partie\+Attente()}, \hyperlink{communication_8cpp_source_l00415}{mise\+A\+Jour\+Etat\+Partie\+En\+Cours()}, \hyperlink{communication_8cpp_source_l00404}{mise\+A\+Jour\+Etat\+Partie\+Fin()}, \hyperlink{communication_8cpp_source_l00393}{mise\+A\+Jour\+Etat\+Partie\+Pause()}, et \hyperlink{communication_8cpp_source_l00426}{mise\+A\+Jour\+Etat\+Partie\+Regle()}.
+
+\mbox{\Hypertarget{class_communication_a6281796eab7523bef6be1a766e0e906f}\label{class_communication_a6281796eab7523bef6be1a766e0e906f}} 
+\index{Communication@{Communication}!local\+Device@{local\+Device}}
+\index{local\+Device@{local\+Device}!Communication@{Communication}}
+\paragraph{\texorpdfstring{local\+Device}{localDevice}}
+{\footnotesize\ttfamily Q\+Bluetooth\+Local\+Device Communication\+::local\+Device\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+L\textquotesingle{}interface Bluetooth de la Raspberry Pi. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00096}{96} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00121}{arreter()}, \hyperlink{communication_8cpp_source_l00101}{demarrer()}, \hyperlink{communication_8cpp_source_l00329}{device\+Connected()}, \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}, et \hyperlink{communication_8cpp_source_l00036}{$\sim$\+Communication()}.
+
+\mbox{\Hypertarget{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}\label{class_communication_aa70c6b4acb921b03ffa8b8b044e87a94}} 
+\index{Communication@{Communication}!local\+Device\+Name@{local\+Device\+Name}}
+\index{local\+Device\+Name@{local\+Device\+Name}!Communication@{Communication}}
+\paragraph{\texorpdfstring{local\+Device\+Name}{localDeviceName}}
+{\footnotesize\ttfamily Q\+String Communication\+::local\+Device\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Nom du peripherique local. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00098}{98} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00059}{parametrer\+Bluetooth()}.
+
+\mbox{\Hypertarget{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}\label{class_communication_a6384747297d6efa9e8fd2fc79ed0c269}} 
+\index{Communication@{Communication}!serveur@{serveur}}
+\index{serveur@{serveur}!Communication@{Communication}}
+\paragraph{\texorpdfstring{serveur}{serveur}}
+{\footnotesize\ttfamily Q\+Bluetooth\+Server$\ast$ Communication\+::serveur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Le serveur Bluetooth. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00094}{94} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00121}{arreter()}, \hyperlink{communication_8cpp_source_l00101}{demarrer()}, et \hyperlink{communication_8cpp_source_l00150}{nouveau\+Client()}.
+
+\mbox{\Hypertarget{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}\label{class_communication_aa7f9ee5e5d90336a56857ebc229e4274}} 
+\index{Communication@{Communication}!service\+Info@{service\+Info}}
+\index{service\+Info@{service\+Info}!Communication@{Communication}}
+\paragraph{\texorpdfstring{service\+Info}{serviceInfo}}
+{\footnotesize\ttfamily Q\+Bluetooth\+Service\+Info Communication\+::service\+Info\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Informations sur le service bluetooth. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00097}{97} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00121}{arreter()}, et \hyperlink{communication_8cpp_source_l00101}{demarrer()}.
+
+\mbox{\Hypertarget{class_communication_aa4ddc3151b305db0135d5826384645cc}\label{class_communication_aa4ddc3151b305db0135d5826384645cc}} 
+\index{Communication@{Communication}!socket@{socket}}
+\index{socket@{socket}!Communication@{Communication}}
+\paragraph{\texorpdfstring{socket}{socket}}
+{\footnotesize\ttfamily Q\+Bluetooth\+Socket$\ast$ Communication\+::socket\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La socket de communication Bluetooth. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00095}{95} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00121}{arreter()}, \hyperlink{communication_8cpp_source_l00150}{nouveau\+Client()}, et \hyperlink{communication_8cpp_source_l00166}{socket\+Ready\+Read()}.
+
+\mbox{\Hypertarget{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}\label{class_communication_ac8f5004bfaaf7f538ba5ae93255f772b}} 
+\index{Communication@{Communication}!trame@{trame}}
+\index{trame@{trame}!Communication@{Communication}}
+\paragraph{\texorpdfstring{trame}{trame}}
+{\footnotesize\ttfamily Q\+String Communication\+::trame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La trame recue. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00099}{99} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{decomposer\+Trame()}, \hyperlink{communication_8cpp_source_l00279}{extraire\+Parametres\+Trame\+Regle()}, \hyperlink{communication_8cpp_source_l00243}{extraire\+Parametres\+Trame\+Start()}, et \hyperlink{communication_8cpp_source_l00166}{socket\+Ready\+Read()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{communication_8h}{communication.\+h}\item 
+\hyperlink{communication_8cpp}{communication.\+cpp}\end{DoxyCompactItemize}

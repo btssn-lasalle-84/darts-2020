@@ -1,0 +1,617 @@
+\hypertarget{class_joueur}{}\subsection{Référence de la classe Joueur}
+\label{class_joueur}\index{Joueur@{Joueur}}
+
+
+Déclaration de la classe \hyperlink{class_joueur}{Joueur} (Module Ecran-\/\+D\+A\+R\+TS)  
+
+
+
+
+{\ttfamily \#include $<$joueur.\+h$>$}
+
+
+
+Graphe de collaboration de Joueur\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_joueur__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}{add\+Historique\+Volees} (float volee)
+\begin{DoxyCompactList}\small\item\em Méthode qui ajoute la volée au vecteur contenant l\textquotesingle{}historique des volées. \end{DoxyCompactList}\item 
+bool \hyperlink{class_joueur_abb5b33a4782973be4f5b238385c94cac}{get\+Eliminer} () const
+\begin{DoxyCompactList}\small\item\em Retourne un etat true/false pour savoir si le joueur est eliminé \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_a6a9730a4653b10e507c32715920bdea5}{get\+Flechette} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de flechette du joueur. \end{DoxyCompactList}\item 
+Q\+Vector$<$ float $>$ \hyperlink{class_joueur_a2f99a607d1806aae8361bbff086947f1}{get\+Historique\+Volees} () const
+\begin{DoxyCompactList}\small\item\em Retourne le vector contenant tous les scores des volées precedente. \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_ace9bf081d3f518eaed93b53153efcf19}{get\+Moyenne\+Volee} () const
+\begin{DoxyCompactList}\small\item\em Retourne la moyenne des volees. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}{get\+Nom} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nom du joueur. \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}{get\+Score} () const
+\begin{DoxyCompactList}\small\item\em Retourne le score du joueur. \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}{get\+Score\+Manche\+Precedente} () const
+\begin{DoxyCompactList}\small\item\em Retourne le score de la manche precedente. \end{DoxyCompactList}\item 
+\hyperlink{class_joueur_a3832d331fb872c978f7a2d890b024b4c}{Joueur} (Q\+String \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}, int \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}, int \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nb\+Flechette})
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_joueur}{Joueur}. \end{DoxyCompactList}\item 
+void \hyperlink{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}{set\+Eliminer} (bool \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine})
+\begin{DoxyCompactList}\small\item\em permet de modifier si le joueur est eliminer \end{DoxyCompactList}\item 
+void \hyperlink{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}{set\+Moyenne\+Volee} (int \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenne\+Volee})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour la moyenne des volées. \end{DoxyCompactList}\item 
+void \hyperlink{class_joueur_a3220b85c9480a2178764ef58029108aa}{set\+Nb\+Flechette} (int \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nb\+Flechette})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour le nombre de fléchette du joueur. \end{DoxyCompactList}\item 
+void \hyperlink{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}{set\+Score} (int \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour le score du joueur. \end{DoxyCompactList}\item 
+void \hyperlink{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}{set\+Score\+Manche\+Precedente} (int \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{score\+Manche\+Precedente})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour le score de la manche précédente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine}
+\begin{DoxyCompactList}\small\item\em contient un état true/false pour savoir si le joueur est éliminé. \end{DoxyCompactList}\item 
+Q\+Vector$<$ float $>$ \hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historique\+Volees}
+\begin{DoxyCompactList}\small\item\em contient l\textquotesingle{}historique des volées du joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenne\+Volee}
+\begin{DoxyCompactList}\small\item\em contient la moyenne des volées du joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nb\+Flechette}
+\begin{DoxyCompactList}\small\item\em contient le nombre de flechette restante au joueur \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}
+\begin{DoxyCompactList}\small\item\em contient le nom du joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}
+\begin{DoxyCompactList}\small\item\em contient le score du joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{score\+Manche\+Precedente}
+\begin{DoxyCompactList}\small\item\em contient le score de la manche precedente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Déclaration de la classe \hyperlink{class_joueur}{Joueur} (Module Ecran-\/\+D\+A\+R\+TS) 
+
+Cette classe s\textquotesingle{}occupe du stockage du nom, score et nombre de fléchettes du joueur 
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00021}{21} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_joueur_a3832d331fb872c978f7a2d890b024b4c}\label{class_joueur_a3832d331fb872c978f7a2d890b024b4c}} 
+\index{Joueur@{Joueur}!Joueur@{Joueur}}
+\index{Joueur@{Joueur}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{Joueur()}{Joueur()}}
+{\footnotesize\ttfamily Joueur\+::\+Joueur (\begin{DoxyParamCaption}\item[{Q\+String}]{nom,  }\item[{int}]{score,  }\item[{int}]{nb\+Flechette }\end{DoxyParamCaption})}
+
+
+
+Constructeur de la classe \hyperlink{class_joueur}{Joueur}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \\
+\hline
+{\em score} & \\
+\hline
+{\em nb\+Flechette} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00024}{24} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00046}{nb\+Flechette}.
+
+
+\begin{DoxyCode}
+00024                                                       : \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}(\hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom}), \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}(
+      \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}), \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee}(0), \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente}(
+      \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score}), \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette}(\hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette}), \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine}(\textcolor{keyword}{false})
+00025 \{
+00026     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom} << \textcolor{stringliteral}{" "} << \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score} << \textcolor{stringliteral}{" "} << \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00027 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}\label{class_joueur_a219d4e16e9396f56d73485b038fc2d8f}} 
+\index{Joueur@{Joueur}!add\+Historique\+Volees@{add\+Historique\+Volees}}
+\index{add\+Historique\+Volees@{add\+Historique\+Volees}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{add\+Historique\+Volees()}{addHistoriqueVolees()}}
+{\footnotesize\ttfamily void Joueur\+::add\+Historique\+Volees (\begin{DoxyParamCaption}\item[{float}]{volee }\end{DoxyParamCaption})}
+
+
+
+Méthode qui ajoute la volée au vecteur contenant l\textquotesingle{}historique des volées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volee} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00168}{168} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00042}{historique\+Volees}.
+
+
+\begin{DoxyCode}
+00169 \{
+00170     \hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historiqueVolees}.push\_back(volee);
+00171 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_abb5b33a4782973be4f5b238385c94cac}\label{class_joueur_abb5b33a4782973be4f5b238385c94cac}} 
+\index{Joueur@{Joueur}!get\+Eliminer@{get\+Eliminer}}
+\index{get\+Eliminer@{get\+Eliminer}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Eliminer()}{getEliminer()}}
+{\footnotesize\ttfamily bool Joueur\+::get\+Eliminer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne un etat true/false pour savoir si le joueur est eliminé 
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00101}{101} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00047}{elimine}.
+
+
+\begin{DoxyCode}
+00102 \{
+00103     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine};
+00104 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_a6a9730a4653b10e507c32715920bdea5}\label{class_joueur_a6a9730a4653b10e507c32715920bdea5}} 
+\index{Joueur@{Joueur}!get\+Flechette@{get\+Flechette}}
+\index{get\+Flechette@{get\+Flechette}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Flechette()}{getFlechette()}}
+{\footnotesize\ttfamily int Joueur\+::get\+Flechette (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le nombre de flechette du joueur. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00068}{68} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00046}{nb\+Flechette}.
+
+
+\begin{DoxyCode}
+00069 \{
+00070     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00071 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_a2f99a607d1806aae8361bbff086947f1}\label{class_joueur_a2f99a607d1806aae8361bbff086947f1}} 
+\index{Joueur@{Joueur}!get\+Historique\+Volees@{get\+Historique\+Volees}}
+\index{get\+Historique\+Volees@{get\+Historique\+Volees}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Historique\+Volees()}{getHistoriqueVolees()}}
+{\footnotesize\ttfamily Q\+Vector$<$ float $>$ Joueur\+::get\+Historique\+Volees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le vector contenant tous les scores des volées precedente. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Vector$<$float$>$ 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00090}{90} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00042}{historique\+Volees}.
+
+
+\begin{DoxyCode}
+00091 \{
+00092     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_aeb24d1e8125a7bf302167b91a945687e}{historiqueVolees};
+00093 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_ace9bf081d3f518eaed93b53153efcf19}\label{class_joueur_ace9bf081d3f518eaed93b53153efcf19}} 
+\index{Joueur@{Joueur}!get\+Moyenne\+Volee@{get\+Moyenne\+Volee}}
+\index{get\+Moyenne\+Volee@{get\+Moyenne\+Volee}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Moyenne\+Volee()}{getMoyenneVolee()}}
+{\footnotesize\ttfamily int Joueur\+::get\+Moyenne\+Volee (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la moyenne des volees. 
+
+\begin{DoxyReturn}{Renvoie}
+float 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00079}{79} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00044}{moyenne\+Volee}.
+
+
+\begin{DoxyCode}
+00080 \{
+00081     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee};
+00082 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}\label{class_joueur_a1d7082ab1f926eae1bd6834e901751a7}} 
+\index{Joueur@{Joueur}!get\+Nom@{get\+Nom}}
+\index{get\+Nom@{get\+Nom}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Nom()}{getNom()}}
+{\footnotesize\ttfamily Q\+String Joueur\+::get\+Nom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le nom du joueur. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00035}{35} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00041}{nom}.
+
+
+\begin{DoxyCode}
+00036 \{
+00037     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}{nom};
+00038 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}\label{class_joueur_adf4397ffb7fcc340c2d2cc6c45edc8e2}} 
+\index{Joueur@{Joueur}!get\+Score@{get\+Score}}
+\index{get\+Score@{get\+Score}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Score()}{getScore()}}
+{\footnotesize\ttfamily int Joueur\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le score du joueur. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00046}{46} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00043}{score}.
+
+
+\begin{DoxyCode}
+00047 \{
+00048     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score};
+00049 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}\label{class_joueur_ade4640f21e0f3c30390bda7d25b748fa}} 
+\index{Joueur@{Joueur}!get\+Score\+Manche\+Precedente@{get\+Score\+Manche\+Precedente}}
+\index{get\+Score\+Manche\+Precedente@{get\+Score\+Manche\+Precedente}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{get\+Score\+Manche\+Precedente()}{getScoreManchePrecedente()}}
+{\footnotesize\ttfamily int Joueur\+::get\+Score\+Manche\+Precedente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le score de la manche precedente. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00057}{57} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00045}{score\+Manche\+Precedente}.
+
+
+\begin{DoxyCode}
+00058 \{
+00059     \textcolor{keywordflow}{return} this->\hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente};
+00060 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}\label{class_joueur_a41dd9db4a09cd689183cc104dd1e268b}} 
+\index{Joueur@{Joueur}!set\+Eliminer@{set\+Eliminer}}
+\index{set\+Eliminer@{set\+Eliminer}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{set\+Eliminer()}{setEliminer()}}
+{\footnotesize\ttfamily void Joueur\+::set\+Eliminer (\begin{DoxyParamCaption}\item[{bool}]{elimine }\end{DoxyParamCaption})}
+
+
+
+permet de modifier si le joueur est eliminer 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em elimine} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00112}{112} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00047}{elimine}.
+
+
+\begin{DoxyCode}
+00113 \{
+00114     this->\hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine} = \hyperlink{class_joueur_acac733012102f81d05b0a4c0801fcf61}{elimine};
+00115 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}\label{class_joueur_ab3cbde2b9f1662d47cbf4d892b11c933}} 
+\index{Joueur@{Joueur}!set\+Moyenne\+Volee@{set\+Moyenne\+Volee}}
+\index{set\+Moyenne\+Volee@{set\+Moyenne\+Volee}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{set\+Moyenne\+Volee()}{setMoyenneVolee()}}
+{\footnotesize\ttfamily void Joueur\+::set\+Moyenne\+Volee (\begin{DoxyParamCaption}\item[{int}]{moyenne\+Volee }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour la moyenne des volées. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em moyenne\+Volee} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00123}{123} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00044}{moyenne\+Volee}.
+
+
+\begin{DoxyCode}
+00124 \{
+00125     this->\hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee} = \hyperlink{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}{moyenneVolee};
+00126 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_a3220b85c9480a2178764ef58029108aa}\label{class_joueur_a3220b85c9480a2178764ef58029108aa}} 
+\index{Joueur@{Joueur}!set\+Nb\+Flechette@{set\+Nb\+Flechette}}
+\index{set\+Nb\+Flechette@{set\+Nb\+Flechette}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{set\+Nb\+Flechette()}{setNbFlechette()}}
+{\footnotesize\ttfamily void Joueur\+::set\+Nb\+Flechette (\begin{DoxyParamCaption}\item[{int}]{nb\+Flechette }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour le nombre de fléchette du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Flechette} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00157}{157} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00046}{nb\+Flechette}.
+
+
+\begin{DoxyCode}
+00158 \{
+00159     this->\hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette} = \hyperlink{class_joueur_a330099a1952fbf97b2faea2c640b32f5}{nbFlechette};
+00160 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}\label{class_joueur_aa7d833f3aa6058cd51a30c7e6270e696}} 
+\index{Joueur@{Joueur}!set\+Score@{set\+Score}}
+\index{set\+Score@{set\+Score}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{set\+Score()}{setScore()}}
+{\footnotesize\ttfamily void Joueur\+::set\+Score (\begin{DoxyParamCaption}\item[{int}]{score }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour le score du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em score} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00135}{135} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00043}{score}.
+
+
+\begin{DoxyCode}
+00136 \{
+00137     this->\hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score} = \hyperlink{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}{score};
+00138 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}\label{class_joueur_aaa6acb88a58bb2af33176e1468ad2107}} 
+\index{Joueur@{Joueur}!set\+Score\+Manche\+Precedente@{set\+Score\+Manche\+Precedente}}
+\index{set\+Score\+Manche\+Precedente@{set\+Score\+Manche\+Precedente}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{set\+Score\+Manche\+Precedente()}{setScoreManchePrecedente()}}
+{\footnotesize\ttfamily void Joueur\+::set\+Score\+Manche\+Precedente (\begin{DoxyParamCaption}\item[{int}]{score\+Manche\+Precedente }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour le score de la manche précédente. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em score\+Manche\+Precedente} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{joueur_8cpp_source_l00146}{146} du fichier \hyperlink{joueur_8cpp_source}{joueur.\+cpp}.
+
+
+
+Références \hyperlink{joueur_8h_source_l00045}{score\+Manche\+Precedente}.
+
+
+\begin{DoxyCode}
+00147 \{
+00148     this->\hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente} = \hyperlink{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}{scoreManchePrecedente};
+00149 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_joueur_acac733012102f81d05b0a4c0801fcf61}\label{class_joueur_acac733012102f81d05b0a4c0801fcf61}} 
+\index{Joueur@{Joueur}!elimine@{elimine}}
+\index{elimine@{elimine}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{elimine}{elimine}}
+{\footnotesize\ttfamily bool Joueur\+::elimine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient un état true/false pour savoir si le joueur est éliminé. 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00047}{47} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00101}{get\+Eliminer()}, et \hyperlink{joueur_8cpp_source_l00112}{set\+Eliminer()}.
+
+\mbox{\Hypertarget{class_joueur_aeb24d1e8125a7bf302167b91a945687e}\label{class_joueur_aeb24d1e8125a7bf302167b91a945687e}} 
+\index{Joueur@{Joueur}!historique\+Volees@{historique\+Volees}}
+\index{historique\+Volees@{historique\+Volees}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{historique\+Volees}{historiqueVolees}}
+{\footnotesize\ttfamily Q\+Vector$<$float$>$ Joueur\+::historique\+Volees\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient l\textquotesingle{}historique des volées du joueur 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00042}{42} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00168}{add\+Historique\+Volees()}, et \hyperlink{joueur_8cpp_source_l00090}{get\+Historique\+Volees()}.
+
+\mbox{\Hypertarget{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}\label{class_joueur_ac5641a2a8fc1deebe5bba27bf21eb446}} 
+\index{Joueur@{Joueur}!moyenne\+Volee@{moyenne\+Volee}}
+\index{moyenne\+Volee@{moyenne\+Volee}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{moyenne\+Volee}{moyenneVolee}}
+{\footnotesize\ttfamily int Joueur\+::moyenne\+Volee\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient la moyenne des volées du joueur 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00044}{44} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00079}{get\+Moyenne\+Volee()}, et \hyperlink{joueur_8cpp_source_l00123}{set\+Moyenne\+Volee()}.
+
+\mbox{\Hypertarget{class_joueur_a330099a1952fbf97b2faea2c640b32f5}\label{class_joueur_a330099a1952fbf97b2faea2c640b32f5}} 
+\index{Joueur@{Joueur}!nb\+Flechette@{nb\+Flechette}}
+\index{nb\+Flechette@{nb\+Flechette}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{nb\+Flechette}{nbFlechette}}
+{\footnotesize\ttfamily int Joueur\+::nb\+Flechette\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le nombre de flechette restante au joueur 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00046}{46} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00068}{get\+Flechette()}, \hyperlink{joueur_8cpp_source_l00024}{Joueur()}, et \hyperlink{joueur_8cpp_source_l00157}{set\+Nb\+Flechette()}.
+
+\mbox{\Hypertarget{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}\label{class_joueur_ab06d7f1e6b482299bb03919e0cd2166d}} 
+\index{Joueur@{Joueur}!nom@{nom}}
+\index{nom@{nom}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{nom}{nom}}
+{\footnotesize\ttfamily Q\+String Joueur\+::nom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le nom du joueur 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00041}{41} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00035}{get\+Nom()}.
+
+\mbox{\Hypertarget{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}\label{class_joueur_a680896b9ff71c2762ae653ef6aa7c8ce}} 
+\index{Joueur@{Joueur}!score@{score}}
+\index{score@{score}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int Joueur\+::score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le score du joueur 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00043}{43} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00046}{get\+Score()}, et \hyperlink{joueur_8cpp_source_l00135}{set\+Score()}.
+
+\mbox{\Hypertarget{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}\label{class_joueur_ac78f2e83781d2bdeb9a613dc37812736}} 
+\index{Joueur@{Joueur}!score\+Manche\+Precedente@{score\+Manche\+Precedente}}
+\index{score\+Manche\+Precedente@{score\+Manche\+Precedente}!Joueur@{Joueur}}
+\paragraph{\texorpdfstring{score\+Manche\+Precedente}{scoreManchePrecedente}}
+{\footnotesize\ttfamily int Joueur\+::score\+Manche\+Precedente\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le score de la manche precedente 
+
+
+
+Définition à la ligne \hyperlink{joueur_8h_source_l00045}{45} du fichier \hyperlink{joueur_8h_source}{joueur.\+h}.
+
+
+
+Référencé par \hyperlink{joueur_8cpp_source_l00057}{get\+Score\+Manche\+Precedente()}, et \hyperlink{joueur_8cpp_source_l00146}{set\+Score\+Manche\+Precedente()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{joueur_8h}{joueur.\+h}\item 
+\hyperlink{joueur_8cpp}{joueur.\+cpp}\end{DoxyCompactItemize}

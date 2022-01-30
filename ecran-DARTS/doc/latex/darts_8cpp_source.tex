@@ -1,0 +1,382 @@
+\hypertarget{darts_8cpp_source}{}\subsection{darts.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{ #include "\hyperlink{darts_8h}{darts.h}"}
+00002 
+00003 \textcolor{preprocessor}{#include <QDebug>}
+00004 
+\Hypertarget{darts_8cpp_source_l00022}\hyperlink{class_darts_aaa3365c94f97e58a61a05082d0d324d7}{00022} \hyperlink{class_darts_aaa3365c94f97e58a61a05082d0d324d7}{Darts::Darts}(\hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent), joueur(nullptr), nbJoueur(0), 
+      joueurActif(0), manche(1), pointLancer(0), voleeMax(0), nbVolees(0), ModeDeJeu(\textcolor{stringliteral}{""})
+00023 \{
+00024     qDebug() << Q\_FUNC\_INFO;
+00025     \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution} = \textcolor{keyword}{new} \hyperlink{class_solution}{Solution}(\textcolor{keyword}{this});
+00026 \}
+00027 
+\Hypertarget{darts_8cpp_source_l00033}\hyperlink{class_darts_a335882c9fccd527d5c33a509269e0997}{00033} \hyperlink{class_darts_a335882c9fccd527d5c33a509269e0997}{Darts::~Darts}()
+00034 \{
+00035     qDebug() << Q\_FUNC\_INFO;
+00036 \}
+00037 
+\Hypertarget{darts_8cpp_source_l00044}\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{00044} \textcolor{keywordtype}{int} \hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{Darts::getManche}()\textcolor{keyword}{ const}
+00045 \textcolor{keyword}{}\{
+00046     \textcolor{keywordflow}{return} \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche};
+00047 \}
+00048 
+\Hypertarget{darts_8cpp_source_l00055}\hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{00055} QList<Joueur> \hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{Darts::getListJoueur}()\textcolor{keyword}{ const}
+00056 \textcolor{keyword}{}\{
+00057     \textcolor{keywordflow}{return} \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs};
+00058 \}
+00059 
+\Hypertarget{darts_8cpp_source_l00066}\hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{00066} \textcolor{keywordtype}{int} \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{Darts::getVoleeMax}()
+00067 \{
+00068     \textcolor{keywordflow}{return} \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax};
+00069 \}
+00070 
+\Hypertarget{darts_8cpp_source_l00077}\hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{00077} \textcolor{keywordtype}{int} \hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{Darts::getJoueurActif}()
+00078 \{
+00079     \textcolor{keywordflow}{return} \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif};
+00080 \}
+00081 
+\Hypertarget{darts_8cpp_source_l00088}\hyperlink{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}{00088} \textcolor{keywordtype}{int} \hyperlink{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}{Darts::getNbVolees}()
+00089 \{
+00090     \textcolor{keywordflow}{return} \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees};
+00091 \}
+00092 
+\Hypertarget{darts_8cpp_source_l00099}\hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{00099} QString \hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{Darts::getModeDeJeu}()
+00100 \{
+00101     \textcolor{keywordflow}{return} \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00102 \}
+00103 
+\Hypertarget{darts_8cpp_source_l00110}\hyperlink{class_darts_a2e41c247a12dfd3065c77c2484fc5532}{00110} \hyperlink{class_solution}{Solution} *\hyperlink{class_darts_a2e41c247a12dfd3065c77c2484fc5532}{Darts::getSolution}()\textcolor{keyword}{ const}
+00111 \textcolor{keyword}{}\{
+00112     \textcolor{keywordflow}{return} \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution};
+00113 \}
+00114 
+\Hypertarget{darts_8cpp_source_l00121}\hyperlink{class_darts_a982dda6ea65e4ada297cc562617fc3ba}{00121} \textcolor{keywordtype}{void} \hyperlink{class_darts_a982dda6ea65e4ada297cc562617fc3ba}{Darts::setVoleeMax}(\textcolor{keywordtype}{int} \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax})
+00122 \{
+00123     this->voleeMax = \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax};
+00124 \}
+00125 
+\Hypertarget{darts_8cpp_source_l00132}\hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{00132} \textcolor{keywordtype}{void} \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{Darts::setManche}(\textcolor{keywordtype}{int} \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche})
+00133 \{
+00134     this->manche = \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche};
+00135 \}
+00136 
+\Hypertarget{darts_8cpp_source_l00144}\hyperlink{class_darts_ac7000897b8d394c3be39804813a39dc8}{00144} \textcolor{keywordtype}{void} \hyperlink{class_darts_ac7000897b8d394c3be39804813a39dc8}{Darts::initialiserPartie}(QStringList joueurList, QString modeJeu)
+00145 \{
+00146     \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} = joueurList.size() - 1;
+00147     \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu} = modeJeu;
+00148     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbJoueur "} << \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} << \textcolor{stringliteral}{" | Mode De Jeu "} << 
+      \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00149 
+00150     \textcolor{keywordflow}{if}(ModeDeJeu.toInt() >= 101 && ModeDeJeu.toInt() <= 1001)
+00151     \{
+00152         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < joueurList.size() ; i++)
+00153         \{
+00154             \hyperlink{class_joueur}{Joueur} player(joueurList.at(i), ModeDeJeu.toInt(), 3);
+00155             \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.push\_back(player);
+00156         \}
+00157         emit \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficherNouvellePartie}();
+00158         emit \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changerEtatPartie}();
+00159     \}
+00160     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(ModeDeJeu.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}) && (ModeDeJeu.section(\textcolor{stringliteral}{"\_"},0,0).toInt() >= 101 && ModeDeJeu.
+      section(\textcolor{stringliteral}{"\_"},0,0).toInt() <= 1001))
+00161     \{
+00162         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < joueurList.size() ; i++)
+00163         \{
+00164             \hyperlink{class_joueur}{Joueur} player(joueurList.at(i), ModeDeJeu.section(\textcolor{stringliteral}{"\_"},0,0).toInt(), 3);
+00165             \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.push\_back(player);
+00166         \}
+00167         emit \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficherNouvellePartie}();
+00168         emit \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changerEtatPartie}();
+00169     \}
+00170     \textcolor{keywordflow}{else}
+00171     \{
+00172         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Erreur Mode De Jeu : "} << \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00173         \hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00174         \textcolor{keywordflow}{return};
+00175     \}
+00176     \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00177 \}
+00178 
+\Hypertarget{darts_8cpp_source_l00184}\hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{00184} \textcolor{keywordtype}{void} \hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{Darts::reinitialiserPartie}()
+00185 \{
+00186     \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.clear();
+00187     \hyperlink{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}{joueur}.clear();
+00188     \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu} = \textcolor{stringliteral}{""};
+00189     \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} = 0;
+00190     \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00191     \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche} = 1;
+00192     \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = 0;
+00193     \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees} = 0;
+00194     \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax} = 0;
+00195 \}
+00196 
+\Hypertarget{darts_8cpp_source_l00204}\hyperlink{class_darts_a7244911a7b1fe50023987a1c802a5103}{00204} \textcolor{keywordtype}{void} \hyperlink{class_darts_a7244911a7b1fe50023987a1c802a5103}{Darts::testerPoint}(\textcolor{keywordtype}{int} typePoint, \textcolor{keywordtype}{int} point)
+00205 \{
+00206     \textcolor{keywordflow}{if}(typePoint == \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT} && point == \hyperlink{darts_8h_ac26e54839269cea6c170f2699af4ead2}{BULL})
+00207     \{
+00208         \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"D25.wav"});
+00209     \}
+00210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(typePoint == \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT} && point == 0)
+00211     \{
+00212         \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"out.wav"});
+00213     \}
+00214 \}
+00215 
+\Hypertarget{darts_8cpp_source_l00223}\hyperlink{class_darts_a196bc4307c631310f641606012ab9e05}{00223} \textcolor{keywordtype}{void} \hyperlink{class_darts_a196bc4307c631310f641606012ab9e05}{Darts::receptionnerImpact}(\textcolor{keywordtype}{int} typePoint, \textcolor{keywordtype}{int} point)
+00224 \{
+00225     \hyperlink{class_darts_a6a6c58dee559e851709d76fef9a8c6da}{calculerPoints}(point, typePoint);
+00226 
+00227     \hyperlink{class_darts_a7244911a7b1fe50023987a1c802a5103}{testerPoint}(typePoint, point);
+00228 
+00229     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() == 3)
+00230         emit \hyperlink{class_darts_afcf6c21d8489e9cf1734458a23b518eb}{actualiserCible}();
+00231 
+00232     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() << \textcolor{stringliteral}{" SCORE : "} <<
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() - \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} << endl;
+00233 
+00234     emit \hyperlink{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}{nouvelImpact}(typePoint, point, \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer});
+00235     \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScore(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() - 
+      \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer});
+00236     \hyperlink{class_darts_af34338eccf367fb9ed939ff95768a221}{testerImpact}(typePoint);
+00237     emit \hyperlink{class_darts_a455fa1efac223393aff2afbd33352569}{miseAJourPoint}();
+00238 \}
+00239 
+\Hypertarget{darts_8cpp_source_l00246}\hyperlink{class_darts_af34338eccf367fb9ed939ff95768a221}{00246} \textcolor{keywordtype}{void} \hyperlink{class_darts_af34338eccf367fb9ed939ff95768a221}{Darts::testerImpact}(\textcolor{keywordtype}{int} typePoint)
+00247 \{
+00248     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()  == 0 && (typePoint == 
+      \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT}) && (\hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu}.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}))) \textcolor{comment}{//fin avec double}
+00249     \{
+00250         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00251         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00252         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  Winner "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{"  ↣"}, 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00253         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00254     \}
+00255     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()  == 0 && !
+      \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu}.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}))    \textcolor{comment}{//fin sans double}
+00256     \{
+00257         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00258         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00259         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  Winner "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{"  ↣"} , 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00260         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00261     \}
+00262     \textcolor{keywordflow}{else}
+00263     \{
+00264         \hyperlink{class_darts_ac96311be89ac838f4a37b91bd5655171}{enleverPointImpact}();
+00265         \hyperlink{class_darts_a76db114bd2191b410bab26cfe5cb76fb}{gererManche}();
+00266     \}
+00267 \}
+00268 
+\Hypertarget{darts_8cpp_source_l00274}\hyperlink{class_darts_ac96311be89ac838f4a37b91bd5655171}{00274} \textcolor{keywordtype}{void} \hyperlink{class_darts_ac96311be89ac838f4a37b91bd5655171}{Darts::enleverPointImpact}()
+00275 \{
+00276     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() <= 0) \textcolor{comment}{//score Volée inferieure au score = Volée
+       annulée}
+00277     \{
+00278         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScore(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente());
+00279         emit \hyperlink{class_darts_a78f609ea9e8867459804bad777ce39f3}{voleeAnnulee}();
+00280 
+00281         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(0);
+00282     \}
+00283     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() == 1 && \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() == 1)    \textcolor{comment}{//
+       test si le joueur est seul à jouer et s'il est a 1 point == joueur éliminer donc fin de partie}
+00284     \{
+00285         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00286         emit \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"perdu.wav"});
+00287         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{" a perdu  ↣"}, 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00288         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00289     \}
+00290     \textcolor{keywordflow}{else}
+00291     \{
+00292         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00293         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() - 1);
+00294         \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00295     \}
+00296 \}
+00297 
+\Hypertarget{darts_8cpp_source_l00303}\hyperlink{class_darts_a76db114bd2191b410bab26cfe5cb76fb}{00303} \textcolor{keywordtype}{void} \hyperlink{class_darts_a76db114bd2191b410bab26cfe5cb76fb}{Darts::gererManche}()
+00304 \{
+00305     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() == 0) \textcolor{comment}{//fin de la volées du joueur}
+00306     \{
+00307         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(3);
+00308 
+00309         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00310         \hyperlink{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}{testerSiJoueurEliminer}();
+00311         \hyperlink{class_darts_a0fbfcd2202600e886177e2202a44b3bd}{testerNombreJoueurRestand}();
+00312 
+00313         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].addHistoriqueVolees((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()));
+00314 
+00315         \textcolor{keywordflow}{if}((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()) == 180)
+00316             emit \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"180.wav"});
+00317 
+00318         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScoreManchePrecedente(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore());
+00319 
+00320         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} == \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} - 1)  \textcolor{comment}{//equivalent a la fin de manche}
+00321         \{
+00322             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00323 
+00324             \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{controlerJoueurEliminer}();
+00325 
+00326             \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{setManche}(\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{getManche}() + 1);
+00327             emit \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changementJoueurActif}();
+00328             \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{calculerMoyenneVolees}();
+00329             emit \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelleManche}();
+00330             \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00331         \}
+00332         \textcolor{keywordflow}{else}
+00333         \{
+00334             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}++;
+00335 
+00336             \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{controlerJoueurEliminer}();
+00337 
+00338             emit \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changementJoueurActif}();
+00339             \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00340         \}
+00341     \}
+00342 \}
+00343 
+\Hypertarget{darts_8cpp_source_l00349}\hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{00349} \textcolor{keywordtype}{void} \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{Darts::controlerJoueurEliminer}()
+00350 \{
+00351     \textcolor{keywordflow}{while}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getEliminer()) \textcolor{comment}{//tant que le joueur est eliminer on passe
+       donc au joueur suivant}
+00352     \{
+00353         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} == \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} - 1)  \textcolor{comment}{//si le joueur est le dernier de la manche à
+       jouer}
+00354         \{
+00355             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00356             \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{setManche}(\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{getManche}() + 1);
+00357             \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{calculerMoyenneVolees}();
+00358             emit \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelleManche}();
+00359         \}
+00360         \textcolor{keywordflow}{else}                            \textcolor{comment}{//si le joueur n'est pas le dernier de la manche}
+00361         \{
+00362             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}++;
+00363         \}
+00364     \}
+00365 \}
+00366 
+\Hypertarget{darts_8cpp_source_l00372}\hyperlink{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}{00372} \textcolor{keywordtype}{void} \hyperlink{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}{Darts::testerSiJoueurEliminer}()
+00373 \{
+00374     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() == 1)    \textcolor{comment}{//joueur eliminé si tomber à 1 point}
+00375     \{
+00376         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setEliminer(\textcolor{keyword}{true});
+00377     \}
+00378 
+00379 
+00380 \}
+00381 
+\Hypertarget{darts_8cpp_source_l00387}\hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{00387} \textcolor{keywordtype}{void} \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{Darts::calculerMoyenneVolees}()
+00388 \{
+00389     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00390     \{
+00391         \textcolor{keywordtype}{int} moyenneVolee = 0;
+00392 
+00393         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees().size(); j++)
+00394         \{
+00395             moyenneVolee += \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees()[j];
+00396         \}
+00397 
+00398         moyenneVolee = moyenneVolee / \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees().size();
+00399         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].setMoyenneVolee(moyenneVolee);
+00400     \}
+00401     emit \hyperlink{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}{miseAJourMoyenneVolee}();
+00402 \}
+00403 
+\Hypertarget{darts_8cpp_source_l00409}\hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{00409} \textcolor{keywordtype}{void} \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{Darts::gererVoleeMax}()
+00410 \{
+00411     \textcolor{keywordflow}{if}((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()) > \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}())
+00412     \{
+00413         \hyperlink{class_darts_a982dda6ea65e4ada297cc562617fc3ba}{setVoleeMax}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore());
+00414     \}
+00415 \}
+00416 
+\Hypertarget{darts_8cpp_source_l00422}\hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{00422} \textcolor{keywordtype}{void} \hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{Darts::arreterPartie}()
+00423 \{
+00424     emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\hyperlink{class_darts_a4d7196c95f584cdce4a33d52f934121f}{calculerGagnant}(), \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00425 \}
+00426 
+\Hypertarget{darts_8cpp_source_l00433}\hyperlink{class_darts_a4d7196c95f584cdce4a33d52f934121f}{00433} QString \hyperlink{class_darts_a4d7196c95f584cdce4a33d52f934121f}{Darts::calculerGagnant}()
+00434 \{
+00435     QString gagnant;
+00436     \textcolor{keywordtype}{int} scoreGagnant = 99999;
+00437     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00438     \{
+00439         \textcolor{keywordflow}{if}(scoreGagnant > \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getScore() && !\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getEliminer()) \textcolor{comment}{// test le
+       personne aillant le score le plus bas score mais aussi qu'il ne soit pas eliminer}
+00440         \{
+00441             scoreGagnant = \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getScore();
+00442             gagnant = \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getNom();
+00443         \}
+00444     \}
+00445     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"↢  Winner "} + gagnant + \textcolor{stringliteral}{"  ↣"};
+00446 \}
+00447 
+\Hypertarget{darts_8cpp_source_l00453}\hyperlink{class_darts_a0fbfcd2202600e886177e2202a44b3bd}{00453} \textcolor{keywordtype}{void} \hyperlink{class_darts_a0fbfcd2202600e886177e2202a44b3bd}{Darts::testerNombreJoueurRestand}()
+00454 \{
+00455     \textcolor{keywordtype}{int} eliminer = 0;
+00456 
+00457     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00458     \{
+00459         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getEliminer())
+00460         \{
+00461             eliminer++;
+00462         \}
+00463     \}
+00464 
+00465     \textcolor{keywordflow}{if}(eliminer == \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1)
+00466     \{
+00467         \hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{arreterPartie}();
+00468     \}
+00469 \}
+00470 
+\Hypertarget{darts_8cpp_source_l00478}\hyperlink{class_darts_a6a6c58dee559e851709d76fef9a8c6da}{00478} \textcolor{keywordtype}{void} \hyperlink{class_darts_a6a6c58dee559e851709d76fef9a8c6da}{Darts::calculerPoints}(\textcolor{keywordtype}{int} point, \textcolor{keywordtype}{int} typePoint)
+00479 \{
+00480     \textcolor{keywordflow}{switch}(typePoint)
+00481     \{
+00482         \textcolor{keywordflow}{case} \hyperlink{darts_8h_a1bd6caead3e7edd423f064b3af34e486}{TRIPLE\_POINT}:
+00483             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_a1bd6caead3e7edd423f064b3af34e486}{TRIPLE\_POINT};
+00484         \textcolor{keywordflow}{break};
+00485         \textcolor{keywordflow}{case} \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT}:
+00486             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT};
+00487         \textcolor{keywordflow}{break};
+00488         \textcolor{keywordflow}{case} \hyperlink{darts_8h_a180cfdf433b8c9594f209d3c71c7c992}{SIMPLE\_POINT}:
+00489             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point;
+00490         \textcolor{keywordflow}{break};
+00491         \textcolor{keywordflow}{case}  \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT}:
+00492             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT};
+00493         \textcolor{keywordflow}{break};
+00494         \textcolor{keywordflow}{default}:
+00495             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"type de point non valide:"} << typePoint;
+00496         \textcolor{keywordflow}{break};
+00497     \}
+00498 \}
+00499 
+\Hypertarget{darts_8cpp_source_l00506}\hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{00506} QString \hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{Darts::testerModeDeJeu}()
+00507 \{
+00508     QString regle =\textcolor{stringliteral}{""};
+00509 
+00510     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{getModeDeJeu}().contains(\textcolor{stringliteral}{"DOUBLE\_OUT"}))
+00511     \{
+00512         regle = \textcolor{stringliteral}{"DOUBLE\_OUT"};
+00513     \}
+00514     \textcolor{keywordflow}{else}
+00515     \{
+00516         regle = \textcolor{stringliteral}{"SANS\_DOUBLE\_OUT"};
+00517     \}
+00518     \textcolor{keywordflow}{return} regle;
+00519 \}
+\end{DoxyCode}

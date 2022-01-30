@@ -1,0 +1,64 @@
+\hypertarget{main_8cpp}{}\subsection{Référence du fichier main.\+cpp}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+Programme principal ecran-\/\+D\+A\+R\+TS.  
+
+
+{\ttfamily \#include \char`\"{}ihm.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Q\+Application$>$}\newline
+\subsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_ae0665038b72011f5c680c660fcb59459}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Programme principal ecran-\/\+D\+A\+R\+TS. 
+
+Crée et affiche la fenêtre principale de l\textquotesingle{}application ecran-\/\+D\+A\+R\+TS
+
+\begin{DoxyAuthor}{Auteur}
+Bounoir Fabien
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+2 
+\end{DoxyVersion}
+
+
+Définition dans le fichier \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+
+
+\subsubsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8cpp_ae0665038b72011f5c680c660fcb59459}\label{main_8cpp_ae0665038b72011f5c680c660fcb59459}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\paragraph{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argc} & \\
+\hline
+{\em argv\mbox{[}$\,$\mbox{]}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{main_8cpp_source_l00021}{21} du fichier \hyperlink{main_8cpp_source}{main.\+cpp}.
+
+
+\begin{DoxyCode}
+00022 \{
+00023     QApplication a(argc, argv);
+00024     \hyperlink{class_ihm}{Ihm} w;
+00025     w.showFullScreen();
+00026 
+00027     \textcolor{keywordflow}{return} a.exec();
+00028 \}
+\end{DoxyCode}

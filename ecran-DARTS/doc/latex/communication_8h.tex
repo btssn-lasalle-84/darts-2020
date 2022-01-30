@@ -1,0 +1,109 @@
+\hypertarget{communication_8h}{}\subsection{Référence du fichier communication.\+h}
+\label{communication_8h}\index{communication.\+h@{communication.\+h}}
+
+
+Déclaration de la classe \hyperlink{class_communication}{Communication} (Module Ecran-\/\+D\+A\+R\+TS)  
+
+
+{\ttfamily \#include \char`\"{}darts.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Q\+Object$>$}\newline
+{\ttfamily \#include $<$Q\+String$>$}\newline
+{\ttfamily \#include $<$Q\+Bluetooth\+Local\+Device$>$}\newline
+{\ttfamily \#include $<$Q\+Bluetooth\+Server$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_communication}{Communication}
+\begin{DoxyCompactList}\small\item\em Déclaration de la classe \hyperlink{class_communication}{Communication} via la liaison Bluetooth (Module Ecran-\/\+D\+A\+R\+TS) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}~\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em Définit le délimiteur de fin de trame du protocole D\+A\+R\+TS. \end{DoxyCompactList}\item 
+\#define \hyperlink{communication_8h_a8da23fa25560c54c52884746a5d1cc69}{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME}~\char`\"{}\$D\+A\+RT\char`\"{}
+\begin{DoxyCompactList}\small\item\em Définit le type de trame du protocole D\+A\+R\+TS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static const Q\+String \hyperlink{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}{service\+Nom} (Q\+String\+Literal(\char`\"{}Ecran-\/\hyperlink{class_darts}{Darts}\char`\"{}))
+\item 
+static const Q\+String \hyperlink{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}{service\+Uuid} (Q\+String\+Literal(\char`\"{}0000110a-\/0000-\/1000-\/8000-\/00805f9b34fb\char`\"{}))
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Déclaration de la classe \hyperlink{class_communication}{Communication} (Module Ecran-\/\+D\+A\+R\+TS) 
+
+\begin{DoxyVersion}{Version}
+0.\+2
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Auteur}
+Bounoir Fabien 
+\end{DoxyAuthor}
+
+
+Définition dans le fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+\subsubsection{Documentation des macros}
+\mbox{\Hypertarget{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}\label{communication_8h_aafcc0c7b4996f7783c9f4e766a233487}} 
+\index{communication.\+h@{communication.\+h}!D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN@{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}}
+\index{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN@{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}!communication.\+h@{communication.\+h}}
+\paragraph{\texorpdfstring{D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN}{DELIMITEUR\_FIN}}
+{\footnotesize\ttfamily \#define D\+E\+L\+I\+M\+I\+T\+E\+U\+R\+\_\+\+F\+IN~\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}}
+
+
+
+Définit le délimiteur de fin de trame du protocole D\+A\+R\+TS. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00030}{30} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{Communication\+::decomposer\+Trame()}.
+
+\mbox{\Hypertarget{communication_8h_a8da23fa25560c54c52884746a5d1cc69}\label{communication_8h_a8da23fa25560c54c52884746a5d1cc69}} 
+\index{communication.\+h@{communication.\+h}!T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME@{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME}}
+\index{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME@{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME}!communication.\+h@{communication.\+h}}
+\paragraph{\texorpdfstring{T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME}{TYPE\_TRAME}}
+{\footnotesize\ttfamily \#define T\+Y\+P\+E\+\_\+\+T\+R\+A\+ME~\char`\"{}\$D\+A\+RT\char`\"{}}
+
+
+
+Définit le type de trame du protocole D\+A\+R\+TS. 
+
+
+
+Définition à la ligne \hyperlink{communication_8h_source_l00024}{24} du fichier \hyperlink{communication_8h_source}{communication.\+h}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{Communication\+::decomposer\+Trame()}.
+
+
+
+\subsubsection{Documentation des fonctions}
+\mbox{\Hypertarget{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}\label{communication_8h_a28fc73dd6a464ea3a1cdb210ee7a1925}} 
+\index{communication.\+h@{communication.\+h}!service\+Nom@{service\+Nom}}
+\index{service\+Nom@{service\+Nom}!communication.\+h@{communication.\+h}}
+\paragraph{\texorpdfstring{service\+Nom()}{serviceNom()}}
+{\footnotesize\ttfamily static const Q\+String service\+Nom (\begin{DoxyParamCaption}\item[{Q\+String\+Literal(\char`\"{}Ecran-\/\hyperlink{class_darts}{Darts}\char`\"{})}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00101}{Communication\+::demarrer()}.
+
+\mbox{\Hypertarget{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}\label{communication_8h_a50c84e57d8bf82d8048cc731a5679b64}} 
+\index{communication.\+h@{communication.\+h}!service\+Uuid@{service\+Uuid}}
+\index{service\+Uuid@{service\+Uuid}!communication.\+h@{communication.\+h}}
+\paragraph{\texorpdfstring{service\+Uuid()}{serviceUuid()}}
+{\footnotesize\ttfamily static const Q\+String service\+Uuid (\begin{DoxyParamCaption}\item[{Q\+String\+Literal(\char`\"{}0000110a-\/0000-\/1000-\/8000-\/00805f9b34fb\char`\"{})}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00101}{Communication\+::demarrer()}.
+

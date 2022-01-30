@@ -1,0 +1,1572 @@
+\hypertarget{class_darts}{}\subsection{Référence de la classe Darts}
+\label{class_darts}\index{Darts@{Darts}}
+
+
+Déclaration de la classe \hyperlink{class_darts}{Darts} (Module Ecran-\/\+D\+A\+R\+TS)  
+
+
+
+
+{\ttfamily \#include $<$darts.\+h$>$}
+
+
+
+Graphe de collaboration de Darts\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_darts__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_darts_afcf6c21d8489e9cf1734458a23b518eb}{actualiser\+Cible} ()
+\begin{DoxyCompactList}\small\item\em signal émis pour changer actualiser l\textquotesingle{}affichage de la cible \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficher\+Nouvelle\+Partie} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand il y a une nouvelle partie \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changement\+Joueur\+Actif} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand le joueur actif change \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changer\+Etat\+Partie} ()
+\begin{DoxyCompactList}\small\item\em signal émis pour changer l\textquotesingle{}etat de la partie \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etat\+Partie\+Fini} ()
+\begin{DoxyCompactList}\small\item\em signal émis pour mettre l\textquotesingle{}etat de la partie en fin \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{fin\+Partie} (Q\+String, int)
+\begin{DoxyCompactList}\small\item\em signal émis quand c\textquotesingle{}est la fin de la partie \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouer\+Son} (Q\+String son)
+\begin{DoxyCompactList}\small\item\em signal émis pour Lancer un son \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}{mise\+A\+Jour\+Moyenne\+Volee} ()
+\begin{DoxyCompactList}\small\item\em signal émis pour mettre à jour la moyenne des volées \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a455fa1efac223393aff2afbd33352569}{mise\+A\+Jour\+Point} ()
+\begin{DoxyCompactList}\small\item\em signal émis pour mettre à jour les points des joueurs \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}{nouvel\+Impact} (int, int, int)
+\begin{DoxyCompactList}\small\item\em signal émis quand il y a un nouvel Impact \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelle\+Manche} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand on change de manche \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a78f609ea9e8867459804bad777ce39f3}{volee\+Annulee} ()
+\begin{DoxyCompactList}\small\item\em signal émis quand la volées est annulé \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{arreter\+Partie} ()
+\begin{DoxyCompactList}\small\item\em arrête la partie \end{DoxyCompactList}\item 
+\hyperlink{class_darts_aaa3365c94f97e58a61a05082d0d324d7}{Darts} (\hyperlink{class_q_object}{Q\+Object} $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_darts}{Darts}. \end{DoxyCompactList}\item 
+\hyperlink{class_darts}{Darts} $\ast$ \hyperlink{class_darts_a6548d12f81017792cf46b25f68fc5df8}{get\+Darts} ()
+\item 
+int \hyperlink{class_darts_a20ddfd28c8355c06a90cc23abff3de11}{get\+Joueur\+Actif} ()
+\begin{DoxyCompactList}\small\item\em Retourne le numéro du joueur actif. \end{DoxyCompactList}\item 
+Q\+List$<$ \hyperlink{class_joueur}{Joueur} $>$ \hyperlink{class_darts_a0525b09703d3461bf5570197354743c3}{get\+List\+Joueur} () const
+\begin{DoxyCompactList}\small\item\em Retourne une liste des joueurs. \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{get\+Manche} () const
+\begin{DoxyCompactList}\small\item\em Retourne la manche. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{get\+Mode\+De\+Jeu} ()
+\begin{DoxyCompactList}\small\item\em Retourne le mode de jeu. \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}{get\+Nb\+Volees} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de volées de la partie. \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} $\ast$ \hyperlink{class_darts_a2e41c247a12dfd3065c77c2484fc5532}{get\+Solution} () const
+\begin{DoxyCompactList}\small\item\em retourne l\textquotesingle{}objet solution \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{get\+Volee\+Max} ()
+\begin{DoxyCompactList}\small\item\em Retourne la volée max. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_ac7000897b8d394c3be39804813a39dc8}{initialiser\+Partie} (Q\+String\+List joueur\+List, Q\+String mode\+Jeu)
+\begin{DoxyCompactList}\small\item\em Initialise la partie. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a196bc4307c631310f641606012ab9e05}{receptionner\+Impact} (int type\+Point, int point)
+\begin{DoxyCompactList}\small\item\em Permets de traiter la réception d\textquotesingle{}impact. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiser\+Partie} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui permet de remettre a zero les differents attribut et conteneur pour une nouvelle partie. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{set\+Manche} (int \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour le numéro de manche. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a982dda6ea65e4ada297cc562617fc3ba}{set\+Volee\+Max} (int \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{volee\+Max})
+\begin{DoxyCompactList}\small\item\em Permets de mettre à jour le volé max. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_darts_ad6535ce917119069ec099cea0e744971}{tester\+Mode\+De\+Jeu} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui teste le mode de jeu. \end{DoxyCompactList}\item 
+\hyperlink{class_darts_a335882c9fccd527d5c33a509269e0997}{$\sim$\+Darts} ()
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \hyperlink{class_darts}{Darts}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{class_darts_a4d7196c95f584cdce4a33d52f934121f}{calculer\+Gagnant} ()
+\begin{DoxyCompactList}\small\item\em Calcule le gagnant de la partie si la partie doit s\textquotesingle{}arrêter avant la fin. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{calculer\+Moyenne\+Volees} ()
+\begin{DoxyCompactList}\small\item\em Calcule la moyenne des volées de chaque joueur. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a6a6c58dee559e851709d76fef9a8c6da}{calculer\+Points} (int point, int type\+Point)
+\begin{DoxyCompactList}\small\item\em Teste s\textquotesingle{}il reste qu\textquotesingle{}un joueur n\textquotesingle{}était pas éliminé \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{controler\+Joueur\+Eliminer} ()
+\begin{DoxyCompactList}\small\item\em Change de joueur si le joueur actuel est éliminé \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_ac96311be89ac838f4a37b91bd5655171}{enlever\+Point\+Impact} ()
+\begin{DoxyCompactList}\small\item\em Met à jours le score du joueur. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a76db114bd2191b410bab26cfe5cb76fb}{gerer\+Manche} ()
+\begin{DoxyCompactList}\small\item\em Permets de gérer le changement de manche en fonction des fléchettes de chaque joueur. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gerer\+Volee\+Max} ()
+\begin{DoxyCompactList}\small\item\em Teste la volée pour savoir si elle est supérieure à la volée Max. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_af34338eccf367fb9ed939ff95768a221}{tester\+Impact} (int type\+Point)
+\begin{DoxyCompactList}\small\item\em Teste si le joueur a gagné \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a0fbfcd2202600e886177e2202a44b3bd}{tester\+Nombre\+Joueur\+Restand} ()
+\begin{DoxyCompactList}\small\item\em Teste s\textquotesingle{}il reste qu\textquotesingle{}un joueur n\textquotesingle{}était pas éliminé \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a7244911a7b1fe50023987a1c802a5103}{tester\+Point} (int type\+Point, int point)
+\begin{DoxyCompactList}\small\item\em Méthode qui teste les Impact pour savoir quel son jouer. \end{DoxyCompactList}\item 
+void \hyperlink{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}{tester\+Si\+Joueur\+Eliminer} ()
+\begin{DoxyCompactList}\small\item\em Teste si le joueur est à 1 point à la fin de la manche. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String\+List \hyperlink{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}{joueur}
+\begin{DoxyCompactList}\small\item\em contient les noms des differents joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueur\+Actif}
+\begin{DoxyCompactList}\small\item\em contient le numero du joueur en train de jouer \end{DoxyCompactList}\item 
+Q\+List$<$ \hyperlink{class_joueur}{Joueur} $>$ \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}
+\begin{DoxyCompactList}\small\item\em contient des objets joueurs \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche}
+\begin{DoxyCompactList}\small\item\em contient le numero de la manche actuel \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{Mode\+De\+Jeu}
+\begin{DoxyCompactList}\small\item\em contient le mode de jeu en cours \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nb\+Joueur}
+\begin{DoxyCompactList}\small\item\em contient le nombre de joueur \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nb\+Volees}
+\begin{DoxyCompactList}\small\item\em contient le nombre de Volées de la partie en cours \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{point\+Lancer}
+\begin{DoxyCompactList}\small\item\em contient les point associer l\textquotesingle{}impact de la fleche \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} $\ast$ \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}
+\begin{DoxyCompactList}\small\item\em Association vers l\textquotesingle{}objet solution. \end{DoxyCompactList}\item 
+int \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{volee\+Max}
+\begin{DoxyCompactList}\small\item\em contient la volées Max \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Description détaillée}
+Déclaration de la classe \hyperlink{class_darts}{Darts} (Module Ecran-\/\+D\+A\+R\+TS) 
+
+Cette classe s\textquotesingle{}occuper du déroulement d\textquotesingle{}une partie 
+
+Définition à la ligne \hyperlink{darts_8h_source_l00032}{32} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+\subsubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_darts_aaa3365c94f97e58a61a05082d0d324d7}\label{class_darts_aaa3365c94f97e58a61a05082d0d324d7}} 
+\index{Darts@{Darts}!Darts@{Darts}}
+\index{Darts@{Darts}!Darts@{Darts}}
+\paragraph{\texorpdfstring{Darts()}{Darts()}}
+{\footnotesize\ttfamily Darts\+::\+Darts (\begin{DoxyParamCaption}\item[{\hyperlink{class_q_object}{Q\+Object} $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur de la classe \hyperlink{class_darts}{Darts}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00022}{22} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00072}{solution}.
+
+
+\begin{DoxyCode}
+00022                             : \hyperlink{class_q_object}{QObject}(parent), \hyperlink{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}{joueur}(\textcolor{keyword}{nullptr}), 
+      \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur}(0), \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}(0), \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche}(1), \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer}(0), 
+      \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax}(0), \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}(0), \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu}(\textcolor{stringliteral}{""})
+00023 \{
+00024     qDebug() << Q\_FUNC\_INFO;
+00025     \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution} = \textcolor{keyword}{new} \hyperlink{class_solution}{Solution}(\textcolor{keyword}{this});
+00026 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a335882c9fccd527d5c33a509269e0997}\label{class_darts_a335882c9fccd527d5c33a509269e0997}} 
+\index{Darts@{Darts}!````~Darts@{$\sim$\+Darts}}
+\index{````~Darts@{$\sim$\+Darts}!Darts@{Darts}}
+\paragraph{\texorpdfstring{$\sim$\+Darts()}{~Darts()}}
+{\footnotesize\ttfamily Darts\+::$\sim$\+Darts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur de la classe \hyperlink{class_darts}{Darts}. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00033}{33} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+\begin{DoxyCode}
+00034 \{
+00035     qDebug() << Q\_FUNC\_INFO;
+00036 \}
+\end{DoxyCode}
+
+
+\subsubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_darts_afcf6c21d8489e9cf1734458a23b518eb}\label{class_darts_afcf6c21d8489e9cf1734458a23b518eb}} 
+\index{Darts@{Darts}!actualiser\+Cible@{actualiser\+Cible}}
+\index{actualiser\+Cible@{actualiser\+Cible}!Darts@{Darts}}
+\paragraph{\texorpdfstring{actualiser\+Cible}{actualiserCible}}
+{\footnotesize\ttfamily void Darts\+::actualiser\+Cible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour changer actualiser l\textquotesingle{}affichage de la cible 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_a650d6efdef25756bfbbacb0bb3549c43}\label{class_darts_a650d6efdef25756bfbbacb0bb3549c43}} 
+\index{Darts@{Darts}!afficher\+Nouvelle\+Partie@{afficher\+Nouvelle\+Partie}}
+\index{afficher\+Nouvelle\+Partie@{afficher\+Nouvelle\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{afficher\+Nouvelle\+Partie}{afficherNouvellePartie}}
+{\footnotesize\ttfamily void Darts\+::afficher\+Nouvelle\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand il y a une nouvelle partie 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_aa9685f754172d995cdd04d39d9651227}\label{class_darts_aa9685f754172d995cdd04d39d9651227}} 
+\index{Darts@{Darts}!arreter\+Partie@{arreter\+Partie}}
+\index{arreter\+Partie@{arreter\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{arreter\+Partie()}{arreterPartie()}}
+{\footnotesize\ttfamily void Darts\+::arreter\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+arrête la partie 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00422}{422} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00433}{calculer\+Gagnant()}, \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{fin\+Partie()}, et \hyperlink{darts_8cpp_source_l00066}{get\+Volee\+Max()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{Communication\+::decomposer\+Trame()}, et \hyperlink{darts_8cpp_source_l00453}{tester\+Nombre\+Joueur\+Restand()}.
+
+
+\begin{DoxyCode}
+00423 \{
+00424     emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\hyperlink{class_darts_a4d7196c95f584cdce4a33d52f934121f}{calculerGagnant}(), \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00425 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a4d7196c95f584cdce4a33d52f934121f}\label{class_darts_a4d7196c95f584cdce4a33d52f934121f}} 
+\index{Darts@{Darts}!calculer\+Gagnant@{calculer\+Gagnant}}
+\index{calculer\+Gagnant@{calculer\+Gagnant}!Darts@{Darts}}
+\paragraph{\texorpdfstring{calculer\+Gagnant()}{calculerGagnant()}}
+{\footnotesize\ttfamily Q\+String Darts\+::calculer\+Gagnant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calcule le gagnant de la partie si la partie doit s\textquotesingle{}arrêter avant la fin. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00433}{433} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00073}{joueurs}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00422}{arreter\+Partie()}.
+
+
+\begin{DoxyCode}
+00434 \{
+00435     QString gagnant;
+00436     \textcolor{keywordtype}{int} scoreGagnant = 99999;
+00437     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00438     \{
+00439         \textcolor{keywordflow}{if}(scoreGagnant > \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getScore() && !\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getEliminer()) \textcolor{comment}{// test le
+       personne aillant le score le plus bas score mais aussi qu'il ne soit pas eliminer}
+00440         \{
+00441             scoreGagnant = \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getScore();
+00442             gagnant = \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getNom();
+00443         \}
+00444     \}
+00445     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"↢  Winner "} + gagnant + \textcolor{stringliteral}{"  ↣"};
+00446 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_af87b6a1cd30838b99379aa4061fc43cc}\label{class_darts_af87b6a1cd30838b99379aa4061fc43cc}} 
+\index{Darts@{Darts}!calculer\+Moyenne\+Volees@{calculer\+Moyenne\+Volees}}
+\index{calculer\+Moyenne\+Volees@{calculer\+Moyenne\+Volees}!Darts@{Darts}}
+\paragraph{\texorpdfstring{calculer\+Moyenne\+Volees()}{calculerMoyenneVolees()}}
+{\footnotesize\ttfamily void Darts\+::calculer\+Moyenne\+Volees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calcule la moyenne des volées de chaque joueur. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00387}{387} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00073}{joueurs}, et \hyperlink{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}{mise\+A\+Jour\+Moyenne\+Volee()}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, et \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+
+\begin{DoxyCode}
+00388 \{
+00389     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00390     \{
+00391         \textcolor{keywordtype}{int} moyenneVolee = 0;
+00392 
+00393         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees().size(); j++)
+00394         \{
+00395             moyenneVolee += \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees()[j];
+00396         \}
+00397 
+00398         moyenneVolee = moyenneVolee / \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getHistoriqueVolees().size();
+00399         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].setMoyenneVolee(moyenneVolee);
+00400     \}
+00401     emit \hyperlink{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}{miseAJourMoyenneVolee}();
+00402 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a6a6c58dee559e851709d76fef9a8c6da}\label{class_darts_a6a6c58dee559e851709d76fef9a8c6da}} 
+\index{Darts@{Darts}!calculer\+Points@{calculer\+Points}}
+\index{calculer\+Points@{calculer\+Points}!Darts@{Darts}}
+\paragraph{\texorpdfstring{calculer\+Points()}{calculerPoints()}}
+{\footnotesize\ttfamily void Darts\+::calculer\+Points (\begin{DoxyParamCaption}\item[{int}]{point,  }\item[{int}]{type\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Teste s\textquotesingle{}il reste qu\textquotesingle{}un joueur n\textquotesingle{}était pas éliminé 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em point} & la zone \\
+\hline
+{\em type\+Point} & un simple, double ou triple \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00478}{478} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00019}{D\+O\+U\+B\+L\+E\+\_\+\+P\+O\+I\+NT}, \hyperlink{darts_8h_source_l00078}{point\+Lancer}, \hyperlink{darts_8h_source_l00020}{S\+I\+M\+P\+L\+E\+\_\+\+P\+O\+I\+NT}, \hyperlink{darts_8h_source_l00018}{T\+R\+I\+P\+L\+E\+\_\+\+P\+O\+I\+NT}, et \hyperlink{darts_8h_source_l00021}{Z\+E\+R\+O\+\_\+\+P\+O\+I\+NT}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+
+\begin{DoxyCode}
+00479 \{
+00480     \textcolor{keywordflow}{switch}(typePoint)
+00481     \{
+00482         \textcolor{keywordflow}{case} \hyperlink{darts_8h_a1bd6caead3e7edd423f064b3af34e486}{TRIPLE\_POINT}:
+00483             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_a1bd6caead3e7edd423f064b3af34e486}{TRIPLE\_POINT};
+00484         \textcolor{keywordflow}{break};
+00485         \textcolor{keywordflow}{case} \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT}:
+00486             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT};
+00487         \textcolor{keywordflow}{break};
+00488         \textcolor{keywordflow}{case} \hyperlink{darts_8h_a180cfdf433b8c9594f209d3c71c7c992}{SIMPLE\_POINT}:
+00489             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point;
+00490         \textcolor{keywordflow}{break};
+00491         \textcolor{keywordflow}{case}  \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT}:
+00492             \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = point * \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT};
+00493         \textcolor{keywordflow}{break};
+00494         \textcolor{keywordflow}{default}:
+00495             qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"type de point non valide:"} << typePoint;
+00496         \textcolor{keywordflow}{break};
+00497     \}
+00498 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_afeba952f29a901b4ebac86cfc7a4733f}\label{class_darts_afeba952f29a901b4ebac86cfc7a4733f}} 
+\index{Darts@{Darts}!changement\+Joueur\+Actif@{changement\+Joueur\+Actif}}
+\index{changement\+Joueur\+Actif@{changement\+Joueur\+Actif}!Darts@{Darts}}
+\paragraph{\texorpdfstring{changement\+Joueur\+Actif}{changementJoueurActif}}
+{\footnotesize\ttfamily void Darts\+::changement\+Joueur\+Actif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand le joueur actif change 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+\mbox{\Hypertarget{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}\label{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}} 
+\index{Darts@{Darts}!changer\+Etat\+Partie@{changer\+Etat\+Partie}}
+\index{changer\+Etat\+Partie@{changer\+Etat\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{changer\+Etat\+Partie}{changerEtatPartie}}
+{\footnotesize\ttfamily void Darts\+::changer\+Etat\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour changer l\textquotesingle{}etat de la partie 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_a4ddf889c9c3933e061b182aeb5680c20}\label{class_darts_a4ddf889c9c3933e061b182aeb5680c20}} 
+\index{Darts@{Darts}!controler\+Joueur\+Eliminer@{controler\+Joueur\+Eliminer}}
+\index{controler\+Joueur\+Eliminer@{controler\+Joueur\+Eliminer}!Darts@{Darts}}
+\paragraph{\texorpdfstring{controler\+Joueur\+Eliminer()}{controlerJoueurEliminer()}}
+{\footnotesize\ttfamily void Darts\+::controler\+Joueur\+Eliminer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Change de joueur si le joueur actuel est éliminé 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00349}{349} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00387}{calculer\+Moyenne\+Volees()}, \hyperlink{darts_8cpp_source_l00044}{get\+Manche()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00075}{nb\+Joueur}, \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelle\+Manche()}, et \hyperlink{darts_8cpp_source_l00132}{set\+Manche()}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+
+\begin{DoxyCode}
+00350 \{
+00351     \textcolor{keywordflow}{while}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getEliminer()) \textcolor{comment}{//tant que le joueur est eliminer on passe
+       donc au joueur suivant}
+00352     \{
+00353         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} == \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} - 1)  \textcolor{comment}{//si le joueur est le dernier de la manche à
+       jouer}
+00354         \{
+00355             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00356             \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{setManche}(\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{getManche}() + 1);
+00357             \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{calculerMoyenneVolees}();
+00358             emit \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelleManche}();
+00359         \}
+00360         \textcolor{keywordflow}{else}                            \textcolor{comment}{//si le joueur n'est pas le dernier de la manche}
+00361         \{
+00362             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}++;
+00363         \}
+00364     \}
+00365 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_ac96311be89ac838f4a37b91bd5655171}\label{class_darts_ac96311be89ac838f4a37b91bd5655171}} 
+\index{Darts@{Darts}!enlever\+Point\+Impact@{enlever\+Point\+Impact}}
+\index{enlever\+Point\+Impact@{enlever\+Point\+Impact}!Darts@{Darts}}
+\paragraph{\texorpdfstring{enlever\+Point\+Impact()}{enleverPointImpact()}}
+{\footnotesize\ttfamily void Darts\+::enlever\+Point\+Impact (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Met à jours le score du joueur. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00274}{274} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etat\+Partie\+Fini()}, \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{fin\+Partie()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00066}{get\+Volee\+Max()}, \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouer\+Son()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00080}{nb\+Volees}, \hyperlink{darts_8h_source_l00072}{solution}, \hyperlink{solution_8cpp_source_l00296}{Solution\+::trouver\+Solution()}, et \hyperlink{class_darts_a78f609ea9e8867459804bad777ce39f3}{volee\+Annulee()}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+
+\begin{DoxyCode}
+00275 \{
+00276     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() <= 0) \textcolor{comment}{//score Volée inferieure au score = Volée
+       annulée}
+00277     \{
+00278         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScore(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente());
+00279         emit \hyperlink{class_darts_a78f609ea9e8867459804bad777ce39f3}{voleeAnnulee}();
+00280 
+00281         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(0);
+00282     \}
+00283     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() == 1 && \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() == 1)    \textcolor{comment}{//
+       test si le joueur est seul à jouer et s'il est a 1 point == joueur éliminer donc fin de partie}
+00284     \{
+00285         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00286         emit \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"perdu.wav"});
+00287         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{" a perdu  ↣"}, 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00288         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00289     \}
+00290     \textcolor{keywordflow}{else}
+00291     \{
+00292         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00293         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() - 1);
+00294         \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00295     \}
+00296 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}\label{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}} 
+\index{Darts@{Darts}!etat\+Partie\+Fini@{etat\+Partie\+Fini}}
+\index{etat\+Partie\+Fini@{etat\+Partie\+Fini}!Darts@{Darts}}
+\paragraph{\texorpdfstring{etat\+Partie\+Fini}{etatPartieFini}}
+{\footnotesize\ttfamily void Darts\+::etat\+Partie\+Fini (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour mettre l\textquotesingle{}etat de la partie en fin 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_a751870924fe01a94fbf49ce45451a218}\label{class_darts_a751870924fe01a94fbf49ce45451a218}} 
+\index{Darts@{Darts}!fin\+Partie@{fin\+Partie}}
+\index{fin\+Partie@{fin\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{fin\+Partie}{finPartie}}
+{\footnotesize\ttfamily void Darts\+::fin\+Partie (\begin{DoxyParamCaption}\item[{Q\+String}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand c\textquotesingle{}est la fin de la partie 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00422}{arreter\+Partie()}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_a76db114bd2191b410bab26cfe5cb76fb}\label{class_darts_a76db114bd2191b410bab26cfe5cb76fb}} 
+\index{Darts@{Darts}!gerer\+Manche@{gerer\+Manche}}
+\index{gerer\+Manche@{gerer\+Manche}!Darts@{Darts}}
+\paragraph{\texorpdfstring{gerer\+Manche()}{gererManche()}}
+{\footnotesize\ttfamily void Darts\+::gerer\+Manche (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Permets de gérer le changement de manche en fonction des fléchettes de chaque joueur. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00303}{303} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00387}{calculer\+Moyenne\+Volees()}, \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changement\+Joueur\+Actif()}, \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00044}{get\+Manche()}, \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouer\+Son()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00075}{nb\+Joueur}, \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelle\+Manche()}, \hyperlink{darts_8cpp_source_l00132}{set\+Manche()}, \hyperlink{darts_8h_source_l00072}{solution}, \hyperlink{darts_8cpp_source_l00453}{tester\+Nombre\+Joueur\+Restand()}, \hyperlink{darts_8cpp_source_l00372}{tester\+Si\+Joueur\+Eliminer()}, et \hyperlink{solution_8cpp_source_l00296}{Solution\+::trouver\+Solution()}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+
+\begin{DoxyCode}
+00304 \{
+00305     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() == 0) \textcolor{comment}{//fin de la volées du joueur}
+00306     \{
+00307         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setNbFlechette(3);
+00308 
+00309         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00310         \hyperlink{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}{testerSiJoueurEliminer}();
+00311         \hyperlink{class_darts_a0fbfcd2202600e886177e2202a44b3bd}{testerNombreJoueurRestand}();
+00312 
+00313         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].addHistoriqueVolees((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()));
+00314 
+00315         \textcolor{keywordflow}{if}((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()) == 180)
+00316             emit \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"180.wav"});
+00317 
+00318         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScoreManchePrecedente(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore());
+00319 
+00320         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} == \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} - 1)  \textcolor{comment}{//equivalent a la fin de manche}
+00321         \{
+00322             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00323 
+00324             \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{controlerJoueurEliminer}();
+00325 
+00326             \hyperlink{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}{setManche}(\hyperlink{class_darts_a2ce03c887d90f3a997648981d342b50c}{getManche}() + 1);
+00327             emit \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changementJoueurActif}();
+00328             \hyperlink{class_darts_af87b6a1cd30838b99379aa4061fc43cc}{calculerMoyenneVolees}();
+00329             emit \hyperlink{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}{nouvelleManche}();
+00330             \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00331         \}
+00332         \textcolor{keywordflow}{else}
+00333         \{
+00334             \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}++;
+00335 
+00336             \hyperlink{class_darts_a4ddf889c9c3933e061b182aeb5680c20}{controlerJoueurEliminer}();
+00337 
+00338             emit \hyperlink{class_darts_afeba952f29a901b4ebac86cfc7a4733f}{changementJoueurActif}();
+00339             \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[
+      \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00340         \}
+00341     \}
+00342 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a1bd32af08207f7465f2973821a25dbae}\label{class_darts_a1bd32af08207f7465f2973821a25dbae}} 
+\index{Darts@{Darts}!gerer\+Volee\+Max@{gerer\+Volee\+Max}}
+\index{gerer\+Volee\+Max@{gerer\+Volee\+Max}!Darts@{Darts}}
+\paragraph{\texorpdfstring{gerer\+Volee\+Max()}{gererVoleeMax()}}
+{\footnotesize\ttfamily void Darts\+::gerer\+Volee\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Teste la volée pour savoir si elle est supérieure à la volée Max. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00409}{409} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00066}{get\+Volee\+Max()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, et \hyperlink{darts_8cpp_source_l00121}{set\+Volee\+Max()}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+
+\begin{DoxyCode}
+00410 \{
+00411     \textcolor{keywordflow}{if}((\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()) > \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}())
+00412     \{
+00413         \hyperlink{class_darts_a982dda6ea65e4ada297cc562617fc3ba}{setVoleeMax}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScoreManchePrecedente() - 
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore());
+00414     \}
+00415 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a6548d12f81017792cf46b25f68fc5df8}\label{class_darts_a6548d12f81017792cf46b25f68fc5df8}} 
+\index{Darts@{Darts}!get\+Darts@{get\+Darts}}
+\index{get\+Darts@{get\+Darts}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Darts()}{getDarts()}}
+{\footnotesize\ttfamily \hyperlink{class_darts}{Darts}$\ast$ Darts\+::get\+Darts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_darts_a20ddfd28c8355c06a90cc23abff3de11}\label{class_darts_a20ddfd28c8355c06a90cc23abff3de11}} 
+\index{Darts@{Darts}!get\+Joueur\+Actif@{get\+Joueur\+Actif}}
+\index{get\+Joueur\+Actif@{get\+Joueur\+Actif}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Joueur\+Actif()}{getJoueurActif()}}
+{\footnotesize\ttfamily int Darts\+::get\+Joueur\+Actif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le numéro du joueur actif. 
+
+\begin{DoxyReturn}{Renvoie}
+int le numéro du joueur actif 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00077}{77} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00076}{joueur\+Actif}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00242}{Ihm\+::mettre\+A\+Jour\+Joueur()}, et \hyperlink{ihm_8cpp_source_l00141}{Ihm\+::mettre\+A\+Jour\+Score()}.
+
+
+\begin{DoxyCode}
+00078 \{
+00079     \textcolor{keywordflow}{return} \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif};
+00080 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a0525b09703d3461bf5570197354743c3}\label{class_darts_a0525b09703d3461bf5570197354743c3}} 
+\index{Darts@{Darts}!get\+List\+Joueur@{get\+List\+Joueur}}
+\index{get\+List\+Joueur@{get\+List\+Joueur}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+List\+Joueur()}{getListJoueur()}}
+{\footnotesize\ttfamily Q\+List$<$ \hyperlink{class_joueur}{Joueur} $>$ Darts\+::get\+List\+Joueur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne une liste des joueurs. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+List$<$\+Joueur$>$ la liste des joueurs 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00055}{55} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00073}{joueurs}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00242}{Ihm\+::mettre\+A\+Jour\+Joueur()}, \hyperlink{ihm_8cpp_source_l00289}{Ihm\+::mettre\+A\+Jour\+Moyenne\+Volee()}, et \hyperlink{ihm_8cpp_source_l00141}{Ihm\+::mettre\+A\+Jour\+Score()}.
+
+
+\begin{DoxyCode}
+00056 \{
+00057     \textcolor{keywordflow}{return} \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs};
+00058 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a2ce03c887d90f3a997648981d342b50c}\label{class_darts_a2ce03c887d90f3a997648981d342b50c}} 
+\index{Darts@{Darts}!get\+Manche@{get\+Manche}}
+\index{get\+Manche@{get\+Manche}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Manche()}{getManche()}}
+{\footnotesize\ttfamily int Darts\+::get\+Manche (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne la manche. 
+
+\begin{DoxyReturn}{Renvoie}
+int le numéro de manche 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00044}{44} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00077}{manche}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, et \hyperlink{ihm_8cpp_source_l00179}{Ihm\+::mettre\+A\+Jour\+Manche()}.
+
+
+\begin{DoxyCode}
+00045 \{
+00046     \textcolor{keywordflow}{return} \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche};
+00047 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}\label{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}} 
+\index{Darts@{Darts}!get\+Mode\+De\+Jeu@{get\+Mode\+De\+Jeu}}
+\index{get\+Mode\+De\+Jeu@{get\+Mode\+De\+Jeu}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Mode\+De\+Jeu()}{getModeDeJeu()}}
+{\footnotesize\ttfamily Q\+String Darts\+::get\+Mode\+De\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le mode de jeu. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String le mode de jeu 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00099}{99} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00081}{Mode\+De\+Jeu}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00333}{Ihm\+::afficher\+Partie()}, et \hyperlink{darts_8cpp_source_l00506}{tester\+Mode\+De\+Jeu()}.
+
+
+\begin{DoxyCode}
+00100 \{
+00101     \textcolor{keywordflow}{return} \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00102 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}\label{class_darts_a4b93d786fbd25b9512ad08b67bca0a69}} 
+\index{Darts@{Darts}!get\+Nb\+Volees@{get\+Nb\+Volees}}
+\index{get\+Nb\+Volees@{get\+Nb\+Volees}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Nb\+Volees()}{getNbVolees()}}
+{\footnotesize\ttfamily int Darts\+::get\+Nb\+Volees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre de volées de la partie. 
+
+\begin{DoxyReturn}{Renvoie}
+int le nombre de volées de la partie 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00088}{88} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00080}{nb\+Volees}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00365}{Ihm\+::finir\+Partie()}.
+
+
+\begin{DoxyCode}
+00089 \{
+00090     \textcolor{keywordflow}{return} \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees};
+00091 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a2e41c247a12dfd3065c77c2484fc5532}\label{class_darts_a2e41c247a12dfd3065c77c2484fc5532}} 
+\index{Darts@{Darts}!get\+Solution@{get\+Solution}}
+\index{get\+Solution@{get\+Solution}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Solution()}{getSolution()}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} $\ast$ Darts\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne l\textquotesingle{}objet solution 
+
+\begin{DoxyReturn}{Renvoie}
+Solution$\ast$ l\textquotesingle{}objet solution 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00110}{110} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00072}{solution}.
+
+
+
+Référencé par \hyperlink{ihm_8cpp_source_l00075}{Ihm\+::initialiser\+Evenements()}.
+
+
+\begin{DoxyCode}
+00111 \{
+00112     \textcolor{keywordflow}{return} \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution};
+00113 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}\label{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}} 
+\index{Darts@{Darts}!get\+Volee\+Max@{get\+Volee\+Max}}
+\index{get\+Volee\+Max@{get\+Volee\+Max}!Darts@{Darts}}
+\paragraph{\texorpdfstring{get\+Volee\+Max()}{getVoleeMax()}}
+{\footnotesize\ttfamily int Darts\+::get\+Volee\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne la volée max. 
+
+\begin{DoxyReturn}{Renvoie}
+int la volée max 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00066}{66} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00079}{volee\+Max}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00422}{arreter\+Partie()}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+
+\begin{DoxyCode}
+00067 \{
+00068     \textcolor{keywordflow}{return} \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax};
+00069 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_ac7000897b8d394c3be39804813a39dc8}\label{class_darts_ac7000897b8d394c3be39804813a39dc8}} 
+\index{Darts@{Darts}!initialiser\+Partie@{initialiser\+Partie}}
+\index{initialiser\+Partie@{initialiser\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{initialiser\+Partie()}{initialiserPartie()}}
+{\footnotesize\ttfamily void Darts\+::initialiser\+Partie (\begin{DoxyParamCaption}\item[{Q\+String\+List}]{joueur\+List,  }\item[{Q\+String}]{mode\+Jeu }\end{DoxyParamCaption})}
+
+
+
+Initialise la partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur\+List} & Q\+String\+List \\
+\hline
+{\em mode\+Jeu} & Q\+String \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00144}{144} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficher\+Nouvelle\+Partie()}, \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changer\+Etat\+Partie()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00081}{Mode\+De\+Jeu}, \hyperlink{darts_8h_source_l00075}{nb\+Joueur}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, \hyperlink{darts_8h_source_l00072}{solution}, et \hyperlink{solution_8cpp_source_l00296}{Solution\+::trouver\+Solution()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00243}{Communication\+::extraire\+Parametres\+Trame\+Start()}.
+
+
+\begin{DoxyCode}
+00145 \{
+00146     \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} = joueurList.size() - 1;
+00147     \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu} = modeJeu;
+00148     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"nbJoueur "} << \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} << \textcolor{stringliteral}{" | Mode De Jeu "} << 
+      \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00149 
+00150     \textcolor{keywordflow}{if}(ModeDeJeu.toInt() >= 101 && ModeDeJeu.toInt() <= 1001)
+00151     \{
+00152         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < joueurList.size() ; i++)
+00153         \{
+00154             \hyperlink{class_joueur}{Joueur} player(joueurList.at(i), ModeDeJeu.toInt(), 3);
+00155             \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.push\_back(player);
+00156         \}
+00157         emit \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficherNouvellePartie}();
+00158         emit \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changerEtatPartie}();
+00159     \}
+00160     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(ModeDeJeu.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}) && (ModeDeJeu.section(\textcolor{stringliteral}{"\_"},0,0).toInt() >= 101 && ModeDeJeu.
+      section(\textcolor{stringliteral}{"\_"},0,0).toInt() <= 1001))
+00161     \{
+00162         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < joueurList.size() ; i++)
+00163         \{
+00164             \hyperlink{class_joueur}{Joueur} player(joueurList.at(i), ModeDeJeu.section(\textcolor{stringliteral}{"\_"},0,0).toInt(), 3);
+00165             \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.push\_back(player);
+00166         \}
+00167         emit \hyperlink{class_darts_a650d6efdef25756bfbbacb0bb3549c43}{afficherNouvellePartie}();
+00168         emit \hyperlink{class_darts_a25cf64530c84d7aa261a4806e88dcd6e}{changerEtatPartie}();
+00169     \}
+00170     \textcolor{keywordflow}{else}
+00171     \{
+00172         qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Erreur Mode De Jeu : "} << \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu};
+00173         \hyperlink{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}{reinitialiserPartie}();
+00174         \textcolor{keywordflow}{return};
+00175     \}
+00176     \hyperlink{class_darts_a40733010dc6ae4ce93140804b4d191ea}{solution}->\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore(),
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette());
+00177 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a87995841c66fc321b63c28fa8a786347}\label{class_darts_a87995841c66fc321b63c28fa8a786347}} 
+\index{Darts@{Darts}!jouer\+Son@{jouer\+Son}}
+\index{jouer\+Son@{jouer\+Son}!Darts@{Darts}}
+\paragraph{\texorpdfstring{jouer\+Son}{jouerSon}}
+{\footnotesize\ttfamily void Darts\+::jouer\+Son (\begin{DoxyParamCaption}\item[{Q\+String}]{son }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour Lancer un son 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, et \hyperlink{darts_8cpp_source_l00204}{tester\+Point()}.
+
+\mbox{\Hypertarget{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}\label{class_darts_a70c1ccef5cb7e47bff1384041ad9a596}} 
+\index{Darts@{Darts}!mise\+A\+Jour\+Moyenne\+Volee@{mise\+A\+Jour\+Moyenne\+Volee}}
+\index{mise\+A\+Jour\+Moyenne\+Volee@{mise\+A\+Jour\+Moyenne\+Volee}!Darts@{Darts}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Moyenne\+Volee}{miseAJourMoyenneVolee}}
+{\footnotesize\ttfamily void Darts\+::mise\+A\+Jour\+Moyenne\+Volee (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour mettre à jour la moyenne des volées 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00387}{calculer\+Moyenne\+Volees()}.
+
+\mbox{\Hypertarget{class_darts_a455fa1efac223393aff2afbd33352569}\label{class_darts_a455fa1efac223393aff2afbd33352569}} 
+\index{Darts@{Darts}!mise\+A\+Jour\+Point@{mise\+A\+Jour\+Point}}
+\index{mise\+A\+Jour\+Point@{mise\+A\+Jour\+Point}!Darts@{Darts}}
+\paragraph{\texorpdfstring{mise\+A\+Jour\+Point}{miseAJourPoint}}
+{\footnotesize\ttfamily void Darts\+::mise\+A\+Jour\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis pour mettre à jour les points des joueurs 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}\label{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}} 
+\index{Darts@{Darts}!nouvel\+Impact@{nouvel\+Impact}}
+\index{nouvel\+Impact@{nouvel\+Impact}!Darts@{Darts}}
+\paragraph{\texorpdfstring{nouvel\+Impact}{nouvelImpact}}
+{\footnotesize\ttfamily void Darts\+::nouvel\+Impact (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand il y a un nouvel Impact 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}\label{class_darts_ace3f99f5381399b0b86e5b8192d6fd71}} 
+\index{Darts@{Darts}!nouvelle\+Manche@{nouvelle\+Manche}}
+\index{nouvelle\+Manche@{nouvelle\+Manche}!Darts@{Darts}}
+\paragraph{\texorpdfstring{nouvelle\+Manche}{nouvelleManche}}
+{\footnotesize\ttfamily void Darts\+::nouvelle\+Manche (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand on change de manche 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, et \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+\mbox{\Hypertarget{class_darts_a196bc4307c631310f641606012ab9e05}\label{class_darts_a196bc4307c631310f641606012ab9e05}} 
+\index{Darts@{Darts}!receptionner\+Impact@{receptionner\+Impact}}
+\index{receptionner\+Impact@{receptionner\+Impact}!Darts@{Darts}}
+\paragraph{\texorpdfstring{receptionner\+Impact()}{receptionnerImpact()}}
+{\footnotesize\ttfamily void Darts\+::receptionner\+Impact (\begin{DoxyParamCaption}\item[{int}]{type\+Point,  }\item[{int}]{point }\end{DoxyParamCaption})}
+
+
+
+Permets de traiter la réception d\textquotesingle{}impact. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type\+Point} & \\
+\hline
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00223}{223} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{class_darts_afcf6c21d8489e9cf1734458a23b518eb}{actualiser\+Cible()}, \hyperlink{darts_8cpp_source_l00478}{calculer\+Points()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{class_darts_a455fa1efac223393aff2afbd33352569}{mise\+A\+Jour\+Point()}, \hyperlink{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}{nouvel\+Impact()}, \hyperlink{darts_8h_source_l00078}{point\+Lancer}, \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}, et \hyperlink{darts_8cpp_source_l00204}{tester\+Point()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{Communication\+::decomposer\+Trame()}.
+
+
+\begin{DoxyCode}
+00224 \{
+00225     \hyperlink{class_darts_a6a6c58dee559e851709d76fef9a8c6da}{calculerPoints}(point, typePoint);
+00226 
+00227     \hyperlink{class_darts_a7244911a7b1fe50023987a1c802a5103}{testerPoint}(typePoint, point);
+00228 
+00229     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getFlechette() == 3)
+00230         emit \hyperlink{class_darts_afcf6c21d8489e9cf1734458a23b518eb}{actualiserCible}();
+00231 
+00232     qDebug() << Q\_FUNC\_INFO << \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() << \textcolor{stringliteral}{" SCORE : "} <<
+      \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() - \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} << endl;
+00233 
+00234     emit \hyperlink{class_darts_aae5288e0c0f09a9837bcb7a517ede5af}{nouvelImpact}(typePoint, point, \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer});
+00235     \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setScore(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() - 
+      \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer});
+00236     \hyperlink{class_darts_af34338eccf367fb9ed939ff95768a221}{testerImpact}(typePoint);
+00237     emit \hyperlink{class_darts_a455fa1efac223393aff2afbd33352569}{miseAJourPoint}();
+00238 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}\label{class_darts_a70c68ed8bd56b63df203c25e6ed14f3b}} 
+\index{Darts@{Darts}!reinitialiser\+Partie@{reinitialiser\+Partie}}
+\index{reinitialiser\+Partie@{reinitialiser\+Partie}!Darts@{Darts}}
+\paragraph{\texorpdfstring{reinitialiser\+Partie()}{reinitialiserPartie()}}
+{\footnotesize\ttfamily void Darts\+::reinitialiser\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui permet de remettre a zero les differents attribut et conteneur pour une nouvelle partie. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00184}{184} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00074}{joueur}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00077}{manche}, \hyperlink{darts_8h_source_l00081}{Mode\+De\+Jeu}, \hyperlink{darts_8h_source_l00075}{nb\+Joueur}, \hyperlink{darts_8h_source_l00080}{nb\+Volees}, \hyperlink{darts_8h_source_l00078}{point\+Lancer}, et \hyperlink{darts_8h_source_l00079}{volee\+Max}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00188}{Communication\+::decomposer\+Trame()}, \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}, et \hyperlink{communication_8cpp_source_l00305}{Communication\+::reamorcer\+Partie()}.
+
+
+\begin{DoxyCode}
+00185 \{
+00186     \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.clear();
+00187     \hyperlink{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}{joueur}.clear();
+00188     \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu} = \textcolor{stringliteral}{""};
+00189     \hyperlink{class_darts_ac5ae0e3546d00f59adba76c4ece71725}{nbJoueur} = 0;
+00190     \hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif} = 0;
+00191     \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche} = 1;
+00192     \hyperlink{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}{pointLancer} = 0;
+00193     \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees} = 0;
+00194     \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax} = 0;
+00195 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}\label{class_darts_ab038eac80e5fc5e8abbab5682e87f8f2}} 
+\index{Darts@{Darts}!set\+Manche@{set\+Manche}}
+\index{set\+Manche@{set\+Manche}!Darts@{Darts}}
+\paragraph{\texorpdfstring{set\+Manche()}{setManche()}}
+{\footnotesize\ttfamily void Darts\+::set\+Manche (\begin{DoxyParamCaption}\item[{int}]{manche }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour le numéro de manche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em manche} & le numéro de manche (int) \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00132}{132} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00077}{manche}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, et \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+
+\begin{DoxyCode}
+00133 \{
+00134     this->\hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche} = \hyperlink{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}{manche};
+00135 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a982dda6ea65e4ada297cc562617fc3ba}\label{class_darts_a982dda6ea65e4ada297cc562617fc3ba}} 
+\index{Darts@{Darts}!set\+Volee\+Max@{set\+Volee\+Max}}
+\index{set\+Volee\+Max@{set\+Volee\+Max}!Darts@{Darts}}
+\paragraph{\texorpdfstring{set\+Volee\+Max()}{setVoleeMax()}}
+{\footnotesize\ttfamily void Darts\+::set\+Volee\+Max (\begin{DoxyParamCaption}\item[{int}]{volee\+Max }\end{DoxyParamCaption})}
+
+
+
+Permets de mettre à jour le volé max. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volee\+Max} & la volée max(int) \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00121}{121} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00079}{volee\+Max}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}.
+
+
+\begin{DoxyCode}
+00122 \{
+00123     this->\hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax} = \hyperlink{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}{voleeMax};
+00124 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_af34338eccf367fb9ed939ff95768a221}\label{class_darts_af34338eccf367fb9ed939ff95768a221}} 
+\index{Darts@{Darts}!tester\+Impact@{tester\+Impact}}
+\index{tester\+Impact@{tester\+Impact}!Darts@{Darts}}
+\paragraph{\texorpdfstring{tester\+Impact()}{testerImpact()}}
+{\footnotesize\ttfamily void Darts\+::tester\+Impact (\begin{DoxyParamCaption}\item[{int}]{type\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Teste si le joueur a gagné 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type\+Point} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00246}{246} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00019}{D\+O\+U\+B\+L\+E\+\_\+\+P\+O\+I\+NT}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etat\+Partie\+Fini()}, \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{fin\+Partie()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00066}{get\+Volee\+Max()}, \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, \hyperlink{darts_8h_source_l00073}{joueurs}, \hyperlink{darts_8h_source_l00081}{Mode\+De\+Jeu}, et \hyperlink{darts_8h_source_l00080}{nb\+Volees}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+
+\begin{DoxyCode}
+00247 \{
+00248     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()  == 0 && (typePoint == 
+      \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT}) && (\hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu}.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}))) \textcolor{comment}{//fin avec double}
+00249     \{
+00250         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00251         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00252         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  Winner "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{"  ↣"}, 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00253         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00254     \}
+00255     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore()  == 0 && !
+      \hyperlink{class_darts_a281fd6201343dfb65ab81c93fd60f786}{ModeDeJeu}.contains(\textcolor{stringliteral}{"\_DOUBLE\_OUT"}))    \textcolor{comment}{//fin sans double}
+00256     \{
+00257         \hyperlink{class_darts_a1bd32af08207f7465f2973821a25dbae}{gererVoleeMax}();
+00258         \hyperlink{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}{nbVolees}++;
+00259         emit \hyperlink{class_darts_a751870924fe01a94fbf49ce45451a218}{finPartie}(\textcolor{stringliteral}{"↢  Winner "} + \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getNom() + \textcolor{stringliteral}{"  ↣"} , 
+      \hyperlink{class_darts_af2ca14bafbcdabe87fc306cc2e1d390e}{getVoleeMax}());
+00260         emit \hyperlink{class_darts_a04a60e25e4c6a608a15c6abce35c9dfa}{etatPartieFini}();
+00261     \}
+00262     \textcolor{keywordflow}{else}
+00263     \{
+00264         \hyperlink{class_darts_ac96311be89ac838f4a37b91bd5655171}{enleverPointImpact}();
+00265         \hyperlink{class_darts_a76db114bd2191b410bab26cfe5cb76fb}{gererManche}();
+00266     \}
+00267 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_ad6535ce917119069ec099cea0e744971}\label{class_darts_ad6535ce917119069ec099cea0e744971}} 
+\index{Darts@{Darts}!tester\+Mode\+De\+Jeu@{tester\+Mode\+De\+Jeu}}
+\index{tester\+Mode\+De\+Jeu@{tester\+Mode\+De\+Jeu}!Darts@{Darts}}
+\paragraph{\texorpdfstring{tester\+Mode\+De\+Jeu()}{testerModeDeJeu()}}
+{\footnotesize\ttfamily Q\+String Darts\+::tester\+Mode\+De\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui teste le mode de jeu. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String 
+\end{DoxyReturn}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00506}{506} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00099}{get\+Mode\+De\+Jeu()}.
+
+
+
+Référencé par \hyperlink{communication_8cpp_source_l00279}{Communication\+::extraire\+Parametres\+Trame\+Regle()}, et \hyperlink{communication_8cpp_source_l00243}{Communication\+::extraire\+Parametres\+Trame\+Start()}.
+
+
+\begin{DoxyCode}
+00507 \{
+00508     QString regle =\textcolor{stringliteral}{""};
+00509 
+00510     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a49ea4ca23fd03d80f5a95257c6fe8478}{getModeDeJeu}().contains(\textcolor{stringliteral}{"DOUBLE\_OUT"}))
+00511     \{
+00512         regle = \textcolor{stringliteral}{"DOUBLE\_OUT"};
+00513     \}
+00514     \textcolor{keywordflow}{else}
+00515     \{
+00516         regle = \textcolor{stringliteral}{"SANS\_DOUBLE\_OUT"};
+00517     \}
+00518     \textcolor{keywordflow}{return} regle;
+00519 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a0fbfcd2202600e886177e2202a44b3bd}\label{class_darts_a0fbfcd2202600e886177e2202a44b3bd}} 
+\index{Darts@{Darts}!tester\+Nombre\+Joueur\+Restand@{tester\+Nombre\+Joueur\+Restand}}
+\index{tester\+Nombre\+Joueur\+Restand@{tester\+Nombre\+Joueur\+Restand}!Darts@{Darts}}
+\paragraph{\texorpdfstring{tester\+Nombre\+Joueur\+Restand()}{testerNombreJoueurRestand()}}
+{\footnotesize\ttfamily void Darts\+::tester\+Nombre\+Joueur\+Restand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Teste s\textquotesingle{}il reste qu\textquotesingle{}un joueur n\textquotesingle{}était pas éliminé 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00453}{453} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8cpp_source_l00422}{arreter\+Partie()}, et \hyperlink{darts_8h_source_l00073}{joueurs}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+
+\begin{DoxyCode}
+00454 \{
+00455     \textcolor{keywordtype}{int} eliminer = 0;
+00456 
+00457     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1; i++)
+00458     \{
+00459         \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[i].getEliminer())
+00460         \{
+00461             eliminer++;
+00462         \}
+00463     \}
+00464 
+00465     \textcolor{keywordflow}{if}(eliminer == \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}.size() - 1)
+00466     \{
+00467         \hyperlink{class_darts_aa9685f754172d995cdd04d39d9651227}{arreterPartie}();
+00468     \}
+00469 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a7244911a7b1fe50023987a1c802a5103}\label{class_darts_a7244911a7b1fe50023987a1c802a5103}} 
+\index{Darts@{Darts}!tester\+Point@{tester\+Point}}
+\index{tester\+Point@{tester\+Point}!Darts@{Darts}}
+\paragraph{\texorpdfstring{tester\+Point()}{testerPoint()}}
+{\footnotesize\ttfamily void Darts\+::tester\+Point (\begin{DoxyParamCaption}\item[{int}]{type\+Point,  }\item[{int}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Méthode qui teste les Impact pour savoir quel son jouer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type\+Point} & \\
+\hline
+{\em point} & \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00204}{204} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00022}{B\+U\+LL}, \hyperlink{darts_8h_source_l00019}{D\+O\+U\+B\+L\+E\+\_\+\+P\+O\+I\+NT}, \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouer\+Son()}, et \hyperlink{darts_8h_source_l00021}{Z\+E\+R\+O\+\_\+\+P\+O\+I\+NT}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}.
+
+
+\begin{DoxyCode}
+00205 \{
+00206     \textcolor{keywordflow}{if}(typePoint == \hyperlink{darts_8h_af67ad443603f4dddf225d062757614ca}{DOUBLE\_POINT} && point == \hyperlink{darts_8h_ac26e54839269cea6c170f2699af4ead2}{BULL})
+00207     \{
+00208         \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"D25.wav"});
+00209     \}
+00210     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(typePoint == \hyperlink{darts_8h_a02bea0ce22b1e13c5065f434182317fb}{ZERO\_POINT} && point == 0)
+00211     \{
+00212         \hyperlink{class_darts_a87995841c66fc321b63c28fa8a786347}{jouerSon}(\textcolor{stringliteral}{"out.wav"});
+00213     \}
+00214 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}\label{class_darts_a0b01c46befe8ee6c1c61b79b0fd817f8}} 
+\index{Darts@{Darts}!tester\+Si\+Joueur\+Eliminer@{tester\+Si\+Joueur\+Eliminer}}
+\index{tester\+Si\+Joueur\+Eliminer@{tester\+Si\+Joueur\+Eliminer}!Darts@{Darts}}
+\paragraph{\texorpdfstring{tester\+Si\+Joueur\+Eliminer()}{testerSiJoueurEliminer()}}
+{\footnotesize\ttfamily void Darts\+::tester\+Si\+Joueur\+Eliminer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Teste si le joueur est à 1 point à la fin de la manche. 
+
+
+
+Définition à la ligne \hyperlink{darts_8cpp_source_l00372}{372} du fichier \hyperlink{darts_8cpp_source}{darts.\+cpp}.
+
+
+
+Références \hyperlink{darts_8h_source_l00076}{joueur\+Actif}, et \hyperlink{darts_8h_source_l00073}{joueurs}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}.
+
+
+\begin{DoxyCode}
+00373 \{
+00374     \textcolor{keywordflow}{if}(\hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].getScore() == 1)    \textcolor{comment}{//joueur eliminé si tomber à 1 point}
+00375     \{
+00376         \hyperlink{class_darts_a81bc116f3ae70cea1f492f87f01901c7}{joueurs}[\hyperlink{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}{joueurActif}].setEliminer(\textcolor{keyword}{true});
+00377     \}
+00378 
+00379 
+00380 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_darts_a78f609ea9e8867459804bad777ce39f3}\label{class_darts_a78f609ea9e8867459804bad777ce39f3}} 
+\index{Darts@{Darts}!volee\+Annulee@{volee\+Annulee}}
+\index{volee\+Annulee@{volee\+Annulee}!Darts@{Darts}}
+\paragraph{\texorpdfstring{volee\+Annulee}{voleeAnnulee}}
+{\footnotesize\ttfamily void Darts\+::volee\+Annulee (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal émis quand la volées est annulé 
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}.
+
+
+
+\subsubsection{Documentation des données membres}
+\mbox{\Hypertarget{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}\label{class_darts_a97cc62d823c3d41604bb4a2d329ddfea}} 
+\index{Darts@{Darts}!joueur@{joueur}}
+\index{joueur@{joueur}!Darts@{Darts}}
+\paragraph{\texorpdfstring{joueur}{joueur}}
+{\footnotesize\ttfamily Q\+String\+List Darts\+::joueur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient les noms des differents joueur 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00074}{74} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}\label{class_darts_a68fb01b9aad6502e4429dfbf2a72d50b}} 
+\index{Darts@{Darts}!joueur\+Actif@{joueur\+Actif}}
+\index{joueur\+Actif@{joueur\+Actif}!Darts@{Darts}}
+\paragraph{\texorpdfstring{joueur\+Actif}{joueurActif}}
+{\footnotesize\ttfamily int Darts\+::joueur\+Actif\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le numero du joueur en train de jouer 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00076}{76} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00077}{get\+Joueur\+Actif()}, \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}, \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}, et \hyperlink{darts_8cpp_source_l00372}{tester\+Si\+Joueur\+Eliminer()}.
+
+\mbox{\Hypertarget{class_darts_a81bc116f3ae70cea1f492f87f01901c7}\label{class_darts_a81bc116f3ae70cea1f492f87f01901c7}} 
+\index{Darts@{Darts}!joueurs@{joueurs}}
+\index{joueurs@{joueurs}!Darts@{Darts}}
+\paragraph{\texorpdfstring{joueurs}{joueurs}}
+{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_joueur}{Joueur}$>$ Darts\+::joueurs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient des objets joueurs 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00073}{73} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00433}{calculer\+Gagnant()}, \hyperlink{darts_8cpp_source_l00387}{calculer\+Moyenne\+Volees()}, \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, \hyperlink{darts_8cpp_source_l00409}{gerer\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00055}{get\+List\+Joueur()}, \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}, \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}, \hyperlink{darts_8cpp_source_l00453}{tester\+Nombre\+Joueur\+Restand()}, et \hyperlink{darts_8cpp_source_l00372}{tester\+Si\+Joueur\+Eliminer()}.
+
+\mbox{\Hypertarget{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}\label{class_darts_ac7b7bd23e64b4fab3895f02f085ea85f}} 
+\index{Darts@{Darts}!manche@{manche}}
+\index{manche@{manche}!Darts@{Darts}}
+\paragraph{\texorpdfstring{manche}{manche}}
+{\footnotesize\ttfamily int Darts\+::manche\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le numero de la manche actuel 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00077}{77} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00044}{get\+Manche()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, et \hyperlink{darts_8cpp_source_l00132}{set\+Manche()}.
+
+\mbox{\Hypertarget{class_darts_a281fd6201343dfb65ab81c93fd60f786}\label{class_darts_a281fd6201343dfb65ab81c93fd60f786}} 
+\index{Darts@{Darts}!Mode\+De\+Jeu@{Mode\+De\+Jeu}}
+\index{Mode\+De\+Jeu@{Mode\+De\+Jeu}!Darts@{Darts}}
+\paragraph{\texorpdfstring{Mode\+De\+Jeu}{ModeDeJeu}}
+{\footnotesize\ttfamily Q\+String Darts\+::\+Mode\+De\+Jeu\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le mode de jeu en cours 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00081}{81} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00099}{get\+Mode\+De\+Jeu()}, \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_ac5ae0e3546d00f59adba76c4ece71725}\label{class_darts_ac5ae0e3546d00f59adba76c4ece71725}} 
+\index{Darts@{Darts}!nb\+Joueur@{nb\+Joueur}}
+\index{nb\+Joueur@{nb\+Joueur}!Darts@{Darts}}
+\paragraph{\texorpdfstring{nb\+Joueur}{nbJoueur}}
+{\footnotesize\ttfamily int Darts\+::nb\+Joueur\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le nombre de joueur 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00075}{75} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00349}{controler\+Joueur\+Eliminer()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}, et \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}\label{class_darts_ae73a0b876ca354c7abd0d39db15c94fa}} 
+\index{Darts@{Darts}!nb\+Volees@{nb\+Volees}}
+\index{nb\+Volees@{nb\+Volees}!Darts@{Darts}}
+\paragraph{\texorpdfstring{nb\+Volees}{nbVolees}}
+{\footnotesize\ttfamily int Darts\+::nb\+Volees\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient le nombre de Volées de la partie en cours 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00080}{80} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00088}{get\+Nb\+Volees()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, et \hyperlink{darts_8cpp_source_l00246}{tester\+Impact()}.
+
+\mbox{\Hypertarget{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}\label{class_darts_a7ed0e6c9c07930603f85c2bac5b9d78b}} 
+\index{Darts@{Darts}!point\+Lancer@{point\+Lancer}}
+\index{point\+Lancer@{point\+Lancer}!Darts@{Darts}}
+\paragraph{\texorpdfstring{point\+Lancer}{pointLancer}}
+{\footnotesize\ttfamily int Darts\+::point\+Lancer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient les point associer l\textquotesingle{}impact de la fleche 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00078}{78} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00478}{calculer\+Points()}, \hyperlink{darts_8cpp_source_l00223}{receptionner\+Impact()}, et \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_a40733010dc6ae4ce93140804b4d191ea}\label{class_darts_a40733010dc6ae4ce93140804b4d191ea}} 
+\index{Darts@{Darts}!solution@{solution}}
+\index{solution@{solution}!Darts@{Darts}}
+\paragraph{\texorpdfstring{solution}{solution}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution}$\ast$ Darts\+::solution\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Association vers l\textquotesingle{}objet solution. 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00072}{72} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00022}{Darts()}, \hyperlink{darts_8cpp_source_l00274}{enlever\+Point\+Impact()}, \hyperlink{darts_8cpp_source_l00303}{gerer\+Manche()}, \hyperlink{darts_8cpp_source_l00110}{get\+Solution()}, et \hyperlink{darts_8cpp_source_l00144}{initialiser\+Partie()}.
+
+\mbox{\Hypertarget{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}\label{class_darts_aed9c6aa8f34fb2dcbc57a5ea24aa6c2a}} 
+\index{Darts@{Darts}!volee\+Max@{volee\+Max}}
+\index{volee\+Max@{volee\+Max}!Darts@{Darts}}
+\paragraph{\texorpdfstring{volee\+Max}{voleeMax}}
+{\footnotesize\ttfamily int Darts\+::volee\+Max\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+contient la volées Max 
+
+
+
+Définition à la ligne \hyperlink{darts_8h_source_l00079}{79} du fichier \hyperlink{darts_8h_source}{darts.\+h}.
+
+
+
+Référencé par \hyperlink{darts_8cpp_source_l00066}{get\+Volee\+Max()}, \hyperlink{darts_8cpp_source_l00184}{reinitialiser\+Partie()}, et \hyperlink{darts_8cpp_source_l00121}{set\+Volee\+Max()}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{darts_8h}{darts.\+h}\item 
+\hyperlink{darts_8cpp}{darts.\+cpp}\end{DoxyCompactItemize}

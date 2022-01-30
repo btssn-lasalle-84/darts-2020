@@ -1,0 +1,224 @@
+\hypertarget{solution_8cpp_source}{}\subsection{solution.\+cpp}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#include "\hyperlink{solution_8h}{solution.h}"}
+00002 
+\Hypertarget{solution_8cpp_source_l00020}\hyperlink{class_solution_a378d4a570c95a6d4c013996fef75c6f0}{00020} \hyperlink{class_solution_a378d4a570c95a6d4c013996fef75c6f0}{Solution::Solution}(\hyperlink{class_q_object}{QObject} *parent) : \hyperlink{class_q_object}{QObject}(parent), solution(\textcolor{stringliteral}{""})
+00021 \{
+00022    qDebug() << Q\_FUNC\_INFO;
+00023 \}
+00024 
+\Hypertarget{solution_8cpp_source_l00030}\hyperlink{class_solution_a5d245f7409aacf6ace5e965b7879a580}{00030} \hyperlink{class_solution_a5d245f7409aacf6ace5e965b7879a580}{Solution::~Solution}()
+00031 \{
+00032    qDebug() << Q\_FUNC\_INFO;
+00033 \}
+00034 
+00035 
+\Hypertarget{solution_8cpp_source_l00042}\hyperlink{class_solution_a334ffddf70bd379a0af7c7e93750d6b5}{00042} \textcolor{keywordtype}{void} \hyperlink{class_solution_a334ffddf70bd379a0af7c7e93750d6b5}{Solution::transmettreSolution}(\textcolor{keywordtype}{int} score)
+00043 \{
+00044     qDebug() << Q\_FUNC\_INFO << \textcolor{stringliteral}{"Score = "} << score << \textcolor{stringliteral}{" : "} << \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution};
+00045     emit \hyperlink{class_solution_a052b7ba921e7b211d14f2bbbc6b63832}{solutionTrouver}(\textcolor{stringliteral}{"↣  "} + QString::number(score) + \textcolor{stringliteral}{" ➤ "} + solution + \textcolor{stringliteral}{"  ↢"});
+00046 \}
+00047 
+\Hypertarget{solution_8cpp_source_l00056}\hyperlink{class_solution_af8062e8e2997f8a7451e439ce23dd544}{00056} \textcolor{keywordtype}{bool} \hyperlink{class_solution_af8062e8e2997f8a7451e439ce23dd544}{Solution::aTriple}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score)
+00057 \{
+00058     \textcolor{keywordflow}{if}((score / (points*3)) >= 1)
+00059     \{
+00060         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00061     \}
+00062     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00063 \}
+00064 
+\Hypertarget{solution_8cpp_source_l00074}\hyperlink{class_solution_a7f3302e8292858a51795f08751d54ef9}{00074} \textcolor{keywordtype}{bool} \hyperlink{class_solution_a7f3302e8292858a51795f08751d54ef9}{Solution::rechercherTriple}(\textcolor{keywordtype}{int} &score, QString &combinaison, \textcolor{keywordtype}{int} start=20)
+00075 \{
+00076     \textcolor{keywordtype}{bool} trouve = \textcolor{keyword}{false};
+00077     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=start; i>1 && !trouve; i--)
+00078     \{
+00079         \textcolor{keywordflow}{if}(\hyperlink{class_solution_af8062e8e2997f8a7451e439ce23dd544}{aTriple}(i, score))
+00080         \{
+00081             combinaison = \textcolor{stringliteral}{"T"} + QString::number(i);
+00082             score -= (i*3);
+00083             trouve = \textcolor{keyword}{true};
+00084         \}
+00085     \}
+00086     \textcolor{keywordflow}{return} trouve;
+00087 \}
+00088 
+\Hypertarget{solution_8cpp_source_l00097}\hyperlink{class_solution_ad79929c887a394883a154ea2ca9c3aac}{00097} \textcolor{keywordtype}{bool} \hyperlink{class_solution_ad79929c887a394883a154ea2ca9c3aac}{Solution::aDouble}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score)
+00098 \{
+00099     \textcolor{keywordflow}{if}((score / (points*2)) >= 1)
+00100     \{
+00101         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00102     \}
+00103     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00104 \}
+00105 
+\Hypertarget{solution_8cpp_source_l00114}\hyperlink{class_solution_aa54574bee5bde60d55a9da346a61cf48}{00114} \textcolor{keywordtype}{bool} \hyperlink{class_solution_aa54574bee5bde60d55a9da346a61cf48}{Solution::rechercherDouble}(\textcolor{keywordtype}{int} &score, QString &combinaison)
+00115 \{
+00116     \textcolor{keywordtype}{bool} trouve = \textcolor{keyword}{false};
+00117     \textcolor{comment}{// Remarque : le 2 est plus facile que le D1 !}
+00118     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=\hyperlink{darts_8h_ac26e54839269cea6c170f2699af4ead2}{BULL}; i>1 && !trouve; i--)
+00119     \{
+00120         \textcolor{comment}{// cibles inexistantes ?}
+00121         \textcolor{keywordflow}{if}(i > 20)
+00122             \textcolor{keywordflow}{continue};
+00123         \textcolor{keywordflow}{if}(\hyperlink{class_solution_ad79929c887a394883a154ea2ca9c3aac}{aDouble}(i, score))
+00124         \{
+00125             combinaison = \textcolor{stringliteral}{"D"} + QString::number(i);
+00126             score -= (i*2);
+00127             trouve = \textcolor{keyword}{true};
+00128         \}
+00129     \}
+00130     \textcolor{keywordflow}{return} trouve;
+00131 \}
+00132 
+\Hypertarget{solution_8cpp_source_l00141}\hyperlink{class_solution_a932ab2aea629d049202e8f8e38cc01b3}{00141} \textcolor{keywordtype}{bool} \hyperlink{class_solution_a932ab2aea629d049202e8f8e38cc01b3}{Solution::aSimple}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score)
+00142 \{
+00143     \textcolor{keywordflow}{if}((score / points) >= 1)
+00144         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00145     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00146 \}
+00147 
+\Hypertarget{solution_8cpp_source_l00156}\hyperlink{class_solution_ab8223455a5a35aceb7de18970f94db48}{00156} \textcolor{keywordtype}{bool} \hyperlink{class_solution_ab8223455a5a35aceb7de18970f94db48}{Solution::rechercherSimple}(\textcolor{keywordtype}{int} &score, QString &combinaison)
+00157 \{
+00158     \textcolor{keywordtype}{bool} trouve = \textcolor{keyword}{false};
+00159 
+00160     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=\hyperlink{darts_8h_ac26e54839269cea6c170f2699af4ead2}{BULL}; i>0 && !trouve; i--)
+00161     \{
+00162         \textcolor{comment}{// cibles inexistantes ?}
+00163         \textcolor{keywordflow}{if}(i > 20)
+00164             \textcolor{keywordflow}{continue};
+00165         \textcolor{keywordflow}{if}(\hyperlink{class_solution_a932ab2aea629d049202e8f8e38cc01b3}{aSimple}(i, score))
+00166         \{
+00167             combinaison = QString::number(i);
+00168             score -= i;
+00169             trouve = \textcolor{keyword}{true};
+00170         \}
+00171     \}
+00172     \textcolor{keywordflow}{return} trouve;
+00173 \}
+00174 
+\Hypertarget{solution_8cpp_source_l00183}\hyperlink{class_solution_add9d51c9612fa89361df0908e10779b8}{00183} \textcolor{keywordtype}{bool} \hyperlink{class_solution_add9d51c9612fa89361df0908e10779b8}{Solution::estDouble}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score)
+00184 \{
+00185     \textcolor{keywordflow}{if}(score == (points*2))
+00186         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00187     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00188 \}
+00189 
+\Hypertarget{solution_8cpp_source_l00198}\hyperlink{class_solution_a34c3bf5ce00cdf428f2e07741806499d}{00198} \textcolor{keywordtype}{bool} \hyperlink{class_solution_a34c3bf5ce00cdf428f2e07741806499d}{Solution::extraireDouble}(\textcolor{keywordtype}{int} &score, \textcolor{keywordtype}{int} cible)
+00199 \{
+00200     \textcolor{keywordflow}{if}(\hyperlink{class_solution_ad79929c887a394883a154ea2ca9c3aac}{aDouble}(cible, score))
+00201     \{
+00202         score -= (cible*2);
+00203         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00204     \}
+00205     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00206 \}
+00207 
+\Hypertarget{solution_8cpp_source_l00217}\hyperlink{class_solution_a857b1b362fc0d5eb08e2eb7302dce27f}{00217} \textcolor{keywordtype}{bool} \hyperlink{class_solution_a857b1b362fc0d5eb08e2eb7302dce27f}{Solution::rechercher}(\textcolor{keywordtype}{int} score, \textcolor{keywordtype}{int} nbFlechettes, \textcolor{keywordtype}{bool} still)
+00218 \{
+00219     QString combinaison;
+00220     \textcolor{keywordtype}{int} s = score;
+00221     \textcolor{keywordtype}{int} n = \hyperlink{solution_8h_a911c709f6e0d892d5aa2c1da0d3f2d02}{RECHERCHE\_TRIPLE};
+00222     \textcolor{keywordtype}{int} start = 20;
+00223     \textcolor{keywordtype}{bool} trouve = \textcolor{keyword}{false};
+00224 
+00225     \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution}.clear();
+00226     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} flechettes=nbFlechettes; flechettes>0 && score>0;)
+00227     \{
+00228         \textcolor{keywordflow}{if}(n == \hyperlink{solution_8h_a911c709f6e0d892d5aa2c1da0d3f2d02}{RECHERCHE\_TRIPLE})
+00229         \{
+00230             trouve = \hyperlink{class_solution_a7f3302e8292858a51795f08751d54ef9}{rechercherTriple}(score, combinaison, start);
+00231             \textcolor{keywordflow}{if}(!trouve)
+00232             \{
+00233                 n = \hyperlink{solution_8h_af2093607a1488c24e74beed2dc996bf4}{RECHERCHE\_DOUBLE};
+00234             \}
+00235         \}
+00236         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n == \hyperlink{solution_8h_af2093607a1488c24e74beed2dc996bf4}{RECHERCHE\_DOUBLE})
+00237         \{
+00238             trouve = \hyperlink{class_solution_aa54574bee5bde60d55a9da346a61cf48}{rechercherDouble}(score, combinaison);
+00239             \textcolor{keywordflow}{if}(!trouve)
+00240             \{
+00241                 n = \hyperlink{solution_8h_a472930bff329899e6d9f3096fb778325}{RECHERCHE\_SIMPLE};
+00242             \}
+00243         \}
+00244         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(n == \hyperlink{solution_8h_a472930bff329899e6d9f3096fb778325}{RECHERCHE\_SIMPLE})
+00245         \{
+00246             trouve = \hyperlink{class_solution_ab8223455a5a35aceb7de18970f94db48}{rechercherSimple}(score, combinaison);
+00247         \}
+00248 
+00249         \textcolor{keywordflow}{if}(trouve)
+00250         \{
+00251             \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution} +=  \textcolor{stringliteral}{" "} + combinaison;
+00252             flechettes--;
+00253             \textcolor{keywordflow}{if}(score == 0)
+00254             \{
+00255                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00256             \}
+00257         \}
+00258 
+00259         \textcolor{comment}{// pas trouvé ?}
+00260         \textcolor{keywordflow}{if}(flechettes == 0 && score != 0)
+00261         \{
+00262             \textcolor{keywordflow}{if}(still)
+00263                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00264             \textcolor{comment}{// on recommence}
+00265             \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution}.clear();
+00266             score = s;
+00267             flechettes = nbFlechettes;
+00268             n++; \textcolor{comment}{// on change de tactique}
+00269         \}
+00270 
+00271         \textcolor{keywordflow}{if}(n == \hyperlink{solution_8h_a40ef173938ecf3bea081d59950fedce7}{RECHERCHE\_FINIE})
+00272         \{
+00273             start--; \textcolor{comment}{// on essaye un autre triple}
+00274             \textcolor{comment}{// on recommence}
+00275             \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution}.clear();
+00276             n = \hyperlink{solution_8h_a911c709f6e0d892d5aa2c1da0d3f2d02}{RECHERCHE\_TRIPLE};
+00277             score = s;
+00278             flechettes = nbFlechettes;
+00279         \}
+00280 
+00281         \textcolor{keywordflow}{if}(start == 1)
+00282         \{
+00283             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00284         \}
+00285     \}
+00286     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00287 \}
+00288 
+\Hypertarget{solution_8cpp_source_l00296}\hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{00296} \textcolor{keywordtype}{void} \hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{Solution::trouverSolution}(\textcolor{keywordtype}{int} scoreJoueur, \textcolor{keywordtype}{int} flechettes)
+00297 \{
+00298     \textcolor{keywordtype}{int} score = 0;
+00299     \textcolor{keywordtype}{bool} trouve = \textcolor{keyword}{false};
+00300     \textcolor{keywordtype}{int} nbFlechettes = 0;
+00301     \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution} = \textcolor{stringliteral}{""};
+00302 
+00303     trouve = \textcolor{keyword}{false};
+00304     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=\hyperlink{darts_8h_ac26e54839269cea6c170f2699af4ead2}{BULL}; i>0 && !trouve; i--)
+00305     \{
+00306         \textcolor{comment}{// cibles inexistantes ?}
+00307         \textcolor{keywordflow}{if}(i > 20)
+00308             \textcolor{keywordflow}{continue};
+00309         score = scoreJoueur; \textcolor{comment}{// <- le score à determiner}
+00310         nbFlechettes = flechettes; \textcolor{comment}{// <- le nombre de fléchettes}
+00311         \textcolor{keywordflow}{if}(\hyperlink{class_solution_a34c3bf5ce00cdf428f2e07741806499d}{extraireDouble}(score, i))
+00312         \{
+00313             nbFlechettes--;
+00314             \textcolor{keywordflow}{if}(\hyperlink{class_solution_a857b1b362fc0d5eb08e2eb7302dce27f}{rechercher}(score, nbFlechettes) || score == 0)
+00315             \{
+00316                 \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution} += \textcolor{stringliteral}{" D"} + QString::number(i) + \textcolor{stringliteral}{"*"};
+00317                 \hyperlink{class_solution_a334ffddf70bd379a0af7c7e93750d6b5}{transmettreSolution}(scoreJoueur);
+00318                 trouve = \textcolor{keyword}{true};
+00319                 \textcolor{keywordflow}{break};
+00320             \}
+00321         \}
+00322     \}
+00323     \textcolor{keywordflow}{if}(!trouve)
+00324     \{
+00325         \hyperlink{class_solution_a857b1b362fc0d5eb08e2eb7302dce27f}{rechercher}(score, nbFlechettes+1, \textcolor{keyword}{true});
+00326         \textcolor{comment}{//transmettreSolution(scoreJoueur);       //activer pour avoir l'aide tout le temps même quand on
+       ne peut pas finir}
+00327     \}
+00328 \}
+\end{DoxyCode}

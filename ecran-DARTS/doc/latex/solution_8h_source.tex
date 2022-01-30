@@ -1,0 +1,48 @@
+\hypertarget{solution_8h_source}{}\subsection{solution.\+h}
+
+\begin{DoxyCode}
+00001 \textcolor{preprocessor}{#ifndef SOLUTION\_H}
+00002 \textcolor{preprocessor}{#define SOLUTION\_H}
+00003 
+00013 \textcolor{preprocessor}{#include <QObject>}
+00014 \textcolor{preprocessor}{#include <QString>}
+00015 \textcolor{preprocessor}{#include <QDebug>}
+00016 
+\Hypertarget{solution_8h_source_l00017}\hyperlink{solution_8h_ac26e54839269cea6c170f2699af4ead2}{00017} \textcolor{preprocessor}{#define BULL                25}
+00018 
+00019 \textcolor{comment}{// Rechercher en premier ?}
+\Hypertarget{solution_8h_source_l00020}\hyperlink{solution_8h_a911c709f6e0d892d5aa2c1da0d3f2d02}{00020} \textcolor{preprocessor}{#define RECHERCHE\_TRIPLE    1}
+\Hypertarget{solution_8h_source_l00021}\hyperlink{solution_8h_af2093607a1488c24e74beed2dc996bf4}{00021} \textcolor{preprocessor}{#define RECHERCHE\_DOUBLE    2}
+\Hypertarget{solution_8h_source_l00022}\hyperlink{solution_8h_a472930bff329899e6d9f3096fb778325}{00022} \textcolor{preprocessor}{#define RECHERCHE\_SIMPLE    3}
+\Hypertarget{solution_8h_source_l00023}\hyperlink{solution_8h_a40ef173938ecf3bea081d59950fedce7}{00023} \textcolor{preprocessor}{#define RECHERCHE\_FINIE     4}
+00024 
+\Hypertarget{solution_8h_source_l00030}\hyperlink{class_solution}{00030} \textcolor{keyword}{class }\hyperlink{class_solution}{Solution} : \textcolor{keyword}{public} \hyperlink{class_q_object}{QObject}
+00031 \{
+00032     Q\_OBJECT
+00033 \textcolor{keyword}{public}:
+00034     \textcolor{keyword}{explicit} \hyperlink{class_solution_a378d4a570c95a6d4c013996fef75c6f0}{Solution}(\hyperlink{class_q_object}{QObject} *parent = \textcolor{keyword}{nullptr});
+00035     \hyperlink{class_solution_a5d245f7409aacf6ace5e965b7879a580}{~Solution}();
+00036     \textcolor{keywordtype}{void} \hyperlink{class_solution_a9ab0b0fd2b557f5abda8bd1a6da641e4}{trouverSolution}(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} flechettes);
+00037 
+00038 \textcolor{keyword}{private}:
+\Hypertarget{solution_8h_source_l00039}\hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{00039}     QString \hyperlink{class_solution_a03b47dedfe8a8f8244f7e633cbaa30fb}{solution};                       
+00040 
+00041     \textcolor{keywordtype}{void} \hyperlink{class_solution_a334ffddf70bd379a0af7c7e93750d6b5}{transmettreSolution}(\textcolor{keywordtype}{int} score);
+00042     \textcolor{keywordtype}{bool} \hyperlink{class_solution_af8062e8e2997f8a7451e439ce23dd544}{aTriple}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score);
+00043     \textcolor{keywordtype}{bool} \hyperlink{class_solution_a7f3302e8292858a51795f08751d54ef9}{rechercherTriple}(\textcolor{keywordtype}{int} &score, QString &combinaison, \textcolor{keywordtype}{int} start);
+00044     \textcolor{keywordtype}{bool} \hyperlink{class_solution_ad79929c887a394883a154ea2ca9c3aac}{aDouble}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score);
+00045     \textcolor{keywordtype}{bool} \hyperlink{class_solution_aa54574bee5bde60d55a9da346a61cf48}{rechercherDouble}(\textcolor{keywordtype}{int} &score, QString &combinaison);
+00046     \textcolor{keywordtype}{bool} \hyperlink{class_solution_a932ab2aea629d049202e8f8e38cc01b3}{aSimple}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score);
+00047     \textcolor{keywordtype}{bool} \hyperlink{class_solution_ab8223455a5a35aceb7de18970f94db48}{rechercherSimple}(\textcolor{keywordtype}{int} &score, QString &combinaison);
+00048     \textcolor{keywordtype}{bool} \hyperlink{class_solution_add9d51c9612fa89361df0908e10779b8}{estDouble}(\textcolor{keywordtype}{int} points, \textcolor{keyword}{const} \textcolor{keywordtype}{int} score);
+00049     \textcolor{keywordtype}{bool} \hyperlink{class_solution_a34c3bf5ce00cdf428f2e07741806499d}{extraireDouble}(\textcolor{keywordtype}{int} &score, \textcolor{keywordtype}{int} cible);
+00050     \textcolor{keywordtype}{bool} \hyperlink{class_solution_a857b1b362fc0d5eb08e2eb7302dce27f}{rechercher}(\textcolor{keywordtype}{int} score, \textcolor{keywordtype}{int} nbFlechettes, \textcolor{keywordtype}{bool} still=\textcolor{keyword}{false});
+00051 
+00052 signals:
+00053     \textcolor{keywordtype}{void} \hyperlink{class_solution_a052b7ba921e7b211d14f2bbbc6b63832}{solutionTrouver}(QString solution);
+00054 
+00055 \textcolor{keyword}{public} slots:
+00056 \};
+00057 
+00058 \textcolor{preprocessor}{#endif // SOLUTION\_H}
+\end{DoxyCode}

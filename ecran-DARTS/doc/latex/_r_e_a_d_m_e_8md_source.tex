@@ -1,0 +1,97 @@
+\hypertarget{_r_e_a_d_m_e_8md_source}{}\subsection{R\+E\+A\+D\+M\+E.\+md}
+
+\begin{DoxyCode}
+00001 \(\backslash\)mainpage Le projet 
+00002 
+00003 \(\backslash\)tableofcontents
+00004 
+00005 Le système **DARTS** est un système numérique permettant de jouer au jeu de fléchettes électroniques.
+00006 
+00007 \(\backslash\)section section\_tdm Table des matières
+00008 - \(\backslash\)ref page\_README
+00009 - \(\backslash\)ref page\_changelog
+00010 - \(\backslash\)ref page\_about
+00011 - \(\backslash\)ref page\_licence
+00012 
+00013 \(\backslash\)section section\_infos Informations
+00014 
+00015 \(\backslash\)author Fabien Bounoir <bounoirfabien@gmail.com>
+00016 \(\backslash\)date 2020
+00017 \(\backslash\)version 0.2
+00018 \(\backslash\)see https://svn.riouxsvn.com/darts-2020/
+00019 
+00020 
+00021 \(\backslash\)page page\_README README
+00022 
+00023 [TOC]
+00024 
+00025 # Projet \{#projet\}
+00026 
+00027 ## Présentation \{#presentation\}
+00028 
+00029 Le système **DARTS** est un système numérique permettant de jouer au jeu de fléchettes électroniques.
+00030 
+00031 Le système DARTS est décomposé en trois modules, dont deux modules sont réalisés par des étudiants IR
+       :
+00032 
+00033 * Module de gestion de partie​ (**Mobile-DARTS**)​ : les joueurs paramètrent et lancent la partie à
+       partir d'une application sur un terminal mobile (sous Android) ;
+00034 
+00035 * Module de détection des impacts​ (Cible-DARTS)​ : la cible est équipée de capteurs permettant
+       d'identifier la zone impactée par les fléchettes envoyées par les joueurs ;
+00036 
+00037 * Module de visualisation de partie​ (**Écran-DARTS**) ​ : les joueurs, les arbitres et le public
+       peuvent visualiser en “temps réel” le déroulement de la partie (nombre de manche, point restant dans la manche,
+       moyenne des volées, ...) sur un écran de télévision.
+00038 
+00039 ## Module de visualisation de partie (Écran-DARTS) \{#ecran\}
+00040 
+00041 Ce module correspond à la partie "affichage" du système. Il a pour objectifs de réaliser la
+       récupération d'informations​ envoyées par le terminal mobile, ​le calcul et l'affichage les statistiques pour la
+       partie actuelle. Il communique en Bluetooth uniquement avec le terminal mobile Android.
+00042 
+00043 Sur l'écran, les joueurs pourront visualiser en continu :
+00044 
+00045 * le nom des joueurs (si existant), la durée écoulée de la partie ;
+00046 * le type de jeu en cours, le score et le nombre de manches gagnées par chaque joueur
+00047 * la plus haute et la moyenne des volées de chaque joueur
+00048 
+00049 Les données visualisées sont donc :
+00050 
+00051 * Le type de jeu
+00052 * Le numéro de la manche
+00053 * Le score de la partie en cours
+00054 * La moyenne des volées
+00055 
+00056 ## Informations \{#informations\}
+00057 
+00058 \(\backslash\)author Fabien Bounoir <bounoirfabien@gmail.com>
+00059 \(\backslash\)date 2020
+00060 \(\backslash\)version 0.2
+00061 \(\backslash\)see https://svn.riouxsvn.com/darts-2020/
+00062 
+00063 
+00064 \(\backslash\)page page\_about A propos
+00065 
+00066 \(\backslash\)author Fabien Bounoir <bounoirfabien@gmail.com>
+00067 \(\backslash\)date 2020
+00068 \(\backslash\)version 0.2
+00069 \(\backslash\)see https://svn.riouxsvn.com/darts-2020/
+00070 
+00071 
+00072 \(\backslash\)page page\_licence Licence GPL
+00073 
+00074 This program is free software; you can redistribute it and/or modify
+00075 it under the terms of the GNU General Public License as published by
+00076 the Free Software Foundation; either version 2 of the License, or
+00077 (at your option) any later version.
+00078 
+00079 This program is distributed in the hope that it will be useful,
+00080 but WITHOUT ANY WARRANTY; without even the implied warranty of
+00081 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+00082 GNU General Public License for more details.
+00083 
+00084 You should have received a copy of the GNU General Public License
+00085 along with this program; if not, write to the Free Software
+00086 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+\end{DoxyCode}
